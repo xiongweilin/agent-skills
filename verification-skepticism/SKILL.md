@@ -1,6 +1,6 @@
 ---
 name: verification-skepticism
-description: Before claiming that code works, that a bug is fixed, or that a task is done, actively try to disprove the claim rather than confirm it. Covers checking whether passing tests actually exercise the changed code, whether mocks and stubs are tautological (returning the very value the assertion checks), whether assertions are strong enough to catch a regression, whether the evidence comes from a single self-authored source, and what input would break the code. Use this whenever you are about to say "this works", "fixed", "tests pass", "done", "ready", or "looks good", whenever you finish implementing or debugging something, and whenever you are reviewing whether code or a claim is actually correct. Passing tests are the cue to start checking, not the all-clear to stop.
+description: Before claiming that code works, that a bug is fixed, that a task is done, or that a change is better than before, actively try to disprove the claim rather than confirm it. Covers checking whether passing tests actually exercise the changed code, whether mocks and stubs are tautological (returning the very value the assertion checks), whether assertions are strong enough to catch a regression, whether the evidence comes from a single self-authored source, whether improvement claims have a relevant baseline, and what input would break the code. Use this whenever you are about to say "this works", "fixed", "tests pass", "done", "ready", "looks good", "more robust", "safer", "faster", or "better", whenever you finish implementing or debugging something, and whenever you are reviewing whether code or a claim is actually correct. Passing tests are the cue to start checking, not the all-clear to stop.
 ---
 
 # Verification Skepticism
@@ -17,11 +17,15 @@ The most common failure of a capable coding assistant is confident completion: d
 
 **Is the evidence single-source?** If the only thing saying it works is your own mock plus your own expected values, that is "passes under controlled conditions," not "verified." Real confidence needs an independent path the author didn't hand-shape: a different input, the real dependency, an adversarial edge case, a property check, or a second observer. Same-source confirmation tends to be circular — the test agrees with the code because the same hand wrote both to match.
 
+**Is there a baseline for the claim?** If you are about to say the change is better, safer, more robust, faster, cleaner, or fixes the issue, compare it against a relevant baseline: the previous behavior, the simplest plausible implementation, the current test result without the change, a no-op path, or the real dependency instead of the mock. The baseline does not need to be elaborate, but the comparison must match the claim. If you did not compare against anything, report only what was directly verified, not that it is better.
+
 **What input breaks it?** Spend a moment generating the case you'd use to break your own code: boundary values, empty and null, very large input, concurrent access, the unhappy path, malformed data. If you genuinely can't think of one, that usually means the test surface is too narrow to have found problems — not that the code is bulletproof.
 
 ## When you report
 
 Distinguish what is verified from what is assumed. Say "verified by test X" or "ran it against the real Y" for the parts you checked, and say "untested" or "assumed" plainly for the parts you didn't. Implying completeness you haven't established is the failure this skill exists to prevent. Handing over "the core path works and is tested; the error path is written but untested" is more honest and more useful than a blanket "done."
+
+When you make a comparative claim, name the comparison. "More robust" means more robust than what; "faster" means faster than what; "safer" means safer under which failure mode. If you only verified the new path in isolation, say that. Do not turn isolated evidence into a superiority claim.
 
 ## When to skip
 
