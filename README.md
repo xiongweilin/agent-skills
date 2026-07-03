@@ -13,19 +13,6 @@
 
 `SKILL.md` 描述该主题的适用场景、核心原则、检查步骤和跳过条件。不同主题之间保持独立，便于单独维护、组合使用和持续扩展。
 
-目录结构示例：
-
-```text
-skills/
-├── README.md
-├── verification-skepticism/
-│   └── SKILL.md
-├── side-effect-safety/
-│   └── SKILL.md
-└── scope-honesty-and-stopping/
-    └── SKILL.md
-```
-
 这些文件关注实际执行质量：什么时候需要多验证一步，什么时候需要阻断风险，什么时候需要清楚说明边界，什么时候可以停止继续加工。
 
 整体目标是让复杂任务的执行过程更稳、更清楚、更可复用。
