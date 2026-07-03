@@ -1,46 +1,30 @@
 ---
 name: scope-honesty-and-stopping
-description: When wrapping up a task, reporting status, or deciding whether to keep working, state plainly what is genuinely done versus assumed, mocked, stubbed, hardcoded, untested, or only verified under a narrow comparison — and stop iterating once further changes no longer reduce real risk. Covers listing assumptions and unhandled cases, not presenting partial or scaffolded work as complete, downgrading unproven comparative claims, avoiding gold-plating and needless refactoring, and not stopping before the core behavior is actually verified. Use this whenever you finish or hand off a task, write a summary, status update, commit message, or PR description, say something is "complete", "ready", "production-ready", "better", "safer", or "more robust", or feel the pull to keep polishing, abstracting, or refactoring beyond what the task needs. It applies both when you are tempted to over-claim completion and when you are tempted to over-engineer.
+description: When wrapping up a task, reporting status, or deciding whether to keep working, state what is genuinely done versus assumed, mocked, stubbed, hardcoded, untested, or only narrowly verified, and stop iterating once further changes no longer reduce real risk.
 ---
 
 # Scope Honesty and Stopping
 
-Two opposite failures wreck a handoff, and both come from not naming the boundary clearly. Over-claiming presents work as more finished than it is, sending the next person — often your future self — into a trap they didn't know was there. Over-engineering keeps polishing past the point of real value, burning time and adding surface area (and new bugs) for no payoff. This skill is about ending a task honestly and stopping at the right moment.
+Two failures damage handoff: over-claiming partial work as complete, and over-engineering beyond useful risk reduction. This skill ends tasks honestly.
 
-## Be honest about scope when you finish or report
+## Use when
 
-State these explicitly, and put them up front rather than burying them under a confident summary:
+Use when writing summaries, status updates, commit messages, PR descriptions, handoffs, or saying something is complete, ready, production-ready, better, safer, or more robust. Also use when tempted to keep polishing, abstracting, or refactoring past the task's real need.
 
-- **What is actually done and verified** — the parts you've checked work.
-    
-- **What is assumed** — config, environment, credentials, or inputs you relied on without validating.
-    
-- **What is mocked, stubbed, or hardcoded** — anything standing in for the real thing that isn't real yet.
-    
-- **What is untested or known-incomplete** — paths you didn't exercise, and an explicit list of what this does _not_ yet handle.
-    
+## Report boundary
 
-A precise "here's what's real and here's what's scaffold" is far more useful than "done," because it tells the reader exactly where to look before they trust it. The honesty also protects you: undisclosed gaps read as mistakes later, while disclosed ones read as judgment.
+State up front:
 
-When reporting, downgrade comparative claims that were not compared. If you verified the new path but did not compare it to previous behavior, a simpler implementation, a no-op path, or another relevant baseline, say "verified under X" rather than "better", "more robust", or "production-ready." If mocks, scaffolds, framework behavior, test harnesses, or shared service layers supplied part of the guarantee, name that boundary explicitly.
+- What is actually done and verified.
+- What is assumed.
+- What is mocked, stubbed, scaffolded, or hardcoded.
+- What is untested or known incomplete.
+- What the implementation explicitly does not handle.
 
-## Know when to stop iterating
+Downgrade unproven comparative claims. If you verified the new path but did not compare it to the old behavior or a baseline, say verified under X rather than better or production-ready.
 
-Keep working only while a change reduces real risk or changes actual behavior or correctness. Stop when:
+## Stop rule
 
-- Further edits only change wording, naming, or structure without changing behavior or lowering risk. That's polishing, and polishing feels productive while adding nothing.
-    
-- The remaining work is below the stakes of the task. A one-off script doesn't need retries, caching, a config system, and three layers of abstraction. Match the engineering to what the thing is for.
-    
-- You've found the smallest change that fixes the actual problem. Ship that, not the maximal refactor you noticed along the way — note the refactor separately if it's worth doing later.
-    
+Keep working only while the next change reduces real risk, changes correctness, or closes an important untested path. Stop when further edits only change wording, naming, structure, or polish without real downstream effect.
 
-But do not stop _before_ the core behavior is verified. "I stopped because it looks done" is not a stopping condition; "I stopped because the main path is verified and further changes wouldn't reduce risk" is. Premature stopping and endless polishing are both failures of the same judgment, and this is the line between them.
-
-## A quick test for "should I keep going?"
-
-Name the concrete downstream difference the next change would make. If you can name one — it closes a real failure mode, covers an untested path that matters, fixes a wrong result — continue. If you can't, and the change only makes the code "nicer," stop. The inability to name a real downstream effect is the signal that you've crossed from finishing into gold-plating.
-
-## When this is lighter-touch
-
-Read the user's actual goal. In genuine prototyping or exploration where they want breadth and speed, heavy scope-accounting is friction. And when polishing _is_ the task — a cleanup PR, a refactor, a performance pass — "it only changes structure" is the point, not a reason to stop. Apply the stopping rule against the task's real purpose, not mechanically.
+Do not stop before the core behavior is verified. Stop because the main path is checked and more work would not reduce meaningful risk, not because it merely looks done.
