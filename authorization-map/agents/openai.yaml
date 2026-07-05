@@ -1,0 +1,4 @@
+interface:
+  display_name: "Authorization Map"
+  short_description: "Map authority, veto, and accountability"
+  default_prompt: "Use $authorization-map to map who proposes, approves, executes, and bears risk in this workflow."

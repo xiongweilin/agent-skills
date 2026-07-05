@@ -1,0 +1,4 @@
+interface:
+  display_name: "Incremental Erosion"
+  short_description: "Catch repeated small quality regressions"
+  default_prompt: "Use $incremental-erosion to check whether these small changes are eroding a boundary or invariant."
