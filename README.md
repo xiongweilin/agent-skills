@@ -2,13 +2,7 @@
 
 本仓库保存一组面向智能体、自动化、业务流程和工程交付的判断型 skills。它们不覆盖所有编码任务，只处理容易被模型、流程工具或局部工程视角低估的边界：授权、责任、数据血缘、规则状态、外部副作用、候选晋升、渐进侵蚀，以及用户判断归属。
 
-## 在本机技能体系中的优先级
-
-这些 skill 的优先级低于 Codex 自带 skill、已安装插件 skill，以及外部高优先级 skill 仓库（Superpowers、Anthropic、Matt Pocock、Addy Osmani、Vercel、Karpathy）。如果本仓库 skill 与更高优先级来源功能重复，应优先删除、合并或收窄本仓库 skill，而不是保留重复触发面。
-
-当前保留 8 个 skill，是因为它们主要覆盖运营判断边界。它们与代码实现、测试、文档写作、浏览器控制、文件处理和通用项目规划类 skill 互补，而不是替代它们。
-
-## 当前保留的 skill
+## 当前 skill
 
 | Skill | 覆盖范围 | 触发场景 | 边界 |
 | --- | --- | --- | --- |
@@ -43,14 +37,6 @@
 1. 当同类 workaround、弱断言、跳过检查、特殊分支、降低阈值或“之后修”反复出现时，使用 `incremental-erosion`。
 2. 使用 `rule-state-hygiene`，避免 workaround 被默默当成 official rule。
 3. 如果降低门槛会影响质量声明，使用 `rollout-and-promotion`。
-
-## 替代历史
-
-以下 skill 已删除，因为更高优先级的已安装 skill 覆盖了它们的主要行为：
-
-- `problem-framing`：由 Superpowers `writing-plans`、Addy 规划/规格类 skill、Matt `codebase-design` 以及现有规划设计类 skill 覆盖。
-- `verification-skepticism`：由 Superpowers `verification-before-completion` 和 Addy `doubt-driven-development` 覆盖。
-- `scope-honesty-and-stopping`：由 Superpowers `verification-before-completion` 与 Addy `doubt-driven-development` 覆盖；完成状态报告交给更高优先级验证 skill 和助手级收尾纪律。
 
 ## 质量门槛
 
