@@ -1,0 +1,4 @@
+interface:
+  display_name: "Workflow Decomposition"
+  short_description: "Map states, guards, humans, effects"
+  default_prompt: "Use $workflow-decomposition to break this workflow into states, guards, human nodes, side effects, and metrics."

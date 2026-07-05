@@ -1,0 +1,4 @@
+interface:
+  display_name: "Side-Effect Safety"
+  short_description: "Guard irreversible external actions"
+  default_prompt: "Use $side-effect-safety to design safe execution, rollback, and idempotency for this side effect."

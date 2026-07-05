@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rollout & Promotion"
+  short_description: "Govern experiment-to-official transitions"
+  default_prompt: "Use $rollout-and-promotion to decide whether this candidate is ready to become official behavior."

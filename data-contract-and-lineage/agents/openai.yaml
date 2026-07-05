@@ -1,0 +1,4 @@
+interface:
+  display_name: "Data Contract & Lineage"
+  short_description: "Trace fields, evidence, and output authority"
+  default_prompt: "Use $data-contract-and-lineage to define field contracts and lineage for this workflow."
