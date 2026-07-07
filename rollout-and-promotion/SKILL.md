@@ -1,6 +1,4 @@
-﻿> 相关：[[operational-judgment-skills/README|判准技能集]] / [[个人研发平台总览]]
-
----
+﻿---
 name: rollout-and-promotion
 description: Govern how candidate workflows, prompts, rules, thresholds, datasets, models, configs, and evaluation results move from experiment to official behavior. Use when promoting or rejecting agent workflows, prompt versions, rule sets, clustering thresholds, classifiers, RPA flows, BI metrics, SOP generators, or any system where a candidate may be scored, frozen, promoted, unpromoted, deprecated, or exposed publicly.
 ---
