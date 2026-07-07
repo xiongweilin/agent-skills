@@ -1,0 +1,4 @@
+interface:
+  display_name: "Context Sufficiency"
+  short_description: "Check code context coverage before modifying"
+  default_prompt: "Use $context-sufficiency to verify you have read enough context (callers, tests, config, schema, env) before proposing this change."

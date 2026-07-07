@@ -41,6 +41,28 @@ Before accepting a persistent addition, verify capacity. Before accepting a fact
 - [ ] Is this claim marked as candidate or official? (Align with `rule-state-hygiene`.)
 - [ ] Is there a circular dependency: "we monitor X therefore X is important, X is important therefore we add more monitoring"?
 
+
+
+## Change intent
+
+Before modifying, clarify the scope of the task. Codex tends to conflate "explain this" with "fix this", and "minimal fix" with "structural rewrite".
+
+- [ ] Is this task: diagnosis / explanation / minimal fix / refactor / feature / restructure?
+- [ ] If the user asked for explanation, stop after explaining. Do not proceed to implementation unless explicitly asked.
+- [ ] If the user asked for a minimal fix, do not refactor adjacent code.
+- [ ] Which files are in scope? Which files are explicitly out of scope?
+
+## Dependency supply chain
+
+Adding a dependency is a maintenance commitment, not a convenience.
+
+- [ ] Is this dependency necessary, or could the same be achieved with what's already available?
+- [ ] Is the version pinned? Is it compatible with existing dependencies?
+- [ ] What is the license, and is it acceptable for this project?
+- [ ] Does this dependency introduce transitive risk (known vulnerabilities, unmaintained upstream, large dependency tree)?
+- [ ] Does it change the build or runtime surface (new system library, new language runtime, new port)?
+- [ ] Am I adding this dependency to avoid writing a few lines of code?
+
 ## Relation to other skills
 
 `scope-safety` is a preliminary gate. `authorization-map` checks who decides; `scope-safety` checks whether the decision should be made at all. `side-effect-safety` checks whether an operation can be undone; `scope-safety` checks whether the commitment should be made. `incremental-erosion` detects patterns over time; `scope-safety` checks the single step before it becomes a pattern.
