@@ -1,6 +1,4 @@
-﻿> 相关：[[operational-judgment-skills/README|判准技能集]] / [[个人研发平台总览]]
-
----
+﻿---
 name: side-effect-safety
 description: Enforce safe handling of irreversible and external side effects. Covers idempotency, compensation, rollback, explicit failure handling, atomic state transitions, correct enforcement layers, and keeping non-deterministic or LLM-driven steps from directly executing irreversible actions.
 ---

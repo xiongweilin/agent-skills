@@ -1,6 +1,4 @@
-﻿> 相关：[[operational-judgment-skills/README|判准技能集]] / [[个人研发平台总览]]
-
----
+﻿---
 name: workflow-decomposition
 description: Decompose a business or agent workflow before implementation into inputs, state machine, automated nodes, human authorization nodes, deterministic guards, external side effects, exception paths, evidence records, and observable metrics. Use when designing RPA, ERP/CRM/BI integrations, agent workflows, operational automations, approval flows, ticket pipelines, catalog operations, or customer feedback systems.
 ---

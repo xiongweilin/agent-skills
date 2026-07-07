@@ -1,6 +1,4 @@
-﻿> 相关：[[operational-judgment-skills/README|判准技能集]] / [[个人研发平台总览]]
-
----
+﻿---
 name: data-contract-and-lineage
 description: Define data contracts and lineage for workflows that transform inputs through models, rules, human review, databases, dashboards, or external systems. Use when fields, labels, metrics, reports, evaluations, evidence quotes, offsets, IDs, prompts, rules, thresholds, datasets, or generated outputs must remain traceable and not be confused as facts, guesses, candidates, or official conclusions.
 ---
