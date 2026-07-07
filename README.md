@@ -8,20 +8,20 @@
 
 ## 当前 skill
 
-| Skill | 覆盖范围 | 触发场景 | 边界 |
-| --- | --- | --- | --- |
-| `scope-safety` | 容量验证、声明权限、扩张边界 | 任何提议新增持久组件、依赖、自动化、规则、指标，或基于观测数据做出结论性声明时 | 不替代其他 skill 的具体检查；在它们之前执行，回答"该不该做"而非"怎么做"；现已扩展变更意图和依赖供应链检查 |
-| `context-sufficiency` | 代码上下文充分性 | 修改代码前，检查是否已读取调用方、测试、配置、schema、迁移和环境 | 不替代 code review；只在信息不完整可能误导修改时触发 |
-| `command-permission-boundary` | 命令执行权限 | 运行 shell 命令前，按只读/可逆/不可逆/需批准分类风险 | 不替代 `side-effect-safety`；前者管"能不能跑"，后者管"怎么设计" |
-| `verification-before-completion` | 完成前验证 + 测试证据质量 | 声称完成前运行验证命令；检查测试是否确实证明正确性 | 不替代 `rollout-and-promotion`；关注日常开发而非正式发布 |
-| `authorization-map` | 授权、批准、否决、责任、补偿、受影响方 | 模型、规则、人、系统或组织共同执行会影响资源、记录、客户、政策或公开沟通的行动 | 不替代普通 code review；只在行动权限和后果归属重要时触发 |
-| `data-contract-and-lineage` | 字段契约、来源、状态、版本、证据、使用限制 | 抽取、分类、BI、评估、审计、CRM/ERP 同步、SOP、catalog enrichment 等数据流 | 不替代文档/表格处理；关注数据从输入到输出声明的可追踪性；现已扩展兼容性边界检查 |
-| `incremental-erosion` | 多个小例外造成的边界和质量门槛退化 | 同类跳测、弱断言、降低阈值、临时绕过、特殊分支反复出现 | 不处理单次孤立权衡；必须有趋势或复发信号 |
-| `judgment-ownership` | 用户判断框架、证据缝隙、剩余决策点 | 战略、架构、定位、命名、品味、路线、优先级等判断重的任务 | 不用于低风险格式化、直接实现或事实查找 |
-| `rollout-and-promotion` | 候选到正式行为的晋升、冻结、评分、弃用、公开声明 | prompt、规则、阈值、数据集、模型、workflow、评估结果准备变成官方行为 | 不替代 CI/CD 或发布工具；关注“能否声称官方支持” |
-| `rule-state-hygiene` | candidate / official / deprecated 规则分离 | 业务规则、配置、mock、fixture、README、迁移说明、临时 workaround 可能被误认为正式规则 | 不用于纯重命名、格式化或行为不变的清理 |
-| `side-effect-safety` | 不可逆副作用、幂等、补偿、回滚、显式失败 | 写数据库、发邮件/短信、删除/迁移、外部 API 写入、队列发布、基础设施变更 | 不替代安全审计；它保护执行副作用本身 |
-| `workflow-decomposition` | 业务/agent workflow 的输入、状态机、人工节点、守卫、副作用、异常、证据、指标 | RPA、ERP/CRM/BI、审批、客服、catalog、agentic operations、运营自动化 | 不替代普通函数设计；只在 durable state 或跨系统流程存在时触发 |
+| Skill                            | 覆盖范围                                           | 触发场景                                                      | 边界                                                         |
+| -------------------------------- | ---------------------------------------------- | --------------------------------------------------------- | ---------------------------------------------------------- |
+| `scope-safety`                   | 容量验证、声明权限、扩张边界                                 | 任何提议新增持久组件、依赖、自动化、规则、指标，或基于观测数据做出结论性声明时                   | 不替代其他 skill 的具体检查；在它们之前执行，回答"该不该做"而非"怎么做"；现已扩展变更意图和依赖供应链检查 |
+| `context-sufficiency`            | 代码上下文充分性                                       | 修改代码前，检查是否已读取调用方、测试、配置、schema、迁移和环境                       | 不替代 code review；只在信息不完整可能误导修改时触发                           |
+| `command-permission-boundary`    | 命令执行权限                                         | 运行 shell 命令前，按只读/可逆/不可逆/需批准分类风险                           | 不替代 `side-effect-safety`；前者管"能不能跑"，后者管"怎么设计"               |
+| `verification-before-completion` | 完成前验证 + 测试证据质量                                 | 声称完成前运行验证命令；检查测试是否确实证明正确性                                 | 不替代 `rollout-and-promotion`；关注日常开发而非正式发布                   |
+| `authorization-map`              | 授权、批准、否决、责任、补偿、受影响方                            | 模型、规则、人、系统或组织共同执行会影响资源、记录、客户、政策或公开沟通的行动                   | 不替代普通 code review；只在行动权限和后果归属重要时触发                         |
+| `data-contract-and-lineage`      | 字段契约、来源、状态、版本、证据、使用限制                          | 抽取、分类、BI、评估、审计、CRM/ERP 同步、SOP、catalog enrichment 等数据流     | 不替代文档/表格处理；关注数据从输入到输出声明的可追踪性；现已扩展兼容性边界检查                   |
+| `incremental-erosion`            | 多个小例外造成的边界和质量门槛退化                              | 同类跳测、弱断言、降低阈值、临时绕过、特殊分支反复出现                               | 不处理单次孤立权衡；必须有趋势或复发信号                                       |
+| `judgment-ownership`             | 用户判断框架、证据缝隙、剩余决策点                              | 战略、架构、定位、命名、品味、路线、优先级等判断重的任务                              | 不用于低风险格式化、直接实现或事实查找                                        |
+| `rollout-and-promotion`          | 候选到正式行为的晋升、冻结、评分、弃用、公开声明                       | prompt、规则、阈值、数据集、模型、workflow、评估结果准备变成官方行为                 | 不替代 CI/CD 或发布工具；关注“能否声称官方支持”                               |
+| `rule-state-hygiene`             | candidate / official / deprecated 规则分离         | 业务规则、配置、mock、fixture、README、迁移说明、临时 workaround 可能被误认为正式规则 | 不用于纯重命名、格式化或行为不变的清理                                        |
+| `side-effect-safety`             | 不可逆副作用、幂等、补偿、回滚、显式失败                           | 写数据库、发邮件/短信、删除/迁移、外部 API 写入、队列发布、基础设施变更                   | 不替代安全审计；它保护执行副作用本身                                         |
+| `workflow-decomposition`         | 业务/agent workflow 的输入、状态机、人工节点、守卫、副作用、异常、证据、指标 | RPA、ERP/CRM/BI、审批、客服、catalog、agentic operations、运营自动化     | 不替代普通函数设计；只在 durable state 或跨系统流程存在时触发                     |
 
 ## 组合方式
 

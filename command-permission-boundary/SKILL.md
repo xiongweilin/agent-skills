@@ -1,6 +1,6 @@
 ---
 name: command-permission-boundary
-description: Gate command execution by risk level. Classify commands as read-only, reversible, irreversible-but-safe, or needs-approval. Use before running any shell command that deletes, installs, modifies lockfiles, accesses secrets, changes git history, connects to external networks, or starts/stops services.
+description: Gate command execution by risk level. Classify commands as read-only, reversible, or irreversible. Irreversible commands require approval. Secrets access is never read-only. Use before running any shell command that deletes, installs, modifies lockfiles, accesses secrets, changes git history, connects to external networks, or starts/stops services.
 ---
 
 # Command Permission Boundary
@@ -13,18 +13,20 @@ Use before running any shell command, especially: destructive operations (rm, de
 
 Skip read-only commands: ls, cat, grep, head, tail, git status, git diff, git log, echo, curl -s (read-only endpoints only), docker ps, df, du --read-only.
 
+Override: even cat, grep, or any read-only command on .env, secret files, SSH keys, production config, or credential files is NOT read-only. It requires explicit approval.
+
 ## Risk classification
 
 **Read-only:** no state change. Run freely.
 - git status, git log, git diff, ls, cat, grep, head, tail, curl GET, docker ps, df
 
-**Reversible but worth noting:** changes that can be undone but should be visible.
+**Reversible:** changes that can be undone.
 - git commit, git branch, docker compose up -d, systemctl restart, chezmoi add
 
-**Irreversible, ask first:** cannot be cleanly undone.
+**Irreversible — ask first:** cannot be cleanly undone. Requires explicit user approval before execution.
 - git push --force, git reset --hard, rm -rf, docker rm -f, database drop/truncate, firewall changes
 
-**Never without explicit approval:** high consequence, hard to audit.
+**Never without explicit approval:** accessing secrets, modifying auth, changing production config, running commands on remote servers outside scope, installing unverified packages, executing downloaded scripts without review.
 - accessing secrets or .env files, modifying SSH keys, changing production config, running commands on remote servers outside scope, installing unverified packages, running downloaded scripts without review
 
 ## Checklist
