@@ -1,0 +1,4 @@
+﻿interface:
+  display_name: "Scope Safety"
+  short_description: "Check capacity and warrant before adding or claiming"
+  default_prompt: "Use $scope-safety to verify capacity and warrant before this addition or claim."

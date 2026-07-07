@@ -1,3 +1,5 @@
+﻿> 相关：[[operational-judgment-skills/README|判准技能集]] / [[个人研发平台总览]]
+
 ---
 name: judgment-ownership
 description: Keep the user's frame and judgment visible when answering judgment-heavy, strategic, taste, architecture, positioning, or commitment questions. Mirror the user's frame before reframing, name frame shifts, return the decisive judgment to the user, and expose evidence seams where the answer depends on assumptions or pattern matching.
