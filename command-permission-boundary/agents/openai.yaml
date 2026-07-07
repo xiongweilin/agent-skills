@@ -1,0 +1,4 @@
+interface:
+  display_name: "Command Permission Boundary"
+  short_description: "Gate command risk before execution"
+  default_prompt: "Use $command-permission-boundary to classify the risk of this command before running it."

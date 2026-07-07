@@ -39,3 +39,17 @@ A score without the versioned artifact is not a stable claim.
 ## Success signal
 
 A reader can pick any output and answer where it came from, who or what generated it, what validated it, what version produced it, what evidence supports it, and what it is allowed to be used for.
+
+
+## Compatibility boundary
+
+When changing data structures, APIs, or serialization formats, verify backward compatibility.
+
+- [ ] Does this change alter a public API signature (function name, parameters, return type)?
+- [ ] Does it change a CLI argument name, default value, or behavior?
+- [ ] Does it change an error code or exception type that callers might catch?
+- [ ] Does it change a database schema in a way that breaks existing data or running migrations?
+- [ ] Does it change a serialization format (JSON keys, protobuf fields, CSV columns) that consumers parse?
+- [ ] Does it change a configuration file format or default value?
+- [ ] Is the old behavior still supported during a deprecation window, or is this a hard break?
+
