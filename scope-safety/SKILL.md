@@ -1,6 +1,4 @@
-﻿> 相关：[[operational-judgment-skills/README|判准技能集]] / [[个人研发平台总览]] / [[有限主体原则]]
-
----
+﻿---
 name: scope-safety
 description: Distinguish capability from warrant. Before adding anything persistent or claiming anything conclusive, verify that the system can afford the expansion and that the evidence supports the claim. Use when proposing new components, dependencies, automations, rules, metrics, or factual declarations that would outlive the current task.
 ---
