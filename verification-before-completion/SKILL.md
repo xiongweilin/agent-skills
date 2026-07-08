@@ -7,7 +7,7 @@ description: Use when about to claim work is complete, fixed, or passing, before
 
 ## Overview
 
-Claiming work is complete without verification is dishonesty, not efficiency.
+Claiming work is complete without verification is an unsupported claim, not a shortcut.
 
 **Core principle:** Evidence before claims, always.
 
@@ -34,7 +34,7 @@ BEFORE claiming any status or expressing satisfaction:
    - If YES: State claim WITH evidence
 5. ONLY THEN: Make the claim
 
-Skip any step = lying, not verifying
+Skip any step = unverified status, not verification
 ```
 
 ## Common Failures
@@ -69,7 +69,7 @@ Skip any step = lying, not verifying
 | "Just this once" | No exceptions |
 | "Linter passed" | Linter ≠ compiler |
 | "Agent said success" | Verify independently |
-| "I'm tired" | Exhaustion ≠ excuse |
+| "I'm tired" | Time pressure does not replace verification |
 | "Partial check is enough" | Partial proves nothing |
 | "Different words so rule doesn't apply" | Spirit over letter |
 
@@ -108,11 +108,10 @@ Skip any step = lying, not verifying
 ## Why This Matters
 
 From 24 failure memories:
-- your human partner said "I don't believe you" - trust broken
-- Undefined functions shipped - would crash
-- Missing requirements shipped - incomplete features
-- Time wasted on false completion → redirect → rework
-- Violates: "Honesty is a core value. If you lie, you'll be replaced."
+- Undefined functions shipped — would crash in production.
+- Missing requirements shipped — incomplete features reach users.
+- Time wasted on false completion → redirect → rework.
+- Each unverified claim erodes the engineering record and wastes reviewer attention.
 
 ## When To Apply
 

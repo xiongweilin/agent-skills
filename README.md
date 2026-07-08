@@ -1,8 +1,6 @@
-> 相关：[[个人研发平台总览]] / [[智能体前置运行守则]]
-
 # 运营判断技能集
 
-本仓库保存一组面向智能体、自动化、业务流程和工程交付的判断型 skills。它们不覆盖所有编码任务，只处理容易被模型、流程工具或局部工程视角低估的边界：授权、责任、数据血缘、规则状态、外部副作用、候选晋升、渐进侵蚀，以及用户判断归属。新增 `context-sufficiency`（信息充分性）和 `command-permission-boundary`（命令权限）补全编码场景边界。
+本仓库保存一组面向智能体、自动化、业务流程和工程交付的判断型 skills。它们不覆盖所有编码任务，只处理容易被模型、流程工具或局部工程视角低估的边界：授权、责任、数据血缘、规则状态、外部副作用、候选晋升、渐进侵蚀，以及用户判断归属。后续扩展了 `context-sufficiency`（信息充分性）、`command-permission-boundary`（命令权限）补全编码场景边界，`privacy-and-sensitive-data-boundary`（隐私与敏感数据边界）覆盖数据安全，`skill-orchestrator`（场景路由）作为复杂任务的总入口。
 
 其中 `scope-safety` 是前置门禁：在进入具体判断之前，先区分"能不能"（系统能否承受这次扩张）和"好不好"（证据是否支撑这个结论）。
 
@@ -22,12 +20,24 @@
 | `rule-state-hygiene`             | candidate / official / deprecated 规则分离         | 业务规则、配置、mock、fixture、README、迁移说明、临时 workaround 可能被误认为正式规则 | 不用于纯重命名、格式化或行为不变的清理                                        |
 | `side-effect-safety`             | 不可逆副作用、幂等、补偿、回滚、显式失败                           | 写数据库、发邮件/短信、删除/迁移、外部 API 写入、队列发布、基础设施变更                   | 不替代安全审计；它保护执行副作用本身                                         |
 | `workflow-decomposition`         | 业务/agent workflow 的输入、状态机、人工节点、守卫、副作用、异常、证据、指标 | RPA、ERP/CRM/BI、审批、客服、catalog、agentic operations、运营自动化     | 不替代普通函数设计；只在 durable state 或跨系统流程存在时触发                     |
+| `privacy-and-sensitive-data-boundary` | PII、日志脱敏、截图隐私、第三方 API 外发、训练数据隔离、最小必要访问、保留期限 | 用户数据、反馈文本、CSV 导入、外部 API 调用、截图、错误报告等场景 | 不替代 command-permission-boundary；扩展 secret 概念到完整敏感数据分类 |
+| `skill-orchestrator`             | 复杂任务的治理 skill 场景路由：编码修改 / 业务流程 / 规则变更 / 重复例外 / 隐私 | 多步任务涉及状态变更、外部效果、授权问题或持久新增时 | 不替代各 skill 的具体检查；按场景选择正确路径和顺序 |
 
 ## 组合方式
 
 ### 编码任务的上下文门禁
 
 在修改任何代码前，先使用 `context-sufficiency` 确认已读取足够的上下文。运行任何命令前，先使用 `command-permission-boundary` 分类风险。
+
+### 全局路由
+
+当任务涉及多个治理 skill 时，使用 `skill-orchestrator` 按场景选择路径。
+所有路径的共同前置门禁是 `scope-safety`。
+
+### 隐私 / 敏感数据
+
+当任务涉及用户数据、PII、外部 API 调用或截图时，使用 `privacy-and-sensitive-data-boundary`。
+该 skill 可与任何其他路径并行运行。
 
 ### 任何任务的前置门禁
 
