@@ -3,7 +3,7 @@
 This document is read by Codex at the start of every session. It defines
 environment conventions, behavioral discipline, mandatory pre-action gates,
 and self-improvement protocols. It is the runtime copy; the source of truth
-lives in the Obsidian vault (智能体前置运行守则).
+lives in the operational-judgment-skills repository at AGENTS/SKILL.md.
 
 Skills handle conditional domain expertise. This document handles what must
 always be active.
