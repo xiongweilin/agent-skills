@@ -1,0 +1,7 @@
+name: skill-orchestrator
+description: Route complex tasks through the correct governance skill chain. Use when facing multi-step tasks involving state changes, external effects, authorization, or persistent additions.
+model: gpt-5.5
+temperature: 0.2
+tools: ''
+skills: ''
+hidden: false

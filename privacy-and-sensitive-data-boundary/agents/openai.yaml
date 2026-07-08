@@ -1,0 +1,7 @@
+name: privacy-and-sensitive-data-boundary
+description: Enforce privacy and sensitive-data boundaries across PII, log redaction, screenshots, error reports, third-party API egress, training-data isolation, and minimum-necessary access.
+model: gpt-5.5
+temperature: 0.2
+tools: ''
+skills: ''
+hidden: false
