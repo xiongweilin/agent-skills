@@ -94,8 +94,9 @@ volume mount), grant only what the operation actually needs:
   re-sampled from production data.
 - Logs: Loki retains 30 days; Prometheus retains 15 days. Match or tighten for
   any new log/metric sink.
-- Docker build cache and exited containers: cleaned monthly. Exited
-  sonarsource/sonarqube-mcp containers: cleaned after each analysis task.
+- Docker build cache and exited containers: cleaned monthly. Temporary
+  `sonarsource/sonarqube-mcp` containers, whether running or exited, are
+  cleaned after each analysis task; long-lived Compose services are excluded.
 
 ## Checklist
 
