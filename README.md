@@ -89,7 +89,7 @@
 - `SKILL.md` 保持简短。只有真正存在可复用细节时，才把长资料放入 `references/`。
 - 以本仓库作为安装源时，修改后要同步 `~/.codex/skills` 下的安装副本。
 - 修改 skill 后，检查 git 状态，并确认安装副本与源文件一致。
-- 顶层 `AGENTS.md` 是 `~/.codex/AGENTS.md` 的版本化源文件；它是始终加载的执行规则，不属于 skill，也不计入 skill 数量。
+- `~/.codex/AGENTS.md` 是单独维护、始终加载的运行时执行规则；本仓库不再保存其版本化副本。它不属于 skill，也不计入 skill 数量。
 
 ## 目录结构
 
