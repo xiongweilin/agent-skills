@@ -1,12 +1,13 @@
 # Severity Matrix
 
 Operational risk classification for actions, commands, and state changes.
-Complements the five-layer judgment model (承载/正当/生命周期/趋势/成色) in
-个人平台总览 — the five layers answer "what kind of question is this?", the
-severity matrix answers "how dangerous is this specific action?"
+Complements the judgment framework in 个人平台总览: the framework answers
+"what kind of question is this?", while the severity matrix answers
+"how dangerous is this specific action?"
 
-A single change can carry both a layer label and a severity level. For example:
-a production config change is a 生命周期层 + L3 action.
+A single change can carry both a governance concern and a severity level. For
+example, a production config change is a lifecycle-governance concern and an
+L3 action.
 
 ## Levels
 
