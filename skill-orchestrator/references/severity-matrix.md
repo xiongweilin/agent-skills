@@ -21,17 +21,17 @@ L3 action.
 
 ## Usage
 
-Referenced by: skill-orchestrator, command-permission-boundary,
-privacy-and-sensitive-data-boundary, side-effect-safety.
+Referenced by: skill-orchestrator, privacy-and-sensitive-data-boundary, and
+side-effect-safety. Command authorization remains governed by AGENTS.
 
 A skill that classifies an action should label it with both the severity level
-and the judgment layer it falls under. The orchestrator uses the severity level
-to decide the output format (see output-format.md).
+and the relevant platform-loop concern. The orchestrator uses the severity
+level to decide the output format (see output-format.md).
 
 ## Boundary Cases
 
 - An action that is normally L1 becomes L2 when performed on production
   infrastructure.
 - An action that is normally L2 becomes L3 when it touches PII or secrets.
-- "Read-only" in command-permission-boundary is not automatically L0 if the
-  read target is a secret file — that is L3+.
+- "Read-only" is not automatically L0 when the target is a secret file; apply
+  the AGENTS credential-access gate and classify it as L3+.

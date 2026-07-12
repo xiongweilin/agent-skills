@@ -1,4 +1,4 @@
-﻿---
+---
 name: side-effect-safety
 description: Enforce safe handling of irreversible and external side effects. Covers idempotency, compensation, rollback, explicit failure handling, atomic state transitions, correct enforcement layers, and keeping non-deterministic or LLM-driven steps from directly executing irreversible actions.
 ---

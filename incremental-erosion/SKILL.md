@@ -1,4 +1,4 @@
-﻿---
+---
 name: incremental-erosion
 description: Watch for boundaries, invariants, and quality thresholds that erode through a series of individually small, reversible, justified changes rather than one obvious event. Use when the same exception, workaround, skipped test, weakened assertion, lowered threshold, or special-case branch recurs.
 ---

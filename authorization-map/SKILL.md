@@ -1,4 +1,4 @@
-﻿---
+---
 name: authorization-map
 description: Map authorization, responsibility, veto, execution, compensation, and affected-party boundaries in workflows where models, rules, humans, systems, or organizations jointly act. Use when an agent, automation, workflow, or business process proposes actions that may affect resources, rights, records, customer outcomes, policy, knowledge bases, ERP/CRM data, public communication, or subjects who may not be able to refuse or correct the result.
 ---

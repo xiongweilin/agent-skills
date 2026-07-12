@@ -1,53 +1,60 @@
 # 运营判断技能集
 
-本仓库保存一组面向智能体、自动化、业务流程和工程交付的判断型 skills。它们不覆盖所有编码任务，只处理容易被模型、流程工具或局部工程视角低估的边界：授权、责任、数据血缘、规则状态、外部副作用、候选晋升、渐进侵蚀，以及用户判断归属。后续扩展了 `context-sufficiency`（信息充分性）、`command-permission-boundary`（命令权限）补全编码场景边界，`privacy-and-sensitive-data-boundary`（隐私与敏感数据边界）覆盖数据安全，`skill-orchestrator`（场景路由）作为复杂任务的总入口。
+本仓库保存一组面向智能体、自动化、业务流程和工程交付的判断型 skills。它们不覆盖所有编码任务，只处理容易被模型、流程工具或局部工程视角低估的边界：授权、责任、数据血缘、规则状态、外部副作用、候选晋升、渐进侵蚀，以及用户判断归属。`context-sufficiency` 补充修改前的信息门禁，`privacy-and-sensitive-data-boundary` 统一隐私边界，`skill-orchestrator` 只路由需要多项治理判断的复杂任务。
 
-其中 `scope-safety` 是前置门禁：在进入具体判断之前，先区分"能不能"（系统能否承受这次扩张）和"好不好"（证据是否支撑这个结论）。
+始终适用的任务范围、命令权限和完成验证由独立维护的 `~/.codex/AGENTS.md` 负责，不在本仓库重复。`scope-safety` 只在新增持久能力、依赖或长期声明时检查承载、供应链、证据和退役条件。
 
 ## 当前 skill
 
 | Skill                            | 覆盖范围                                           | 触发场景                                                      | 边界                                                         |
 | -------------------------------- | ---------------------------------------------- | --------------------------------------------------------- | ---------------------------------------------------------- |
-| `scope-safety`                   | 容量验证、声明权限、扩张边界                                 | 任何提议新增持久组件、依赖、自动化、规则、指标，或基于观测数据做出结论性声明时                   | 不替代其他 skill 的具体检查；在它们之前执行，回答"该不该做"而非"怎么做"；现已扩展变更意图和依赖供应链检查 |
+| `scope-safety`                   | 持久新增的承载、供应链、证据与退役条件                            | 新增服务、依赖、自动化、规则、指标、配置，或形成会长期引用的事实声明时                         | 不用于普通本地修改；AGENTS 已负责通用范围和命令门禁                              |
 | `context-sufficiency`            | 代码上下文充分性                                       | 修改代码前，检查是否已读取调用方、测试、配置、schema、迁移和环境                       | 不替代 code review；只在信息不完整可能误导修改时触发                           |
-| `command-permission-boundary`    | 命令执行权限                                         | 运行 shell 命令前，按只读/可逆/不可逆/需批准分类风险                           | 不替代 `side-effect-safety`；前者管"能不能跑"，后者管"怎么设计"               |
-| `verification-before-completion` | 完成前验证 + 测试证据质量                                 | 声称完成前运行验证命令；检查测试是否确实证明正确性                                 | 不替代 `rollout-and-promotion`；关注日常开发而非正式发布                   |
 | `authorization-map`              | 授权、批准、否决、责任、补偿、受影响方                            | 模型、规则、人、系统或组织共同执行会影响资源、记录、客户、政策或公开沟通的行动                   | 不替代普通 code review；只在行动权限和后果归属重要时触发                         |
-| `data-contract-and-lineage`      | 字段契约、来源、状态、版本、证据、使用限制                          | 抽取、分类、BI、评估、审计、CRM/ERP 同步、SOP、catalog enrichment 等数据流     | 不替代文档/表格处理；关注数据从输入到输出声明的可追踪性；现已扩展兼容性边界检查                   |
+| `data-contract-and-lineage`      | 字段契约、来源、状态、版本、证据、使用限制                          | 抽取、分类、BI、评估、审计、CRM/ERP 同步、SOP、catalog enrichment 等数据流     | 不替代接口设计；公共兼容性问题转交 `api-and-interface-design`              |
 | `incremental-erosion`            | 多个小例外造成的边界和质量门槛退化                              | 同类跳测、弱断言、降低阈值、临时绕过、特殊分支反复出现                               | 不处理单次孤立权衡；必须有趋势或复发信号                                       |
 | `judgment-ownership`             | 用户判断框架、证据缝隙、剩余决策点                              | 战略、架构、定位、命名、品味、路线、优先级等判断重的任务                              | 不用于低风险格式化、直接实现或事实查找                                        |
 | `rollout-and-promotion`          | 候选到正式行为的晋升、冻结、评分、弃用、公开声明                       | prompt、规则、阈值、数据集、模型、workflow、评估结果准备变成官方行为                 | 不替代 CI/CD 或发布工具；关注“能否声称官方支持”                               |
 | `rule-state-hygiene`             | candidate / official / deprecated 规则分离         | 业务规则、配置、mock、fixture、README、迁移说明、临时 workaround 可能被误认为正式规则 | 不用于纯重命名、格式化或行为不变的清理                                        |
 | `side-effect-safety`             | 不可逆副作用、幂等、补偿、回滚、显式失败                           | 写数据库、发邮件/短信、删除/迁移、外部 API 写入、队列发布、基础设施变更                   | 不替代安全审计；它保护执行副作用本身                                         |
 | `workflow-decomposition`         | 业务/agent workflow 的输入、状态机、人工节点、守卫、副作用、异常、证据、指标 | RPA、ERP/CRM/BI、审批、客服、catalog、agentic operations、运营自动化     | 不替代普通函数设计；只在 durable state 或跨系统流程存在时触发                     |
-| `privacy-and-sensitive-data-boundary` | PII、日志脱敏、截图隐私、第三方 API 外发、训练数据隔离、最小必要访问、保留期限 | 用户数据、反馈文本、CSV 导入、外部 API 调用、截图、错误报告等场景 | 不替代 command-permission-boundary；扩展 secret 概念到完整敏感数据分类 |
-| `skill-orchestrator`             | 复杂任务的治理 skill 场景路由：编码修改 / 业务流程 / 规则变更 / 重复例外 / 隐私 | 多步任务涉及状态变更、外部效果、授权问题或持久新增时 | 不替代各 skill 的具体检查；按场景选择正确路径和顺序 |
+| `privacy-and-sensitive-data-boundary` | PII、日志脱敏、截图隐私、第三方 API 外发、训练数据隔离、最小必要访问、保留期限 | 用户数据、反馈文本、CSV 导入、外部 API 调用、截图、错误报告等场景 | 不替代 AGENTS 的凭证访问门禁；扩展到完整敏感数据分类与流转边界 |
+| `skill-orchestrator`             | 复杂任务的最小治理链路选择                                  | 跨系统流程、授权责任、敏感数据、正式规则晋升或重复例外同时涉及多个边界时                     | 普通代码修改由 AGENTS 和开发类 skills 处理，不触发治理全家桶                       |
 
 ## 组合方式
 
 ### 编码任务的上下文门禁
 
-在修改任何代码前，先使用 `context-sufficiency` 确认已读取足够的上下文。运行任何命令前，先使用 `command-permission-boundary` 分类风险。
+修改代码前，在缺失调用方、测试、配置、schema、迁移或运行边界可能改变设计时，使用 `context-sufficiency`。命令权限和完成验证直接遵循 AGENTS。
 
 ### 全局路由
 
-当任务涉及多个治理 skill 时，使用 `skill-orchestrator` 按场景选择路径。
-所有路径的共同前置门禁是 `scope-safety`。
+当任务确实涉及多个治理边界时，使用 `skill-orchestrator` 选择最小路径。普通代码、格式化、只读分析和单一领域任务不经过该路由；持久新增或长期声明才额外使用 `scope-safety`。
 
 ### 隐私 / 敏感数据
 
 当任务涉及用户数据、PII、外部 API 调用或截图时，使用 `privacy-and-sensitive-data-boundary`。
 该 skill 可与任何其他路径并行运行。
 
-### 任何任务的前置门禁
+### 持久新增与长期声明
 
-在进入具体领域的 skill 之前，先使用 `scope-safety`：
+新增会跨任务存在的服务、依赖、自动化、规则、指标、配置或事实声明时，使用 `scope-safety`：
 
 1. 拟新增的是否是持久物（服务、依赖、自动化、规则、配置、指标、声明）？
 2. 系统能否承受这次扩张？（参考容量指标、维护负担、故障域边界）
 3. 这个结论是候选还是正式？（证据来源、指标是否已验证、谁承担后果）
 
-通过后再进入以下具体流程。
+低风险、可逆且不持久的普通修改不触发该 skill。
+
+### 外部闭环能力
+
+以下能力来自更高优先级的已安装第三方 skills，不复制进本仓库：
+
+- `verification-before-completion`：完成前证据门禁；本地增量原则进入 AGENTS。
+- `api-and-interface-design`：公共接口兼容性与弃用。
+- `observability-and-instrumentation`：生产运行证据。
+- `security-best-practices` / `security-threat-model`：安全编码与威胁建模。
+- `documentation-and-adrs` / `review`：决策记录与变更审查。
 
 ### 业务流程或智能体流程
 
@@ -89,6 +96,7 @@
 - `SKILL.md` 保持简短。只有真正存在可复用细节时，才把长资料放入 `references/`。
 - 以本仓库作为安装源时，修改后要同步 `~/.codex/skills` 下的安装副本。
 - 修改 skill 后，检查 git 状态，并确认安装副本与源文件一致。
+- 第三方 skill 保持上游来源，不复制到本仓库；本地通用增量进入 AGENTS 或自有 skill。
 - `~/.codex/AGENTS.md` 是单独维护、始终加载的运行时执行规则；本仓库不再保存其版本化副本。它不属于 skill，也不计入 skill 数量。
 
 ## 目录结构
