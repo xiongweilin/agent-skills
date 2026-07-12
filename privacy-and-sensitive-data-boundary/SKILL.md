@@ -18,12 +18,9 @@ it must be deleted.
 
 ## Use when
 
-Use when code or operations involve: customer feedback or tickets containing
-user-submitted text, CSV imports with personal or business data, Dify workflow
-inputs that may contain PII, log output or error messages that echo request
-bodies, screenshots of applications or dashboards, third-party API calls
-(DeepSeek, OpenAI, etc.) carrying user data, training or fine-tuning data
-preparation, or webhook payloads forwarded across systems.
+Use when code or operations involve customer feedback, tickets, CSV imports,
+user-submitted text, screenshots, error reports, training data, or external API
+and webhook payloads that may contain sensitive information.
 
 Skip pure computation with no external data flow, local-only admin operations,
 and read-only queries against system metrics.
@@ -58,17 +55,13 @@ input, or environment variable values.
 
 ### Third-party API egress
 
-When data leaves the local environment to an external API (DeepSeek via Dify,
-OpenAI API, webhook relay to cloud server, etc.), verify:
+When data leaves its current trust boundary for an external API or webhook,
+verify:
 
 - What fields are sent? Are they the minimum necessary for the task?
 - Does the provider's privacy policy permit this data category?
 - Is the data in transit encrypted (TLS)?
 - If the provider uses submitted data for training, has that been accepted?
-
-The Dify → DeepSeek path is the primary egress point in this environment.
-Workflow inputs that contain user feedback text or catalog product data cross
-this boundary on every LLM call.
 
 ### Training data isolation
 
@@ -89,14 +82,10 @@ volume mount), grant only what the operation actually needs:
 
 ### Retention and deletion
 
-- Anonymous session data: 24-hour expiry (already enforced in feedback project).
-- Evaluation datasets: retain with versioning; scrub between versions if
-  re-sampled from production data.
-- Logs: Loki retains 30 days; Prometheus retains 15 days. Match or tighten for
-  any new log/metric sink.
-- Docker build cache and exited containers: cleaned monthly. Temporary
-  `sonarsource/sonarqube-mcp` containers, whether running or exited, are
-  cleaned after each analysis task; long-lived Compose services are excluded.
+Every retained dataset, log, screenshot, export, and temporary artifact needs a
+purpose, owner, retention or review condition, deletion path, and evidence that
+deletion actually occurred. Environment-specific periods and cleanup commands
+belong in the owning README or RUNBOOK, not in this skill.
 
 ## Checklist
 
@@ -117,9 +106,8 @@ volume mount), grant only what the operation actually needs:
 
 ## Relation to other skills
 
-- `command-permission-boundary`: secret access is never read-only. This skill
-  extends that rule to cover what counts as a secret or sensitive data beyond
-  .env files.
+- AGENTS command-permission boundary: secret access is never read-only. This
+  skill extends that rule to sensitive-data classification and movement.
 - `data-contract-and-lineage`: field-level source, state, owner, and use-limit.
   This skill adds the privacy classification dimension to each field.
 - `side-effect-safety`: external API calls are side effects. This skill adds

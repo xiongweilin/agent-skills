@@ -1,4 +1,4 @@
-﻿---
+---
 name: rule-state-hygiene
 description: Keep candidate, official, and deprecated rules separate when writing or editing code, tests, fixtures, configuration, comments, or documentation. Prevent mocks, fixtures, temporary workarounds, one-off observations, debug assumptions, and experiment-specific behavior from leaking into production logic or official docs.
 ---
@@ -28,3 +28,6 @@ If you cannot classify the rule, treat it as candidate.
 Before promoting a rule, identify scope, source, evidence, owner or rationale, and exit condition if temporary.
 
 Mocks and fixtures are not contracts by default. A single incident is not a general rule. Temporary work needs a removal condition. Documentation must match the same rule state as the code.
+
+`Official` is the state reached after a successful promotion governed by
+`rollout-and-promotion`; `promoted` names that transition, not another state.

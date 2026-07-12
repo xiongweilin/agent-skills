@@ -1,4 +1,4 @@
-﻿---
+---
 name: data-contract-and-lineage
 description: Define data contracts and lineage for workflows that transform inputs through models, rules, human review, databases, dashboards, or external systems. Use when fields, labels, metrics, reports, evaluations, evidence quotes, offsets, IDs, prompts, rules, thresholds, datasets, or generated outputs must remain traceable and not be confused as facts, guesses, candidates, or official conclusions.
 ---
@@ -40,16 +40,6 @@ A score without the versioned artifact is not a stable claim.
 
 A reader can pick any output and answer where it came from, who or what generated it, what validated it, what version produced it, what evidence supports it, and what it is allowed to be used for.
 
-
-## Compatibility boundary
-
-When changing data structures, APIs, or serialization formats, verify backward compatibility.
-
-- [ ] Does this change alter a public API signature (function name, parameters, return type)?
-- [ ] Does it change a CLI argument name, default value, or behavior?
-- [ ] Does it change an error code or exception type that callers might catch?
-- [ ] Does it change a database schema in a way that breaks existing data or running migrations?
-- [ ] Does it change a serialization format (JSON keys, protobuf fields, CSV columns) that consumers parse?
-- [ ] Does it change a configuration file format or default value?
-- [ ] Is the old behavior still supported during a deprecation window, or is this a hard break?
-
+When a data-contract change alters a public API, CLI, schema, serialization, or
+configuration format, use `api-and-interface-design` for compatibility and
+deprecation decisions. This skill continues to own field state and lineage.

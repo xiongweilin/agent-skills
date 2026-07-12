@@ -1,130 +1,66 @@
 ---
 name: skill-orchestrator
-description: Route complex tasks through the correct governance skill chain.
-  Use when facing a multi-step task involving state changes, external effects,
-  authorization questions, or persistent additions — any situation where
-  multiple operational-judgment skills should fire in order. Classifies the
-  scenario and activates the appropriate path.
+description: Route complex governance work through the smallest applicable skill chain. Use for cross-system workflows, authorization and responsibility questions, sensitive-data flows, formal rule promotion, or recurring exceptions; do not trigger for ordinary code changes already governed by AGENTS and development skills.
 ---
 
 # Skill Orchestrator
 
-Governance skills each protect one boundary. This skill routes a complex task
-through the right sequence of boundaries, in the right order, with the right
-skip conditions.
+Select only the governance skills required by the scenario. Do not turn every
+task into a full pipeline.
 
-## Use when
+## Always-loaded boundaries
 
-The task involves any of: persistent additions (new deps, services, configs,
-automations), state changes with external effects, authorization or
-responsibility questions, multi-step workflows across system boundaries, or
-decisions where the wrong sequence would skip a necessary gate.
+AGENTS already governs task scope, command permission, local file safety, and
+verification before completion. Do not re-run those rules as separate skills.
+If the task adds a persistent component or creates a durable factual claim,
+apply `scope-safety` before the scenario path below.
 
-Skip for: pure reads, formatting, one-line fixes with no side effects, simple
-questions, and tasks fully covered by a single skill.
+## Workflow path
 
-## Preliminary gate: scope-safety
+Use for RPA, ERP/CRM/BI integration, approval flows, customer-facing
+automation, or agent workflows with durable state.
 
-scope-safety fires FIRST on every path. Before any other skill activates,
-answer:
-
-- Capacity (能不能): does the system have headroom? What does this displace?
-  What ongoing cost does it impose? What is the retirement condition?
-- Warrant (好不好): is the evidence measured or inferred? Is the claim marked
-  candidate or official? Who bears the consequence if wrong?
-
-Any failing item: downgrade to candidate, add evidence, set rollback/retirement
-condition, or block.
-
-## Scenario routing
-
-### Path A: Code modification
-
-Triggers: editing source code, changing configuration, modifying schemas,
-adding dependencies.
-
-```
-scope-safety (gate)
-  → context-sufficiency (have we read enough?)
-  → command-permission-boundary (risk-classify every shell command)
-  → verification-before-completion (fresh evidence before claiming done)
+```text
+workflow-decomposition
+→ authorization-map
+→ side-effect-safety        (only when external writes exist)
+→ data-contract-and-lineage (only when data changes state or authority)
 ```
 
-Skip conditions:
-- Pure formatting, comment-only changes → skip context-sufficiency
-- Read-only queries with no shell commands → skip command-permission-boundary
+## Rule and promotion path
 
-### Path B: Business / agent workflow
+Use when prompts, rules, thresholds, configs, fixtures, datasets, or workflow
+behavior may become official.
 
-Triggers: designing or modifying RPA, ERP, CRM, BI, approval flows, agentic
-operations, customer-facing automation, or any workflow with durable state.
-
-```
-scope-safety (gate)
-  → workflow-decomposition (states, actors, guards, side effects, exceptions)
-  → authorization-map (who proposes, validates, approves, executes, vetoes)
-  → side-effect-safety (idempotency, compensation, atomic transitions)
-  → data-contract-and-lineage (field source, state, lineage, use-limit)
+```text
+judgment-ownership    (only for strategic or value-laden choices)
+→ rule-state-hygiene
+→ rollout-and-promotion (only when a promotion path exists)
 ```
 
-Skip conditions:
-- No external writes → skip side-effect-safety
-- No data transformation → skip data-contract-and-lineage
+## Recurring-exception path
 
-### Path C: Rules / policy / config change
+Use when the same workaround, skipped check, weakened assertion, lower
+threshold, or special case recurs.
 
-Triggers: business rules, validation rules, prompts, feature flags, configs,
-fixtures, mock behavior, documentation that describes supported behavior.
-
-```
-scope-safety (gate)
-  → judgment-ownership (ONLY if strategic, architectural, or value-laden)
-  → rule-state-hygiene (candidate / official / deprecated)
-  → rollout-and-promotion (draft → candidate → frozen → scored → promoted)
+```text
+incremental-erosion
+→ rule-state-hygiene
 ```
 
-Skip conditions:
-- Pure implementation of an already-decided rule → skip judgment-ownership
-- Local-only config with no promotion path → skip rollout-and-promotion
+## Sensitive-data path
 
-### Path D: Recurring small exceptions
-
-Triggers: the Nth instance of the same pattern — another skipped test, loosened
-assertion, lowered threshold, special-case branch, or "fix later" on the same
-theme.
-
-```
-scope-safety (gate)
-  → incremental-erosion (name the pattern, decide: fix now or track)
-  → rule-state-hygiene (mark temporary rules, set exit conditions)
-```
-
-### Path E: Privacy / sensitive data
-
-Triggers: any task touching user-submitted text, PII, secrets, external API
-calls carrying data, screenshots, or error reports. Can combine with any other
-path.
-
-```
-privacy-and-sensitive-data-boundary (evaluate data classification at each boundary)
-```
-
-This path runs alongside A, B, C, or D when data sensitivity is present.
+Apply `privacy-and-sensitive-data-boundary` alongside any path that handles
+PII, credentials, user content, screenshots, logs, training data, or external
+data egress.
 
 ## Output
 
-For each skill in the activated path, record the result at the level dictated
-by `references/output-format.md`:
-
-- L0/L1: one line in commentary
-- L2: affected_resources, approval_required, rollback/verification
-- L3/L4: full structured record
-
-Classify severity per `references/severity-matrix.md`. The severity label
-applies to the specific action, not the whole task.
+State the selected path, why each skill applies, which skills were skipped, and
+the remaining authorization or verification boundary. Use the severity and
+output formats in `references/` without repeating their full contents.
 
 ## Success signal
 
-At the end of a routed task, a reader can see which path was taken, which
-skills fired, what each found, and what severity each action carried — without
-needing to re-read the full conversation.
+A reader can see the minimum governance chain and why each boundary exists,
+without ordinary engineering work being routed through unrelated skills.
