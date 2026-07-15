@@ -10,8 +10,8 @@ description: Enforce privacy and sensitive-data boundaries across PII, log
 
 # Privacy and Sensitive Data Boundary
 
-Command-permission-boundary already rules that secret access is never
-read-only. data-contract-and-lineage already requires field-level source,
+AGENTS.md already rules that secret access is never read-only.
+data-contract-and-lineage already requires field-level source,
 state, owner, and use-limit labeling. This skill fills the gap between them:
 what counts as sensitive, where it can travel, what must be redacted, and when
 it must be deleted.
@@ -112,9 +112,10 @@ belong in the owning README or RUNBOOK, not in this skill.
   This skill adds the privacy classification dimension to each field.
 - `side-effect-safety`: external API calls are side effects. This skill adds
   the data-egress dimension to those side effects.
-- `scope-safety`: adding a new data sink, log pipeline, or third-party
-  integration is a persistent addition that must pass scope-safety first.
-- References `../skill-orchestrator/references/severity-matrix.md` for L0-L4 classification.
+- AGENTS scope-safety gate: adding a new data sink, log pipeline, or third-party
+  integration is a persistent addition that must pass the always-loaded gate.
+- The L1-L4 values above are routing labels for this skill; an owning policy or
+  RUNBOOK remains authoritative for environment-specific classification.
 
 ## Success signal
 

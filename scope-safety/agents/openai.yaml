@@ -1,4 +1,0 @@
-interface:
-  display_name: "Scope Safety"
-  short_description: "Assess persistent additions and durable claims"
-  default_prompt: "Use $scope-safety to assess capacity, supply-chain risk, evidence, and retirement conditions."
