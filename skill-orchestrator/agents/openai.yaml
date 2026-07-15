@@ -1,4 +1,0 @@
-interface:
-  display_name: "Skill Orchestrator"
-  short_description: "Route complex work through minimal governance"
-  default_prompt: "Use $skill-orchestrator to select the smallest governance skill chain for this complex task."
