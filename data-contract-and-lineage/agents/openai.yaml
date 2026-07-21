@@ -1,4 +1,4 @@
 interface:
   display_name: "Data Contract & Lineage"
-  short_description: "Trace fields, evidence, and output authority"
-  default_prompt: "Use $data-contract-and-lineage to define field contracts and lineage for this workflow."
+  short_description: "Trace consequential data across boundaries"
+  default_prompt: "Use $data-contract-and-lineage to trace persisted fields, evidence, state, and write authority across this workflow."

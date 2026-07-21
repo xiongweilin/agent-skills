@@ -1,4 +1,4 @@
 interface:
   display_name: "Judgment Ownership"
-  short_description: "Keep framing and decisions visible"
+  short_description: "Preserve consequential user judgment"
   default_prompt: "Use $judgment-ownership to preserve my framing and show which judgment still belongs to me."

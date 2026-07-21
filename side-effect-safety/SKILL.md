@@ -1,6 +1,6 @@
 ---
 name: side-effect-safety
-description: Enforce safe handling of irreversible and external side effects. Covers idempotency, compensation, rollback, explicit failure handling, atomic state transitions, correct enforcement layers, and keeping non-deterministic or LLM-driven steps from directly executing irreversible actions.
+description: Design safe execution for state-changing actions that can duplicate, partially apply, affect external systems, or be hard to reverse. Use only for writes, sends, publishes, deletions, migrations, retries, infrastructure changes, or other effects requiring idempotency, rollback, compensation, atomic transitions, or deterministic guards. Do not trigger for pure reads, pure computation, or reversible local edits.
 ---
 
 # Side-Effect Safety
@@ -9,7 +9,7 @@ Irreversible side effects are where ordinary bugs become real damage: double cha
 
 ## Use when
 
-Use whenever code sends email/SMS/push notifications, performs database inserts/updates/deletes, runs migrations, deletes files or records, calls external APIs that change state, retries an operation, publishes to a queue or event bus, writes to ERP/CRM/BI systems, changes infrastructure, or performs any operation that cannot be safely repeated or cleanly undone.
+Use when code sends email/SMS/push notifications, performs database inserts/updates/deletes, runs migrations, deletes files or records, calls external APIs that change state, retries an effect, publishes to a queue or event bus, writes to ERP/CRM/BI systems, changes infrastructure, or performs an operation that cannot be safely repeated or cleanly undone.
 
 Skip pure reads, pure computation, and local reversible edits.
 

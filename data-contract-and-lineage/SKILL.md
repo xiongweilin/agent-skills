@@ -1,6 +1,6 @@
 ---
 name: data-contract-and-lineage
-description: Define data contracts and lineage for workflows that transform inputs through models, rules, human review, databases, dashboards, or external systems. Use when fields, labels, metrics, reports, evaluations, evidence quotes, offsets, IDs, prompts, rules, thresholds, datasets, or generated outputs must remain traceable and not be confused as facts, guesses, candidates, or official conclusions.
+description: Define field-level data contracts and lineage across model, rule, human, database, dashboard, and external-system boundaries. Use only when transformed or persisted outputs must remain traceable, or when evidence and version binding affect decisions or official claims. Do not trigger for ephemeral drafts, ordinary in-memory structures, or simple schema work with no provenance, state, or authority ambiguity.
 ---
 
 # Data Contract and Lineage
@@ -9,9 +9,9 @@ A workflow's outputs are only as trustworthy as the path from input to claim. Th
 
 ## Use when
 
-Use for LLM extraction, classification, reports, BI dashboards, evaluation pipelines, audit logs, ERP/CRM synchronization, feedback analysis, SOP generation, catalog enrichment, human review tools, or any workflow where data changes state or authority.
+Use for persisted or decision-relevant LLM extraction, classification, reports, BI dashboards, evaluation pipelines, audit logs, ERP/CRM synchronization, feedback analysis, SOP generation, catalog enrichment, and human review tools where data changes state or authority.
 
-Skip ephemeral drafts that are not persisted or used for decisions.
+Skip ephemeral drafts, ordinary in-memory structures, and simple schema work where provenance, state, and write authority are not in question.
 
 ## Contract for each field
 

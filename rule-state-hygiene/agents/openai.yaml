@@ -1,4 +1,4 @@
 interface:
   display_name: "Rule State Hygiene"
-  short_description: "Separate candidate and official rules"
+  short_description: "Separate provisional and official rules"
   default_prompt: "Use $rule-state-hygiene to keep candidate, official, and deprecated rules separate."

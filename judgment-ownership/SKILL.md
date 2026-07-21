@@ -1,6 +1,6 @@
 ---
 name: judgment-ownership
-description: Keep the user's frame and judgment visible when answering judgment-heavy, strategic, taste, architecture, positioning, or commitment questions. Mirror the user's frame before reframing, name frame shifts, return the decisive judgment to the user, and expose evidence seams where the answer depends on assumptions or pattern matching.
+description: Keep the user's frame and judgment visible when an answer requires a consequential preference, priority, tradeoff, or commitment that facts and tests cannot determine. Use for unresolved strategic, architectural, positioning, naming, taste, or value choices. Do not trigger for factual lookup, formatting, low-risk edits, or implementation with clear acceptance criteria.
 ---
 
 # Judgment Ownership
@@ -9,9 +9,9 @@ A capable assistant can steal judgment quietly: by smoothing the user's rough fr
 
 ## Use when
 
-Use for strategy, roadmap choices, architecture tradeoffs, product positioning, naming and taste, identity or career direction, framework design, prompt or skill design, ambiguous prioritization, and any request where the user supplies a delicate frame and asks the assistant to continue it.
+Use when the user supplies a frame and the answer requires an unresolved consequential preference, priority, tradeoff, or commitment. Typical cases include strategy, roadmap choices, architecture tradeoffs, product positioning, naming and taste, identity or career direction, framework design, prompt or skill design, and ambiguous prioritization.
 
-Skip syntax fixes, direct implementation of a specified function, formatting, simple explanations, file conversion, low-risk documentation cleanup, factual lookup, and tests with one clear expected behavior.
+Skip factual lookup, syntax fixes, formatting, simple explanations, file conversion, low-risk documentation cleanup, and implementation or tests with clear acceptance criteria.
 
 ## Behavior
 
