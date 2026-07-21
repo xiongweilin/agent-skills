@@ -10,7 +10,9 @@ description: Enforce privacy and sensitive-data boundaries across PII, log
 
 # Privacy and Sensitive Data Boundary
 
-AGENTS.md already rules that secret access is never read-only.
+AGENTS.md requires explicit approval before secret values are read or exposed.
+Metadata-only existence, filename, variable-name, and permission checks do not
+authorize value access.
 data-contract-and-lineage already requires field-level source,
 state, owner, and use-limit labeling. This skill fills the gap between them:
 what counts as sensitive, where it can travel, what must be redacted, and when
@@ -106,14 +108,13 @@ belong in the owning README or RUNBOOK, not in this skill.
 
 ## Relation to other skills
 
-- AGENTS command-permission boundary: secret access is never read-only. This
+- AGENTS command-permission boundary: reading or exposing secret values requires
+  explicit approval; metadata-only checks do not authorize value access. This
   skill extends that rule to sensitive-data classification and movement.
 - `data-contract-and-lineage`: field-level source, state, owner, and use-limit.
   This skill adds the privacy classification dimension to each field.
 - `side-effect-safety`: external API calls are side effects. This skill adds
   the data-egress dimension to those side effects.
-- AGENTS scope-safety gate: adding a new data sink, log pipeline, or third-party
-  integration is a persistent addition that must pass the always-loaded gate.
 - The L1-L4 values above are routing labels for this skill; an owning policy or
   RUNBOOK remains authoritative for environment-specific classification.
 
