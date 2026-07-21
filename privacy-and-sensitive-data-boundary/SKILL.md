@@ -1,11 +1,6 @@
 ---
 name: privacy-and-sensitive-data-boundary
-description: Enforce privacy and sensitive-data boundaries across PII, log
-  redaction, screenshots, error reports, third-party API egress, training-data
-  isolation, and minimum-necessary access. Use when code or operations touch
-  user data, customer feedback, personal information, secrets, external API
-  calls, screenshots, or error reporting — any path where sensitive data could
-  leak outside its intended boundary.
+description: Enforce privacy and sensitive-data boundaries across access, logging, screenshots, error reports, third-party egress, training data, retention, and deletion. Use only when a task may read, expose, log, retain, screenshot, transmit, or train on secrets, PII, user-generated content, or business-sensitive values. Do not trigger merely because a task uses an external API, takes a non-sensitive screenshot, or reads system metrics.
 ---
 
 # Privacy and Sensitive Data Boundary
@@ -20,12 +15,13 @@ it must be deleted.
 
 ## Use when
 
-Use when code or operations involve customer feedback, tickets, CSV imports,
-user-submitted text, screenshots, error reports, training data, or external API
-and webhook payloads that may contain sensitive information.
+Use when customer feedback, tickets, CSV imports, user-submitted text,
+screenshots, error reports, training data, API payloads, or webhook payloads may
+contain secrets, PII, user-generated content, or business-sensitive values.
 
-Skip pure computation with no external data flow, local-only admin operations,
-and read-only queries against system metrics.
+Do not trigger merely because an external API or screenshot is involved. Skip
+pure computation, non-sensitive visual work, local-only administration, and
+read-only system-metrics queries when no sensitive value can be exposed.
 
 ## What counts as sensitive
 

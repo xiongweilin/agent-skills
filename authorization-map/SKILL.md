@@ -1,6 +1,6 @@
 ---
 name: authorization-map
-description: Map authorization, responsibility, veto, execution, compensation, and affected-party boundaries in workflows where models, rules, humans, systems, or organizations jointly act. Use when an agent, automation, workflow, or business process proposes actions that may affect resources, rights, records, customer outcomes, policy, knowledge bases, ERP/CRM data, public communication, or subjects who may not be able to refuse or correct the result.
+description: Map authorization, responsibility, veto, execution, compensation, and affected-party boundaries. Use only when a proposed state-changing or externally consequential action crosses actors and valid approval, veto, accountability, compensation, or affected-party authority is unclear. Do not trigger for ordinary code review, private drafts, read-only analysis, or reversible local edits with one clear owner.
 ---
 
 # Authorization Map
@@ -9,9 +9,9 @@ A workflow can be technically correct and still have no valid authority to act. 
 
 ## Use when
 
-Use for agent workflows, RPA, SOP publication, catalog listing, refunds, account changes, support escalation, compliance decisions, public reporting, knowledge base updates, ERP/CRM writes, customer-facing communication, or any flow where one actor proposes and another bears the consequence.
+Use when one actor proposes a state-changing or externally consequential action and another actor approves, executes, bears the consequence, or must repair harm. Typical cases include RPA, SOP publication, catalog listing, refunds, account changes, compliance decisions, public reporting, ERP/CRM writes, and customer-facing communication.
 
-Skip low-risk private drafts and reversible local changes.
+Skip ordinary code review, read-only analysis, low-risk private drafts, and reversible local changes with one clear owner.
 
 ## Map roles
 

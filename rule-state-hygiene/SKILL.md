@@ -1,6 +1,6 @@
 ---
 name: rule-state-hygiene
-description: Keep candidate, official, and deprecated rules separate when writing or editing code, tests, fixtures, configuration, comments, or documentation. Prevent mocks, fixtures, temporary workarounds, one-off observations, debug assumptions, and experiment-specific behavior from leaking into production logic or official docs.
+description: Keep candidate, official, and deprecated rules separate. Use only when mocks, fixtures, experiments, temporary workarounds, one-off observations, debug assumptions, or provisional policies could be mistaken for supported production behavior or official documentation. Do not trigger for ordinary code, test, configuration, or documentation changes with no rule-state ambiguity.
 ---
 
 # Rule State Hygiene
@@ -9,9 +9,9 @@ Codebases decay when temporary material is allowed to look official. A mock resp
 
 ## Use when
 
-Use when adding or modifying business rules, validation rules, prompts, policies, configs, feature flags, test fixtures, mock behavior, seed data, comments, README claims, migration notes, troubleshooting docs, or temporary rules that might later be mistaken for supported behavior.
+Use when a business rule, validation rule, prompt, policy, config, feature flag, fixture, mock, seed, comment, README claim, migration note, troubleshooting note, or temporary workaround could be mistaken for supported behavior.
 
-Skip pure refactors, formatting, local variable renames, and behavior-preserving cleanup.
+Skip ordinary code, test, configuration, and documentation changes with no candidate-versus-official ambiguity, plus pure refactors, formatting, renames, and behavior-preserving cleanup.
 
 ## Rule states
 

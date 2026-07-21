@@ -1,6 +1,6 @@
 ---
 name: rollout-and-promotion
-description: Govern how candidate workflows, prompts, rules, thresholds, datasets, models, configs, and evaluation results move from experiment to official behavior. Use when promoting or rejecting agent workflows, prompt versions, rule sets, clustering thresholds, classifiers, RPA flows, BI metrics, SOP generators, or any system where a candidate may be scored, frozen, promoted, unpromoted, deprecated, or exposed publicly.
+description: Govern candidate-to-official transitions for workflows, prompts, rules, thresholds, datasets, models, configs, and evaluation results. Use only when a persisted candidate is being frozen, scored, promoted, rejected, deprecated, or used to support a production or public claim. Do not trigger for ordinary implementation, local experiments, routine deployment, or configuration changes with no candidate-versus-official decision.
 ---
 
 # Rollout and Promotion
@@ -9,9 +9,9 @@ A candidate system does not become official because it ran once or passed one me
 
 ## Use when
 
-Use for prompt versions, workflow DSLs, classifier candidates, rule versions, clustering thresholds, agent suites, RPA flows, evaluation sets, BI metric definitions, SOP generators, or public-facing quality claims.
+Use when persisted prompt versions, workflow DSLs, classifiers, rules, clustering thresholds, agent suites, RPA flows, evaluation sets, BI metrics, or SOP generators are being frozen, scored, promoted, rejected, deprecated, or used to support a production or public claim.
 
-Skip local experiments that are not persisted, scored, or described as supported behavior.
+Skip ordinary implementation, routine deployment, and local experiments that are not persisted, scored, or described as supported behavior.
 
 ## Lifecycle
 

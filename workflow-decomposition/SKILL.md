@@ -1,6 +1,6 @@
 ---
 name: workflow-decomposition
-description: Decompose a business or agent workflow before implementation into inputs, state machine, automated nodes, human authorization nodes, deterministic guards, external side effects, exception paths, evidence records, and observable metrics. Use when designing RPA, ERP/CRM/BI integrations, agent workflows, operational automations, approval flows, ticket pipelines, catalog operations, or customer feedback systems.
+description: Decompose durable multi-actor or cross-system business and agent workflows into inputs, state machines, automated and human nodes, guards, side effects, exceptions, records, and metrics. Use only before implementing or materially changing a workflow with durable state, authorization, retries, human review, or external effects. Do not trigger for ordinary functions, single-service request flows, simple reads, or one-off scripts.
 ---
 
 # Workflow Decomposition
@@ -9,9 +9,9 @@ A business workflow is not a prompt. It is a sequence of states, actors, data tr
 
 ## Use when
 
-Use when designing or modifying RPA, ERP, CRM, BI, catalog operations, customer feedback pipelines, support automation, approval flows, reporting workflows, or agentic operations.
+Use before implementing or materially changing RPA, ERP, CRM, BI, catalog operations, customer feedback pipelines, support automation, approval flows, reporting workflows, or agentic operations that have durable state, multiple actors, authorization, retries, human review, or external effects.
 
-Skip pure local functions, one-off scripts with no durable state, and simple reads.
+Skip ordinary functions, single-service request flows, one-off scripts with no durable state, and simple reads.
 
 ## Decompose before building
 

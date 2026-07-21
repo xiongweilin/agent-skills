@@ -8,14 +8,14 @@
 
 | Skill                            | 覆盖范围                                           | 触发场景                                                      | 边界                                                         |
 | -------------------------------- | ---------------------------------------------- | --------------------------------------------------------- | ---------------------------------------------------------- |
-| `authorization-map`              | 授权、批准、否决、责任、补偿、受影响方                            | 模型、规则、人、系统或组织共同执行会影响资源、记录、客户、政策或公开沟通的行动                   | 不替代普通 code review；只在行动权限和后果归属重要时触发                         |
-| `data-contract-and-lineage`      | 字段契约、来源、状态、版本、证据、使用限制                          | 抽取、分类、BI、评估、审计、CRM/ERP 同步、SOP、catalog enrichment 等数据流     | 不替代接口设计；公共兼容性问题转交 `api-and-interface-design`              |
-| `judgment-ownership`             | 用户判断框架、证据缝隙、剩余决策点                              | 战略、架构、定位、命名、品味、路线、优先级等判断重的任务                              | 不用于低风险格式化、直接实现或事实查找                                        |
-| `rollout-and-promotion`          | 候选到正式行为的晋升、冻结、评分、弃用、公开声明                       | prompt、规则、阈值、数据集、模型、workflow、评估结果准备变成官方行为                 | 不替代 CI/CD 或发布工具；关注“能否声称官方支持”                               |
-| `rule-state-hygiene`             | candidate / official / deprecated 规则分离         | 业务规则、配置、mock、fixture、README、迁移说明、临时 workaround 可能被误认为正式规则 | 不用于纯重命名、格式化或行为不变的清理                                        |
-| `side-effect-safety`             | 不可逆副作用、幂等、补偿、回滚、显式失败                           | 写数据库、发邮件/短信、删除/迁移、外部 API 写入、队列发布、基础设施变更                   | 不替代安全审计；它保护执行副作用本身                                         |
-| `workflow-decomposition`         | 业务/agent workflow 的输入、状态机、人工节点、守卫、副作用、异常、证据、指标 | RPA、ERP/CRM/BI、审批、客服、catalog、agentic operations、运营自动化     | 不替代普通函数设计；只在 durable state 或跨系统流程存在时触发                     |
-| `privacy-and-sensitive-data-boundary` | PII、日志脱敏、截图隐私、第三方 API 外发、训练数据隔离、最小必要访问、保留期限 | 用户数据、反馈文本、CSV 导入、外部 API 调用、截图、错误报告等场景 | 不替代 AGENTS 的凭证访问门禁；扩展到完整敏感数据分类与流转边界 |
+| `authorization-map`              | 授权、批准、否决、责任、补偿、受影响方                            | 跨主体且会改变状态或产生外部后果的行动，批准、否决或问责归属不清                         | 不用于普通 code review、只读分析、私有草稿或单一所有者的可逆本地改动             |
+| `data-contract-and-lineage`      | 字段契约、来源、状态、版本、证据、使用限制                          | 跨模型、规则、人和系统的持久或决策相关数据，必须保留来源、状态、证据或版本                 | 不用于临时草稿、普通内存结构或没有血缘歧义的简单 schema 工作                     |
+| `judgment-ownership`             | 用户判断框架、证据缝隙、剩余决策点                              | 事实和测试无法决定的战略、架构、定位、命名、品味、路线或优先级取舍                     | 不用于事实查找、格式化、低风险编辑或验收标准明确的实现                            |
+| `rollout-and-promotion`          | 候选到正式行为的晋升、冻结、评分、弃用、公开声明                       | 持久候选正在冻结、评分、晋升、拒绝、弃用，或准备支撑生产/公开声明                       | 不用于普通实现、本地实验、例行部署或没有候选/正式决策的配置修改                    |
+| `rule-state-hygiene`             | candidate / official / deprecated 规则分离         | mock、fixture、实验、临时 workaround 或一次性观察可能被误认为正式规则             | 不用于没有规则状态歧义的普通代码、测试、配置或文档修改                             |
+| `side-effect-safety`             | 状态变更副作用、幂等、补偿、回滚、显式失败                          | 写数据库、发送、发布、删除、迁移、外部 API 写入、队列发布、基础设施变更                  | 不用于纯读取、纯计算或可逆本地编辑                                             |
+| `workflow-decomposition`         | 业务/agent workflow 的输入、状态机、人工节点、守卫、副作用、异常、证据、指标 | 具有持久状态、多主体、授权、重试、人工复核或外部副作用的跨系统流程                      | 不用于普通函数、单服务请求流、简单读取或一次性脚本                                |
+| `privacy-and-sensitive-data-boundary` | PII、日志脱敏、截图隐私、第三方外发、训练数据隔离、最小必要访问、保留期限    | 可能读取、记录、截图、传输或保留秘密、PII、用户内容或业务敏感值的任务                   | 不因普通外部 API、非敏感截图或系统指标读取而触发                                 |
 
 ## 组合方式
 
@@ -25,7 +25,7 @@
 
 ### 隐私 / 敏感数据
 
-当任务涉及用户数据、PII、外部 API 调用或截图时，使用 `privacy-and-sensitive-data-boundary`。
+只有当外部 API、截图、日志、错误报告或数据处理可能暴露秘密、PII、用户内容或业务敏感值时，才使用 `privacy-and-sensitive-data-boundary`。
 该 skill 可与任何其他路径并行运行。
 
 ### 外部闭环能力
@@ -39,18 +39,18 @@
 
 ### 业务流程或智能体流程
 
-1. 使用 `workflow-decomposition` 拆出状态、流转、人工节点、自动节点、确定性守卫、外部副作用、异常路径、记录和指标。
-2. 使用 `authorization-map` 明确谁提出、谁验证、谁批准、谁执行、谁否决、谁补偿、谁承担问责。
-3. 如果流程会转换字段、标签、证据、报表、评分、prompt 或生成输出，使用 `data-contract-and-lineage`。
-4. 在任何不可逆写入、发布、发送、删除、迁移或外部 API 变更前，使用 `side-effect-safety`。
-5. 如果 workflow、prompt、规则、阈值或模型行为可能变成正式能力或对外声明，使用 `rollout-and-promotion`。
+1. 只有流程存在持久状态、多主体、授权、重试、人工复核或外部副作用时，才使用 `workflow-decomposition`。
+2. 只有行动会改变状态或产生外部后果，且批准、否决、受影响方或问责归属不清时，才叠加 `authorization-map`。
+3. 只有持久或决策相关字段跨模型、规则、人和系统转换，并需要来源、状态、证据或版本时，才叠加 `data-contract-and-lineage`。
+4. 只有流程会写入、发送、发布、删除、迁移或改变外部状态时，才叠加 `side-effect-safety`。
+5. 只有持久候选正在冻结、评分、晋升、拒绝、弃用或准备支撑正式声明时，才叠加 `rollout-and-promotion`。
 
 ### 规则、政策、fixture、prompt 或文档变更
 
-1. 如果变更承载战略、品味、架构、定位或优先级判断，使用 `judgment-ownership`。
-2. 使用 `rule-state-hygiene` 标记材料属于 candidate、official 还是 deprecated。
-3. 如果声明依赖证据、数据集、prompt、阈值、offset 或版本化产物，使用 `data-contract-and-lineage`。
-4. 在声称某行为已支持、已晋升、可生产使用或正式可用之前，使用 `rollout-and-promotion`。
+1. 只有事实和测试无法决定战略、品味、架构、定位或优先级取舍时，才使用 `judgment-ownership`。
+2. 只有临时、实验、mock、fixture 或一次性材料可能被误认为正式规则时，才使用 `rule-state-hygiene`。
+3. 只有正式声明需要追溯证据、数据集、prompt、阈值、offset 或版本化产物时，才使用 `data-contract-and-lineage`。
+4. 只有候选准备成为官方行为或支撑生产/公开声明时，才使用 `rollout-and-promotion`。
 
 ### 重复的小例外
 
