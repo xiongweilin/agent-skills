@@ -1,3 +1,9 @@
+---
+document_type: skill-index
+document_status: active
+knowledge_scope: skill-governance
+---
+
 # 运营判断技能集
 
 本仓库保存一组面向智能体、自动化、业务流程和工程交付的判断型 skills。它们不覆盖所有编码任务，只处理容易被模型、流程工具或局部工程视角低估的边界：授权、责任、数据血缘、规则状态、外部副作用、候选晋升、隐私，以及用户判断归属。
@@ -54,7 +60,7 @@
 
 ### 重复的小例外
 
-1. 当同类 workaround、弱断言、跳过检查、特殊分支、降低阈值或“之后修”反复出现时，将其记录为 candidate observation。
+1. 当同类 workaround、弱断言、跳过检查、特殊分支、降低阈值或延后修复反复出现时，将其记录为 candidate observation。
 2. 使用 `rule-state-hygiene`，避免 workaround 被默默当成 official rule。
 3. 如果降低门槛会影响质量声明，使用 `rollout-and-promotion`。
 
@@ -64,17 +70,17 @@
 
 - 它保护的边界会反复造成真实风险、返工、错误声明、错误写入、错误授权或责任混淆。
 - 它的触发条件足够具体，不会把低风险任务拖进重流程。
-- 它的正文提供可执行检查，而不是抽象价值观。
+- 它的正文提供可执行检查，并把抽象价值落实为操作条件。
 - 它与 Codex 自带、插件和外部高优先级 skill 的边界清楚。
 - 它不重复更高优先级 skill；除非它有对方没有覆盖的更窄运营判断角度。
 - 它有与 `SKILL.md` 匹配的 `agents/openai.yaml` 元数据。
 
 ## 维护规则
 
-- 重复覆盖时，优先删除或收窄，而不是继续堆叠。
+- 重复覆盖时，优先删除或收窄，避免继续堆叠。
 - 如果新的外部 skill 取代了本仓库某个 skill，应删除本地 skill，并更新本 README。
 - 如果某个 skill 虽有重叠但仍需保留，必须在 README 和 skill description 中说明边界。
-- `SKILL.md` 保持简短。只有真正存在可复用细节时，才把长资料放入 `references/`。
+- `SKILL.md` 保持简短。存在可复用细节时，再把长资料放入 `references/`。
 - 以本仓库作为安装源时，修改后要同步 `~/.codex/skills` 下的安装副本。
 - 修改 skill 后，检查 git 状态，并确认安装副本与源文件一致。
 - 第三方 skill 保持上游来源，不复制到本仓库；本地通用增量进入 AGENTS 或自有 skill。
@@ -91,4 +97,4 @@
     └── openai.yaml
 ~~~
 
-仓库 README 本身不是任何 skill 的触发内容。它只说明这组运营判断 skill 如何嵌入当前更大的本机 skill 体系。
+仓库 README 只说明这组运营判断 skill 如何嵌入当前更大的本机 skill 体系，不承担任何 skill 的触发内容。
