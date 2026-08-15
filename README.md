@@ -28,7 +28,7 @@ knowledge_scope: skill-governance
 
 ### 通用执行门禁
 
-修改前的上下文检查、持久新增的承载与退役判断、命令权限和完成验证直接遵循部署的全局 AGENTS.md。这些规则始终加载，不再通过独立 skill 重复注入。`interaction` 不重复注入该门禁，而是承载 AGENTS.md 交互提示显式引用的触发条件与输出检查清单（提示原文："触发条件与检查清单见 interaction skill"），两者按"提示=原则、skill=操作细节"分工。
+修改前的上下文检查、持久新增的承载与退役判断、命令权限和完成验证直接遵循部署的全局 AGENTS.md。这些规则始终加载，不再通过独立 skill 重复注入。`interaction` 不重复注入该门禁，而是承载交互提示显式引用的触发条件与输出检查清单（提示原文："触发条件与检查清单见 interaction skill"，2026-08-15 自 AGENTS.md 前移至第五模式 anchored-minimal persona），两者按"提示=原则、skill=操作细节"分工。
 
 ### 隐私 / 敏感数据
 
