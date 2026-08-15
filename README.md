@@ -4,92 +4,91 @@ document_status: active
 knowledge_scope: skill-governance
 ---
 
-# 运营判断技能集
+# Operational Judgment Skills
 
-本仓库保存一组面向智能体、自动化、业务流程和工程交付的判断型 skills。它们不覆盖所有编码任务，只处理容易被模型、流程工具或局部工程视角低估的边界：授权、责任、数据血缘、规则状态、外部副作用、候选晋升、隐私，以及用户判断归属。
+This repository holds a set of judgment-type skills for agents, automation, business processes, and engineering delivery. They do not cover every coding task; they only handle boundaries that models, process tooling, or a local engineering perspective tend to underestimate: authorization, responsibility, data lineage, rule state, external side effects, candidate promotion, privacy, and the ownership of user judgment.
 
-始终适用的任务范围、上下文充分性、持久变更门禁、命令权限和完成验证由部署维护的全局 AGENTS.md（始终加载的运行时执行规则）负责，不在本仓库重复。
+Always-applicable task scope, context sufficiency, durable-change gates, command permissions, and completion verification are owned by the deployed global AGENTS.md (the always-loaded runtime rules) and are not repeated in this repository.
 
-## 当前 skill
+## Current skills
 
-| Skill                            | 覆盖范围                                           | 触发场景                                                      | 边界                                                         |
-| -------------------------------- | ---------------------------------------------- | --------------------------------------------------------- | ---------------------------------------------------------- |
-| `authorization-map`              | 授权、批准、否决、责任、补偿、受影响方                            | 跨主体且会改变状态或产生外部后果的行动，批准、否决或问责归属不清                         | 不用于普通 code review、只读分析、私有草稿或单一所有者的可逆本地改动             |
-| `data-contract-and-lineage`      | 字段契约、来源、状态、版本、证据、使用限制                          | 跨模型、规则、人和系统的持久或决策相关数据，必须保留来源、状态、证据或版本                 | 不用于临时草稿、普通内存结构或没有血缘歧义的简单 schema 工作                     |
-| `judgment-ownership`             | 用户判断框架、证据缝隙、剩余决策点                              | 事实和测试无法决定的战略、架构、定位、命名、品味、路线或优先级取舍                     | 不用于事实查找、格式化、低风险编辑或验收标准明确的实现                            |
-| `rollout-and-promotion`          | 候选到正式行为的晋升、冻结、评分、弃用、公开声明                       | 持久候选正在冻结、评分、晋升、拒绝、弃用，或准备支撑生产/公开声明                       | 不用于普通实现、本地实验、例行部署或没有候选/正式决策的配置修改                    |
-| `rule-state-hygiene`             | candidate / official / deprecated 规则分离         | mock、fixture、实验、临时 workaround 或一次性观察可能被误认为正式规则             | 不用于没有规则状态歧义的普通代码、测试、配置或文档修改                             |
-| `side-effect-safety`             | 状态变更副作用、幂等、补偿、回滚、显式失败                          | 写数据库、发送、发布、删除、迁移、外部 API 写入、队列发布、基础设施变更                  | 不用于纯读取、纯计算或可逆本地编辑                                             |
-| `workflow-decomposition`         | 业务/agent workflow 的输入、状态机、人工节点、守卫、副作用、异常、证据、指标 | 具有持久状态、多主体、授权、重试、人工复核或外部副作用的跨系统流程                      | 不用于普通函数、单服务请求流、简单读取或一次性脚本                                |
-| `privacy-and-sensitive-data-boundary` | PII、日志脱敏、截图隐私、第三方外发、训练数据隔离、最小必要访问、保留期限    | 可能读取、记录、截图、传输或保留秘密、PII、用户内容或业务敏感值的任务                   | 不因普通外部 API、非敏感截图或系统指标读取而触发                                 |
-| `interaction`                       | 理解与执行前的交互确认；范围、语义或授权不确定时先复述并取得确认             | 非执行动词（思考/方案/讨论）却准备改状态；自行收窄或扩大用户未声明的限定；有持久/跨工作区/外部/难回退后果 | 不用于指令明确、低风险、可逆且范围无歧义的任务；不把每个决定都推回用户                 |
+| Skill | Coverage | Trigger | Boundary |
+| --- | --- | --- | --- |
+| `authorization-map` | Authorization, approval, veto, responsibility, compensation, affected parties | Actions that cross actors and change state or produce external consequences, where approval/veto/accountability ownership is unclear | Not for ordinary code review, read-only analysis, private drafts, or reversible local edits with a single clear owner |
+| `data-contract-and-lineage` | Field contracts, provenance, state, version, evidence, usage limits | Persistent or decision-relevant data across models, rules, people, and systems that must keep provenance/state/evidence/version | Not for throwaway drafts, ordinary in-memory structures, or simple schema work with no lineage ambiguity |
+| `judgment-ownership` | User judgment frames, evidence seams, remaining decision points | Strategy, architecture, positioning, naming, taste, route, or priority tradeoffs that facts and tests cannot decide | Not for factual lookup, formatting, low-risk edits, or implementation with clear acceptance criteria |
+| `rollout-and-promotion` | Candidate-to-official promotion, freeze, scoring, deprecation, public claims | A persisted candidate is being frozen, scored, promoted, rejected, deprecated, or prepared to support a production/public claim | Not for ordinary implementation, local experiments, routine deployment, or config changes with no candidate/official decision |
+| `rule-state-hygiene` | Separation of candidate / official / deprecated rules | Mocks, fixtures, experiments, temporary workarounds, or one-off observations could be mistaken for official rules | Not for ordinary code, tests, config, or doc changes with no rule-state ambiguity |
+| `side-effect-safety` | State-change side effects, idempotency, compensation, rollback, explicit failure | DB writes, sends, publishes, deletes, migrations, external API writes, queue publishes, infrastructure changes | Not for pure reads, pure computation, or reversible local edits |
+| `workflow-decomposition` | Business/agent workflow inputs, state machines, human nodes, guards, side effects, exceptions, evidence, metrics | Cross-system flows with persistent state, multiple actors, authorization, retries, human review, or external side effects | Not for ordinary functions, single-service request flows, simple reads, or one-off scripts |
+| `privacy-and-sensitive-data-boundary` | PII, log redaction, screenshot privacy, third-party egress, training-data isolation, minimal necessary access, retention | Tasks that may read, record, screenshot, transmit, or retain secrets, PII, user content, or business-sensitive values | Not triggered by ordinary external APIs, non-sensitive screenshots, or system-metric reads |
+| `interaction` | Confirmation before understanding/execution; restate and confirm when scope, meaning, or authorization is uncertain | Non-execution verbs (think/propose/discuss) yet about to change state; self-narrowing or self-expanding of qualifiers the user did not state; durable/cross-workspace/external/hard-to-reverse consequences | Not for tasks with explicit instructions, low risk, reversibility, and unambiguous scope; do not bounce every decision back to the user |
 
-## 组合方式
+## Composition
 
-### 通用执行门禁
+### General execution gate
 
-修改前的上下文检查、持久新增的承载与退役判断、命令权限和完成验证直接遵循部署的全局 AGENTS.md。这些规则始终加载，不再通过独立 skill 重复注入。`interaction` 不重复注入该门禁，而是承载交互提示显式引用的触发条件与输出检查清单（提示原文："触发条件与检查清单见 interaction skill"，2026-08-15 自 AGENTS.md 前移至第五模式 anchored-minimal persona），两者按"提示=原则、skill=操作细节"分工。
+Pre-modification context checks, durable-addition ownership and retirement judgment, command permissions, and completion verification follow the deployed global AGENTS.md directly. Those rules are always loaded and are not re-injected through separate skills. `interaction` does not re-inject that gate; it carries the trigger conditions and output checklist explicitly referenced by the interaction prompt (prompt text: "Trigger conditions and checklist: see the interaction skill", moved from AGENTS.md to the fifth-mode anchored-minimal persona on 2026-08-15), a division of "prompt = principle, skill = operational detail".
 
-### 隐私 / 敏感数据
+### Privacy / sensitive data
 
-只有当外部 API、截图、日志、错误报告或数据处理可能暴露秘密、PII、用户内容或业务敏感值时，才使用 `privacy-and-sensitive-data-boundary`。
-该 skill 可与任何其他路径并行运行。
+Use `privacy-and-sensitive-data-boundary` only when external APIs, screenshots, logs, error reports, or data processing may expose secrets, PII, user content, or business-sensitive values. It can run in parallel with any other path.
 
-### 外部闭环能力
+### External closed-loop capabilities
 
-以下能力来自更高优先级的保留或按需启用 skills，不复制进本仓库：
+The following capabilities come from higher-priority reserved or on-demand skills and are not copied into this repository:
 
-- `api-and-interface-design`：公共接口兼容性与弃用。
-- `observability-and-instrumentation`：生产运行证据。
-- `security-best-practices` / `security-threat-model`：安全编码与威胁建模。
-- `documentation-and-adrs`：决策记录。
+- `api-and-interface-design`: public interface compatibility and deprecation.
+- `observability-and-instrumentation`: production runtime evidence.
+- `security-best-practices` / `security-threat-model`: secure coding and threat modeling.
+- `documentation-and-adrs`: decision records.
 
-### 业务流程或智能体流程
+### Business or agent flows
 
-1. 只有流程存在持久状态、多主体、授权、重试、人工复核或外部副作用时，才使用 `workflow-decomposition`。
-2. 只有行动会改变状态或产生外部后果，且批准、否决、受影响方或问责归属不清时，才叠加 `authorization-map`。
-3. 只有持久或决策相关字段跨模型、规则、人和系统转换，并需要来源、状态、证据或版本时，才叠加 `data-contract-and-lineage`。
-4. 只有流程会写入、发送、发布、删除、迁移或改变外部状态时，才叠加 `side-effect-safety`。
-5. 只有持久候选正在冻结、评分、晋升、拒绝、弃用或准备支撑正式声明时，才叠加 `rollout-and-promotion`。
+1. Use `workflow-decomposition` only when the flow has persistent state, multiple actors, authorization, retries, human review, or external side effects.
+2. Layer `authorization-map` only when an action changes state or has external consequences and approval/veto/affected-party/accountability ownership is unclear.
+3. Layer `data-contract-and-lineage` only when persistent or decision-relevant fields cross models, rules, people, and systems and need provenance, state, evidence, or version.
+4. Layer `side-effect-safety` only when the flow writes, sends, publishes, deletes, migrates, or changes external state.
+5. Layer `rollout-and-promotion` only when a persisted candidate is being frozen, scored, promoted, rejected, deprecated, or prepared to support an official claim.
 
-### 规则、政策、fixture、prompt 或文档变更
+### Rule, policy, fixture, prompt, or documentation changes
 
-1. 只有事实和测试无法决定战略、品味、架构、定位或优先级取舍时，才使用 `judgment-ownership`。
-2. 只有临时、实验、mock、fixture 或一次性材料可能被误认为正式规则时，才使用 `rule-state-hygiene`。
-3. 只有正式声明需要追溯证据、数据集、prompt、阈值、offset 或版本化产物时，才使用 `data-contract-and-lineage`。
-4. 只有候选准备成为官方行为或支撑生产/公开声明时，才使用 `rollout-and-promotion`。
+1. Use `judgment-ownership` only when facts and tests cannot decide strategy, taste, architecture, positioning, or priority tradeoffs.
+2. Use `rule-state-hygiene` only when temporary, experimental, mock, fixture, or one-off material could be mistaken for official rules.
+3. Use `data-contract-and-lineage` only when official claims need traceable evidence, datasets, prompts, thresholds, offsets, or versioned artifacts.
+4. Use `rollout-and-promotion` only when a candidate is becoming official behavior or supporting a production/public claim.
 
-### 重复的小例外
+### Repeated small exceptions
 
-1. 当同类 workaround、弱断言、跳过检查、特殊分支、降低阈值或延后修复反复出现时，将其记录为 candidate observation。
-2. 使用 `rule-state-hygiene`，避免 workaround 被默默当成 official rule。
-3. 如果降低门槛会影响质量声明，使用 `rollout-and-promotion`。
+1. When the same kind of workaround, weak assertion, skipped check, special branch, lowered threshold, or deferred fix recurs, record it as a candidate observation.
+2. Use `rule-state-hygiene` so the workaround is not silently treated as an official rule.
+3. If lowering the bar affects quality claims, use `rollout-and-promotion`.
 
-## 质量门槛
+## Quality bar
 
-一个 skill 只有同时满足以下条件，才应保留在本仓库：
+A skill should stay in this repository only if it satisfies all of the following:
 
-- 它保护的边界会反复造成真实风险、返工、错误声明、错误写入、错误授权或责任混淆。
-- 它的触发条件足够具体，不会把低风险任务拖进重流程。
-- 它的正文提供可执行检查，并把抽象价值落实为操作条件。
-- 它与当前 agent 运行时自带、插件和外部高优先级 skill 的边界清楚。
-- 它不重复更高优先级 skill；除非它有对方没有覆盖的更窄运营判断角度。
-- 它有与 `SKILL.md` 匹配的 `agents/openai.yaml` 元数据。
+- The boundary it protects repeatedly causes real risk, rework, false claims, wrong writes, wrong authorization, or responsibility confusion.
+- Its triggers are specific enough not to drag low-risk tasks into heavy process.
+- Its body provides executable checks and turns abstract value into operational conditions.
+- Its boundary with current agent-runtime built-ins, plugins, and external high-priority skills is clear.
+- It does not duplicate higher-priority skills; unless it has a narrower operational-judgment angle the other does not cover.
+- It has `agents/openai.yaml` metadata matching `SKILL.md`.
 
-## 维护规则
+## Maintenance rules
 
-- 重复覆盖时，优先删除或收窄，避免继续堆叠。
-- 如果新的外部 skill 取代了本仓库某个 skill，应删除本地 skill，并更新本 README。
-- 如果某个 skill 虽有重叠但仍需保留，必须在 README 和 skill description 中说明边界。
-- `SKILL.md` 保持简短。存在可复用细节时，再把长资料放入 `references/`。
-- 以本仓库作为安装源时，修改后要同步到当前 agent 运行时的 skills 安装目录。
-- 修改 skill 后，检查 git 状态，并确认安装副本与源文件一致。
-- 第三方 skill 保持上游来源，不复制到本仓库；本地通用增量进入 AGENTS 或自有 skill。
-- 部署的全局 AGENTS.md 是单独维护、始终加载的运行时执行规则；本仓库不再保存其版本化副本。它不属于 skill，也不计入 skill 数量。
+- When coverage overlaps, prefer deletion or narrowing to stacking more.
+- If a new external skill replaces one here, delete the local skill and update this README.
+- If a skill overlaps but must stay, document the boundary in the README and the skill description.
+- Keep `SKILL.md` short; move long material into `references/` when reusable.
+- With this repository as the install source, sync changes to the current agent runtime's skills install directory.
+- After modifying a skill, check git status and confirm the installed copy matches the source.
+- Third-party skills keep their upstream origin and are not copied here; local generic increments go into AGENTS or an owned skill.
+- The deployed global AGENTS.md is separately maintained, always-loaded runtime rules; this repository no longer keeps a versioned copy of it. It is not a skill and does not count toward the skill count.
 
-## 目录结构
+## Directory structure
 
-每个 skill 使用标准 Codex skill 目录形态：
+Each skill uses the standard Codex skill directory layout:
 
 ~~~text
 <skill-name>/
@@ -98,4 +97,4 @@ knowledge_scope: skill-governance
     └── openai.yaml
 ~~~
 
-仓库 README 只说明这组运营判断 skill 如何嵌入当前更大的本机 skill 体系，不承担任何 skill 的触发内容。
+The repository README only explains how this set of operational-judgment skills fits into the current larger local skill system; it carries no skill trigger content.
