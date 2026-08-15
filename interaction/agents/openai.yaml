@@ -1,0 +1,4 @@
+interface:
+  display_name: "Interaction"
+  short_description: "Check in before deciding on unclear scope"
+  default_prompt: "Use $interaction when my request leaves scope or authorization unclear: restate your reading and confirm before acting, instead of narrowing, expanding, or executing unilaterally."
