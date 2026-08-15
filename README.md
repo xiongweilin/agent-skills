@@ -28,7 +28,7 @@ Always-applicable task scope, context sufficiency, durable-change gates, command
 
 ### General execution gate
 
-Pre-modification context checks, durable-addition ownership and retirement judgment, command permissions, and completion verification follow the deployed global AGENTS.md directly. Those rules are always loaded and are not re-injected through separate skills. `interaction` does not re-inject that gate; it carries the trigger conditions and output checklist explicitly referenced by the interaction prompt (prompt text: "Trigger conditions and checklist: see the interaction skill", moved from AGENTS.md to the fifth-mode anchored-minimal persona on 2026-08-15), a division of "prompt = principle, skill = operational detail".
+Pre-modification context checks, durable-addition ownership and retirement judgment, command permissions, and completion verification follow the deployed global AGENTS.md directly. Those rules are always loaded and are not re-injected through separate skills. `interaction` does not re-inject that gate; it carries the trigger conditions and output checklist explicitly referenced by the interaction prompt (prompt text: "Trigger conditions and checklist: see the interaction skill", moved from AGENTS.md to the fifth-mode anchored-minimal persona on 2026-08-15; that preset has since been removed), a division of "prompt = principle, skill = operational detail".
 
 ### Privacy / sensitive data
 
