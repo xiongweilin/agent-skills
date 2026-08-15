@@ -88,7 +88,7 @@ A skill should stay in this repository only if it satisfies all of the following
 
 ## Directory structure
 
-Each skill uses the standard Codex skill directory layout:
+Each skill uses a standard skill directory layout:
 
 ~~~text
 <skill-name>/
