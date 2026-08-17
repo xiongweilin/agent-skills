@@ -1,0 +1,4 @@
+interface:
+  display_name: "Chezmoi Management"
+  short_description: "Edit chezmoi source, apply, verify, commit"
+  default_prompt: "Use $chezmoi-management to change chezmoi-managed files: edit the source, apply, verify no diff, then commit and push."

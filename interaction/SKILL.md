@@ -1,6 +1,6 @@
 ---
 name: interaction
-description: Check in with the user before deciding when scope, meaning, or authorization is uncertain, instead of unilaterally narrowing, expanding, or acting. Use when a request uses non-execution wording (think, propose, discuss, review) and you are about to change state, when your reading adds or drops qualifiers the user did not state, or when the action has durable, cross-workspace, external, or hard-to-reverse consequences. Do not trigger for explicit, low-risk, reversible work with clear instructions — proceed directly rather than bouncing decisions back.
+description: Check in before deciding when scope, meaning, or authorization is uncertain. Use when a request uses non-execution wording (think, propose, discuss, review) and you are about to change state, when your reading adds or drops qualifiers the user did not state, or when the action has durable, cross-workspace, external, or hard-to-reverse consequences. Do not trigger for explicit, low-risk, reversible work with clear instructions.
 ---
 
 # Interaction

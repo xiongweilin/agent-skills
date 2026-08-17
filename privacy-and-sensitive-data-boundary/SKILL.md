@@ -1,6 +1,6 @@
 ---
 name: privacy-and-sensitive-data-boundary
-description: Enforce privacy and sensitive-data boundaries across access, logging, screenshots, error reports, third-party egress, training data, retention, and deletion. Use only when a task may read, expose, log, retain, screenshot, transmit, or train on secrets, PII, user-generated content, or business-sensitive values. Do not trigger merely because a task uses an external API, takes a non-sensitive screenshot, or reads system metrics.
+description: Enforce privacy and sensitive-data boundaries across access, logging, screenshots, error reports, egress, training data, retention, and deletion. Use only when a task may read, expose, log, retain, screenshot, transmit, or train on secrets, PII, user content, or business-sensitive values. Do not trigger merely because a task uses an external API or takes a non-sensitive screenshot.
 ---
 
 # Privacy and Sensitive Data Boundary
