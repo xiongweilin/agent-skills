@@ -14,7 +14,7 @@ Use when a change touches a chezmoi-managed file (e.g. `.dsh/AGENTS.md`), or whe
 ## Method
 
 1. **Edit the source.** Locate the managed path under the source root (e.g. `.dsh/AGENTS.md` → `dot_dsh/AGENTS.md`) and edit the source file only.
-2. **Apply to the runtime copy.** Run `chezmoi apply` so the runtime copy is regenerated from the source.
+2. **Apply to the runtime copy.** Run `chezmoi apply` so the runtime copy is regenerated from the source. Non-interactive runs may block on the prompt "…has changed since chezmoi last wrote it?" — use `chezmoi apply --force` to overwrite without prompting, and run from the destination directory with a destination-relative target (e.g. `chezmoi apply --force -- .dsh/AGENTS.md`).
 3. **Verify no diff.** Confirm the runtime copy matches the source (identical hashes) and `chezmoi managed` agrees.
 4. **Commit and push.** The source directory is its own git repository; commit and push the change there.
 
