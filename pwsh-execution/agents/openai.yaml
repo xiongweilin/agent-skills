@@ -1,0 +1,4 @@
+interface:
+  display_name: "PowerShell Execution"
+  short_description: "Robust PowerShell workflow method"
+  default_prompt: "Use $pwsh-execution for PowerShell quoting, multiline scripts, native exit codes, encoding, and remote SSH discipline."

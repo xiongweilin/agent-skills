@@ -1,0 +1,4 @@
+interface:
+  display_name: "Change Closure"
+  short_description: "Close durable changes with fresh verification"
+  default_prompt: "Use $change-closure to close this durable change: verify outcomes, align contract surfaces, sweep identifiers, update authoritative records, and name intentional leftovers."

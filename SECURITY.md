@@ -4,7 +4,7 @@
 
 ## 报告问题
 
-请通过 [Security Advisories](https://github.com/ratiolin/operational-judgment-skills/security/advisories) 提交私有报告，或通过 GitHub 私有 issue 联系维护者；不要在本仓库公开 issue 中透露密钥值、内部路径或可利用细节。
+请通过 [Security Advisories](https://github.com/ratiolin/agent-skills/security/advisories) 提交私有报告，或通过 GitHub 私有 issue 联系维护者；不要在本仓库公开 issue 中透露密钥值、内部路径或可利用细节。
 
 ## 内容边界
 
