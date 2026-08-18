@@ -1,4 +1,4 @@
 interface:
   display_name: "Side-Effect Safety"
   short_description: "Control consequential state changes"
-  default_prompt: "Use $side-effect-safety to design safe execution, rollback, idempotency, and replacement ordering for this consequential state change."
+  default_prompt: "Use $side-effect-safety immediately before this authorized write, delete, publish, migration, replacement, retry, or external effect."

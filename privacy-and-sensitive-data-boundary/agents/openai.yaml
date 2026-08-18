@@ -1,4 +1,4 @@
 interface:
   display_name: "Privacy & Sensitive Data Boundary"
   short_description: "Protect sensitive values across trust boundaries"
-  default_prompt: "Use $privacy-and-sensitive-data-boundary to constrain access, egress, logging, screenshots, and retention for these sensitive values."
+  default_prompt: "Use $privacy-and-sensitive-data-boundary only when secrets, PII, user content, or business-sensitive data may be moved, logged, shown, retained, or deleted."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Workflow Authority"
+  short_description: "Map durable workflow states and authority"
+  default_prompt: "Use $workflow-authority to map the durable workflow's states, actors, approvals, guards, side effects, and accountability."
