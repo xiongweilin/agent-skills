@@ -1,4 +1,4 @@
 interface:
   display_name: "Data Contract & Lineage"
   short_description: "Trace consequential data across boundaries"
-  default_prompt: "Use $data-contract-and-lineage to trace persisted fields, evidence, state, and write authority across this workflow."
+  default_prompt: "Use $data-contract-and-lineage only when persisted or decision-relevant fields need source, owner, version, validation, and allowed-use traceability."

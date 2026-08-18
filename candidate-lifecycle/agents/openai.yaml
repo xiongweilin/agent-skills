@@ -1,0 +1,4 @@
+interface:
+  display_name: "Candidate Lifecycle"
+  short_description: "Keep candidate and official versions distinct"
+  default_prompt: "Use $candidate-lifecycle to classify this version and decide whether it should be promoted, narrowed, rejected, archived, deprecated, or escalated."

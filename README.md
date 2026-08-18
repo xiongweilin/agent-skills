@@ -18,15 +18,11 @@ Boundaries:
 
 | Skill | Purpose |
 | --- | --- |
-| `interaction` | Resolve scope or authorization ambiguity before acting |
-| `authorization-map` | Map approval, veto, responsibility, and affected parties |
-| `judgment-ownership` | Keep the user's frame and judgment visible |
+| `workflow-authority` | Map durable workflow states, actors, approvals, and handoffs |
 | `data-contract-and-lineage` | Keep field provenance, state, and version traceable |
-| `rollout-and-promotion` | Govern candidate-to-official transitions |
-| `rule-state-hygiene` | Keep candidate, official, and deprecated rules separate |
+| `candidate-lifecycle` | Keep candidate, official, and deprecated versions separate |
 | `side-effect-safety` | Control consequential state changes and replacement ordering |
 | `privacy-and-sensitive-data-boundary` | Enforce privacy and sensitive-data boundaries |
-| `workflow-decomposition` | Decompose durable multi-actor workflows |
 | `change-closure` | Close durable changes with fresh verification and consistency |
 | `pwsh-execution` | Execute robust PowerShell workflows on Windows |
 | `chezmoi-management` | Manage dotfiles through chezmoi source files |
