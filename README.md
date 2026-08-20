@@ -1,5 +1,9 @@
 ---
 document_type: skill-index
+
+[![CI](https://github.com/ratiolin/agent-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/ratiolin/agent-skills/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 document_status: active
 knowledge_scope: skill-governance
 ---
