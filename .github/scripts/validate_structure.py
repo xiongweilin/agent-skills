@@ -19,7 +19,7 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-TOP_LEVEL_FILES = {"README.md", "CONTRIBUTING.md", "SECURITY.md"}
+TOP_LEVEL_FILES = {"README.md", "CONTRIBUTING.md", "SECURITY.md", "LICENSE", "LICENSE.md", "CODE_OF_CONDUCT.md", "CODE_OF_CONDUCT", ".editorconfig", ".gitignore", ".gitattributes"}
 SKILL_FILE = "SKILL.md"
 AGENT_META = Path("agents") / "openai.yaml"
 
@@ -131,3 +131,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
