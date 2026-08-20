@@ -7,6 +7,7 @@ knowledge_scope: skill-governance
 ---
 
 [![CI](https://github.com/ratiolin/agent-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/ratiolin/agent-skills/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+- [Code of conduct](CODE_OF_CONDUCT.md) - [Contributing](CONTRIBUTING.md) - [MIT license](LICENSE) - [Security](SECURITY.md)
 
 
 # Agent Skills
