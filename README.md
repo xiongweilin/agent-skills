@@ -7,9 +7,6 @@ knowledge_scope: skill-governance
 ---
 
 [![CI](https://github.com/ratiolin/agent-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/ratiolin/agent-skills/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-- [Code of conduct](CODE_OF_CONDUCT.md) - [Contributing](CONTRIBUTING.md) - [MIT license](LICENSE) - [Security](SECURITY.md)
-
-
 # Agent Skills
 
 A general-purpose skill repository: reusable, selectively loaded procedures and decision protocols for agent work.
@@ -47,3 +44,4 @@ Each skill is a flat directory with `SKILL.md` and `agents/openai.yaml`:
 `SKILL.md` frontmatter `name` must match the directory. Catalog descriptions only identify applicability; checklists live in `SKILL.md`.
 
 See `CONTRIBUTING.md` for the admission criteria and the install-copy sync procedure.
+
