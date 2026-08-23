@@ -6,7 +6,7 @@ document_status: active
 knowledge_scope: skill-governance
 ---
 
-[![CI](https://github.com/ratiolin/agent-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/ratiolin/agent-skills/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![CI](https://github.com/xiongweilin/agent-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/xiongweilin/agent-skills/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 # Agent Skills
 
 A general-purpose skill repository: reusable, selectively loaded procedures and decision protocols for agent work.
