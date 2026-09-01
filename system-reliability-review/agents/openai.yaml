@@ -1,0 +1,4 @@
+interface:
+  display_name: "System Reliability Review"
+  short_description: "Review cross-time failure and recovery structure"
+  default_prompt: "Use $system-reliability-review to review this persistent system for common-mode failure, recovery independence, lock-in, reauthorization, and future maneuverability."
