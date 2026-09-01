@@ -23,10 +23,12 @@ Boundaries:
 | --- | --- |
 | `workflow-authority` | Map durable workflow states, actors, approvals, and handoffs |
 | `data-contract-and-lineage` | Keep field provenance, state, and version traceable |
+| `evidence-qualification-and-revalidation` | Recheck whether prior evidence and conclusions remain usable in the current scope |
 | `candidate-lifecycle` | Keep candidate, official, and deprecated versions separate |
 | `side-effect-safety` | Control consequential state changes and replacement ordering |
 | `privacy-and-sensitive-data-boundary` | Enforce privacy and sensitive-data boundaries |
 | `change-closure` | Close durable changes with fresh verification and consistency |
+| `system-reliability-review` | Review common-mode failure, recovery independence, lock-in, reauthorization, and maneuverability |
 | `pwsh-execution` | Execute robust PowerShell workflows on Windows |
 | `chezmoi-management` | Manage dotfiles through chezmoi source files |
 
