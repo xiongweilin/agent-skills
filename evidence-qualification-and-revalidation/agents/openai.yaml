@@ -1,0 +1,4 @@
+interface:
+  display_name: "Evidence Qualification and Revalidation"
+  short_description: "Check whether prior evidence is still usable"
+  default_prompt: "Use $evidence-qualification-and-revalidation to decide whether this prior evidence or conclusion is still qualified for the current scope and what must be revalidated."
