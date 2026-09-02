@@ -5,6 +5,8 @@ description: Use immediately before an authorized write, delete, publish, migrat
 
 # Side-Effect Safety
 
+The checks below are mandatory safety controls for authorized side effects, not optional post-implementation validation. They remain required when general validation is user-gated.
+
 Before the effect:
 
 1. Resolve the exact target and scope with a read-only check.

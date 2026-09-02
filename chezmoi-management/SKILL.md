@@ -1,15 +1,17 @@
 ---
 name: chezmoi-management
-description: Manage dotfiles through chezmoi source files. Use when a change touches chezmoi-managed files, including AGENTS.md: edit the source first, apply to the runtime copy, verify no diff, then commit and push.
+description: "Manage dotfiles through chezmoi source files. Use when a change touches chezmoi-managed files, including AGENTS.md: edit the source first, apply to the runtime copy, verify no diff, then commit and push."
 ---
 
 # Chezmoi Management
 
 chezmoi-managed files (including the global AGENTS.md) have one fact owner: the source file in the chezmoi source directory. Editing the runtime copy directly creates a competing owner.
 
+The synchronization and repository steps below are mandatory managed-file closure, not optional general self-review. They remain required when this skill applies even when implementation-only defaults suppress ordinary validation.
+
 ## Use when
 
-Use when a change touches a chezmoi-managed file (e.g. `.codex/AGENTS.md`), or when you need to locate how a managed runtime file is sourced.
+Use when a change touches a chezmoi-managed file (e.g. `.codex/AGENTS.md`), or when you need to locate how a managed runtime file is sourced. For read-only source-location requests, do not apply, commit, or push.
 
 ## Method
 
