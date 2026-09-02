@@ -1,11 +1,11 @@
 ---
 name: change-closure
-description: Use only after a user-authorized durable change has been made or when completion verification is requested. Check fresh verification, affected contract surfaces, stale identifiers, authoritative records, and intentional leftovers. Do not trigger for read-only analysis or drafts.
+description: Use only after an explicit request to verify completion or when an applicable safety, contract, or lifecycle gate requires closure. Check fresh verification, affected contract surfaces, stale identifiers, authoritative records, and intentional leftovers. Do not trigger for ordinary authorized implementation changes, read-only analysis, or drafts.
 ---
 
 # Change Closure
 
-Use this checklist only after an authorized durable change or an explicit request to verify completion. Do not reopen the whole design unless a check fails.
+Use this checklist only after an explicit request to verify completion or when an applicable safety, contract, or lifecycle gate requires closure. Do not reopen the whole design unless a check fails.
 
 ## Closure checks
 
