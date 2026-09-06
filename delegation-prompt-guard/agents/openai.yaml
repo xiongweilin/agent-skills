@@ -1,0 +1,4 @@
+interface:
+  display_name: "Delegation Prompt Guard"
+  short_description: "Prepare delegated-agent prompts"
+  default_prompt: "Use $delegation-prompt-guard before dispatching a delegated agent to check authorization and prepare its outbound prompt."

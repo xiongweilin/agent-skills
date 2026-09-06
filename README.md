@@ -15,6 +15,7 @@ Boundaries:
 
 - **Always-applicable scope, authorization, evidence, safety gates, and completion requirements remain in the deployed global AGENTS.md** (the always-loaded runtime rules).
 - **Skills may implement the procedures triggered by those global rules, but must not be the sole owner of an always-applicable gate.**
+- **Delegated-agent dispatch prompting is routed by the global AGENTS.md to `delegation-prompt-guard`; the detailed procedure lives in that skill.**
 - **Volatile machine-, workspace-, service-, and environment-specific facts remain in their authoritative fact owners and are not duplicated into skills.**
 
 ## Current skills
@@ -26,8 +27,8 @@ Boundaries:
 | `evidence-qualification-and-revalidation` | Recheck whether prior evidence and conclusions remain usable in the current scope |
 | `candidate-lifecycle` | Keep candidate, official, and deprecated versions separate |
 | `side-effect-safety` | Control consequential state changes and replacement ordering |
-| `privacy-and-sensitive-data-boundary` | Enforce privacy and sensitive-data boundaries |
 | `change-closure` | Close durable changes with fresh verification and consistency |
+| `delegation-prompt-guard` | Prepare and guard delegated-agent dispatch prompts |
 | `system-reliability-review` | Review common-mode failure, recovery independence, lock-in, reauthorization, and maneuverability |
 | `pwsh-execution` | Execute robust PowerShell workflows on Windows |
 | `chezmoi-management` | Manage dotfiles through chezmoi source files |
