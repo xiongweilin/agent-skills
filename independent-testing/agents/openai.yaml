@@ -1,0 +1,4 @@
+interface:
+  display_name: "Independent Testing"
+  short_description: "Independently test one bounded candidate"
+  default_prompt: "Use $independent-testing because this task identifies you as the independent-testing subagent; test the bounded candidate independently, establish a reusable testing basis, and return PASS, FAIL, or REOPEN."
