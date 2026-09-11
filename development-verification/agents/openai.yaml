@@ -1,0 +1,4 @@
+interface:
+  display_name: "Development Verification"
+  short_description: "Independently verify one development episode"
+  default_prompt: "Use $development-verification because this task identifies you as the development-verification subagent; verify the current candidate independently and return PASS, FAIL, or REOPEN."
