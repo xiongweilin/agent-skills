@@ -26,6 +26,12 @@ State that the task is independent testing rather than code review. The independ
 
 Do not prescribe a hand-picked test list unless that list is itself part of the authoritative repository workflow or acceptance basis. Do not broaden authorization merely to create remote testing evidence.
 
+## Wait for the testing outcome
+
+After dispatch, wait for the independent-testing subagent to return a terminal outcome. Multiple consecutive wait or poll cycles, including dozens while the delegated run remains active, can be normal and do not by themselves indicate a stall. Do not interrupt, cancel, redispatch, or take over the testing merely because the subagent has not returned after several wait cycles.
+
+Stop waiting only when the subagent returns, the runtime reports a terminal failure or cancellation, the user intervenes, or there is concrete evidence that the delegated run can no longer complete.
+
 ## Reuse or renew the testing basis
 
 After one independent-testing pass has established an identifiable testing basis, do not redispatch independent testing merely because a small repair changed the implementation.
