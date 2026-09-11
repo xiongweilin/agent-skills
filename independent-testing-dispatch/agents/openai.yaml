@@ -1,0 +1,4 @@
+interface:
+  display_name: "Independent Testing Dispatch"
+  short_description: "Prepare or renew an independent-testing handoff"
+  default_prompt: "Use $independent-testing-dispatch to prepare an independent-testing handoff or decide whether a later repair can reuse the established testing basis without another independent-testing dispatch."
