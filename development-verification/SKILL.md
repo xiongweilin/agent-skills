@@ -21,7 +21,9 @@ Do not infer acceptance from the developer's rationale. Treat implementation exp
 
 ## Verify independently
 
-Inspect the candidate and choose the smallest set of checks that can materially distinguish pass from failure for the qualified scope. Depending on the repository, this may include existing tests, targeted new or temporary tests, type checks, static analysis, builds, migrations, integration checks, adversarial cases, runtime probes, or staging evidence.
+Own all verification activity for the current development episode, including creating or modifying tests and running any tests, type checks, static analysis, builds used as correctness checks, migrations, integration checks, adversarial cases, runtime probes, staging checks, or equivalent correctness review. Do not assume the implementing agent has already performed any of these checks.
+
+Inspect the candidate and choose the smallest set of checks that can materially distinguish pass from failure for the qualified scope.
 
 You may modify only test or verification artifacts when that is already authorized and needed to obtain discriminating evidence. Do not modify production implementation, acceptance-owner documents, authorization policy, or unrelated repository state.
 
