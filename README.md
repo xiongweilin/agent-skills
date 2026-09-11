@@ -29,7 +29,8 @@ Boundaries:
 | `side-effect-safety` | Control consequential state changes and replacement ordering |
 | `change-closure` | Close durable changes with fresh verification and consistency |
 | `delegation-prompt-guard` | Prepare and guard delegated-agent dispatch prompts |
-| `development-verification` | Independently verify one complex development episode and return PASS, FAIL, or REOPEN |
+| `independent-testing-dispatch` | Prepare an independent-testing handoff and decide whether later repairs require redispatch |
+| `independent-testing` | Test one bounded candidate independently and establish a reusable testing basis |
 | `system-reliability-review` | Review common-mode failure, recovery independence, lock-in, reauthorization, and maneuverability |
 | `pwsh-execution` | Execute robust PowerShell workflows on Windows |
 | `chezmoi-management` | Manage dotfiles through chezmoi source files |
