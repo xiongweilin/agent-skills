@@ -94,4 +94,4 @@ Skills load on demand. Always-applicable gates live here; procedures live in ski
 
 * When teaching or editing personal documentation, default to Chinese while preserving literal identifiers, paths, commands, and document structure.
 * For explicit capability-transfer tasks, distinguish artifact correctness from learner mastery. Do not claim the user has learned without evidence.
-* This `AGENTS.md` is maintained in `D:\agent\agent-skills\codex-agents-md`; synchronize its runtime copy to `C:\Users\metra\.codex\AGENTS.md` with `codex-agents-md\sync-codex-agents.ps1`.
+* This `AGENTS.md` is maintained in `D:\agent\agent-skills\codex-agents-md`; synchronize its runtime copy to `$env:USERPROFILE\.codex\AGENTS.md` with `codex-agents-md\sync-codex-agents.ps1`.
