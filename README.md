@@ -18,6 +18,8 @@ Boundaries:
 - **Delegated-agent dispatch prompting is routed by the global AGENTS.md to `delegation-prompt-guard`; the detailed procedure lives in that skill.**
 - **Volatile machine-, workspace-, service-, and environment-specific facts remain in their authoritative fact owners and are not duplicated into skills.**
 
+`codex-agents-md/AGENTS.md` is the source for the deployed global Codex guidance. Run [`codex-agents-md/sync-codex-agents.ps1`](codex-agents-md/sync-codex-agents.ps1) to synchronize it to `C:\Users\metra\.codex\AGENTS.md`; the runtime copy is no longer tracked by chezmoi.
+
 ## Current skills
 
 | Skill | Purpose |

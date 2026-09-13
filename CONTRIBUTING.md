@@ -28,7 +28,9 @@
 
 ## 同步安装副本
 
-以本仓库作为安装源时，修改后同步到当前 agent 运行时的 skills 安装目录（`~/.codex/skills/`），并检查安装副本与源文件一致（哈希比对）。部署的全局 AGENTS.md 单独维护（chezmoi 管理），不复制进本仓库。
+以本仓库作为安装源时，修改后同步到当前 agent 运行时的 skills 安装目录（`~/.codex/skills/`），并检查安装副本与源文件一致（哈希比对）。
+
+全局 `AGENTS.md` 由 `codex-agents-md/` 持有。修改后运行 `codex-agents-md\sync-codex-agents.ps1`，将源文件同步到 `C:\Users\metra\.codex\AGENTS.md` 并核对哈希；全局运行副本不再由 chezmoi 跟踪。
 
 ## 提交约定
 
