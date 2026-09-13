@@ -2,7 +2,7 @@
 
 Checks, using only the standard library:
 
-1. every top-level directory is a skill with the canonical layout
+1. every top-level skill directory is a skill with the canonical layout
    (``SKILL.md`` + ``agents/openai.yaml``);
 2. ``SKILL.md`` frontmatter ``name`` matches the directory and a
    ``description`` is present;
@@ -20,6 +20,7 @@ from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 TOP_LEVEL_FILES = {"README.md", "CONTRIBUTING.md", "SECURITY.md", "LICENSE", "LICENSE.md", "CODE_OF_CONDUCT.md", "CODE_OF_CONDUCT", ".editorconfig", ".gitignore", ".gitattributes"}
+NON_SKILL_DIRS = {"codex-agents-md"}
 SKILL_FILE = "SKILL.md"
 AGENT_META = Path("agents") / "openai.yaml"
 
@@ -111,9 +112,10 @@ def check_local_links(failures: list[str]) -> None:
 
 def main() -> int:
     failures: list[str] = []
-    skill_names = {d.name for d in ROOT.iterdir() if d.is_dir() and not d.name.startswith(".")}
+    skill_dirs = [d for d in ROOT.iterdir() if d.is_dir() and not d.name.startswith(".") and d.name not in NON_SKILL_DIRS]
+    skill_names = {d.name for d in skill_dirs}
     for entry in sorted(ROOT.iterdir()):
-        if entry.is_dir() and not entry.name.startswith("."):
+        if entry.is_dir() and not entry.name.startswith(".") and entry.name not in NON_SKILL_DIRS:
             check_skill_layout(entry, failures)
     check_readme_table(skill_names, failures)
     for entry in sorted(ROOT.iterdir()):
