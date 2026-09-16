@@ -14,6 +14,7 @@ Use this skill only in the agent that is about to invoke a delegation tool.
 - Before invoking a delegation tool, ensure that the outbound prompt contains the exact sentence “不要派发智能体，由你执行”.
 - This skill governs the dispatcher’s outbound prompt. The receiving agent does not need to know or infer that it is a delegated agent, and this skill does not impose a requirement on prompts it receives.
 - Do not pass this skill to the receiving agent unless the task explicitly requires that agent to dispatch another agent.
+- For work with ordering dependencies, dispatch only the current bounded objective; form any dependent follow-up objective after the current delegated result returns.
 
 ## Independent search delegation
 
