@@ -1,0 +1,4 @@
+interface:
+  display_name: "Independent Search"
+  short_description: "Search one bounded question independently"
+  default_prompt: "Use $independent-search because this task identifies you as the independent-search subagent; perform the bounded read-only search and return the evidence needed by the parent agent."

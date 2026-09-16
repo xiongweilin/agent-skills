@@ -69,7 +69,8 @@ The skills are intended to reduce those failure modes through explicit procedure
 | `candidate-lifecycle` | Keep candidate, official, superseded, and deprecated versions distinct |
 | `side-effect-safety` | Bound consequential state changes, replacement order, and verification around effects |
 | `change-closure` | Require fresh verification and cross-surface consistency before declaring a durable change complete |
-| `delegation-prompt-guard` | Prepare delegated-agent work with explicit scope, authority, constraints, and return expectations |
+| `delegation-prompt-guard` | Gate delegated-agent dispatch and prepare bounded search or parallel-work prompts |
+| `independent-search` | Search one bounded question read-only and return evidence needed for the parent agent's next objective |
 | `independent-testing-dispatch` | Define an independent-testing handoff and decide whether later repairs invalidate the prior test basis |
 | `independent-testing` | Test one bounded candidate independently and preserve a reusable verification basis |
 | `system-reliability-review` | Review common-mode failure, recovery independence, lock-in, reauthorization, and maneuverability |

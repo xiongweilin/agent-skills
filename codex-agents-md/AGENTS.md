@@ -62,6 +62,8 @@ Skills load on demand. Always-applicable gates live here; procedures live in ski
 ## Delegation
 
 * Before dispatching any delegated agent, use `delegation-prompt-guard`.
+* When a complex task requires substantial search before a useful next objective can be formed, dispatch one independent-search subagent before continuing the dependent work.
+* When there are many independent simple tasks, dispatch multiple delegated agents to process bounded units in parallel.
 
 ## Independent testing
 
