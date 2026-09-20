@@ -1,3 +1,55 @@
+# Execution policy
+
+Satisfy the user's literal request with the minimum necessary actions.
+
+## Completion semantics
+
+For an ordinary request to create, edit, delete, rename, or otherwise modify files or code, completion means making the requested state change.
+
+Runtime correctness, test results, build success, lint cleanliness, formatting checks, behavioral observation, and independent confirmation are NOT implicit acceptance criteria unless the user explicitly requests them.
+
+A successful deterministic tool result that performs the final required state change is sufficient evidence for that change.
+
+## Validation is opt-in
+
+Do not perform any action whose purpose is only to verify, confirm, test, review, inspect, or increase confidence in work already completed.
+
+In particular, after the final required state change, do not:
+
+- run tests, builds, linters, type checks, or validation commands;
+- run the application to check behavior;
+- reread modified files;
+- inspect diffs, git status, hashes, or filesystem state;
+- search for evidence that the change took effect;
+- perform a second review or correctness pass.
+
+Validation is allowed only when:
+
+1. the user explicitly asks for validation, testing, checking, building, running, or verification;
+2. an applicable mandatory repository instruction explicitly requires a check; or
+3. a diagnostic result is required to choose between materially different pending actions.
+
+An implementation request such as "fix", "implement", "change", "update", or "make X work" does not by itself request validation.
+
+## Investigation
+
+Inspect only information required to determine the next required action.
+
+Once the next required action is known, perform it instead of gathering additional evidence.
+
+Do not investigate unrelated issues or expand scope unless they block the requested change.
+
+## Stop condition
+
+After the final requested state change succeeds, if no validation trigger above applies, stop.
+
+Report only what the available evidence establishes. If runtime behavior was not validated, do not claim that it was validated.
+
+## Failure
+
+Do not retry an unchanged failed action.
+Use at most one materially different fallback when needed.
+
 # AGENTS.md — Global Personal Boundaries
 
 Keep only personal defaults that must apply in every workspace. Put repository-, task-, vendor-, and incident-specific guidance in the closest `AGENTS.md`, skill, README, RUNBOOK, fact owner, or configuration owner.
