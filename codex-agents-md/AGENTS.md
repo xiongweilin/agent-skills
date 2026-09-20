@@ -83,7 +83,7 @@ Skills load on demand. Always-applicable gates live here; procedures live in ski
 ## Evidence and fact owners
 
 * Inspect only the directly relevant current state needed to answer or perform the request.
-* Verify volatile runtime facts — ports, versions, PIDs, results, active configuration — from current state with commands or APIs when those facts are material to the requested outcome.
+* Verify volatile runtime facts — ports, versions, PIDs, results, active configuration — only when the fact is required to choose a still-pending action, when the user explicitly requests current-state verification, or when an applicable mandatory workflow requires it.
 * Keep runtime evidence, repository state, and documentation state distinct.
 * Each mutable fact has one authoritative owner. Derived views must remain traceable to it.
 * Load only directly relevant fact owners, consumers, tests, and contracts.
@@ -113,15 +113,17 @@ Skills load on demand. Always-applicable gates live here; procedures live in ski
 
 ## Delegation
 
-* Before dispatching any delegated agent, use `delegation-prompt-guard`.
-* When a complex task requires substantial search before a useful next objective can be formed, dispatch one independent-search subagent before continuing the dependent work.
-* When there are many independent simple tasks, dispatch multiple delegated agents to process bounded units in parallel.
+* Do not dispatch delegated agents merely because a task is complex, large, parallelizable, or would benefit from independent search or review.
+* Dispatch only when the user explicitly requests delegation or an actually applicable repository instruction explicitly requires it.
+* Before an authorized dispatch, use `delegation-prompt-guard`.
 
 ## Independent testing
 
-* For substantive or complex modifications in a complex repository, use an independent-testing subagent before representing the work as complete. Extremely small changes may use the repository's ordinary testing workflow without an independent-testing subagent.
-* Before dispatching an independent-testing subagent, use `independent-testing-dispatch`.
-* If the current task or upstream prompt explicitly identifies this agent with the exact sentence `你是独立测试子智能体。`, immediately use `independent-testing`.
+* Independent testing is not an implicit completion requirement.
+* Do not dispatch an independent-testing subagent because a change is substantive, complex, risky, important, or difficult.
+* Use independent testing only when the user explicitly requests it or an actually applicable repository instruction explicitly requires independent testing.
+* Before an authorized independent-testing dispatch, use `independent-testing-dispatch`.
+* If the current task or upstream prompt explicitly identifies this agent with the exact sentence `你是独立测试子智能体。`, use `independent-testing`.
 
 ## Command safety
 
@@ -136,7 +138,8 @@ Skills load on demand. Always-applicable gates live here; procedures live in ski
 ## Anti-loop execution
 
 * Treat successful tool results as evidence for the operation they report. If that evidence already establishes the requested outcome, stop; do not independently reconfirm the same fact.
-* For personal and routine tasks, testing and validation are not default activities. If the action itself does not establish the requested observable outcome, use only the narrowest direct check needed to observe that outcome.
+* For personal and routine tasks, testing, validation, behavioral observation, and direct outcome checks are not default activities.
+* Do not perform a post-change outcome check unless validation is authorized by the Validation is opt-in section above.
 * Repetition is determined by the question being answered, not command syntax. Do not use different reads, queries, tests, builds, hashes, reviews, agents, or probes to reconfirm an already-settled fact against unchanged state.
 * Once the requested outcome and any actually applicable mandatory gate are satisfied, stop. Do not continue for confidence, reassurance, cleanup, completeness, or additional corroboration.
 
