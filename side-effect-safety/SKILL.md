@@ -1,23 +1,25 @@
 ---
 name: side-effect-safety
-description: Use immediately before an authorized write, delete, publish, migration, replacement, retry, or external side effect. Verify target, blast radius, rollback, idempotency, and post-change state. Do not trigger for reads, planning, or reversible local edits.
+description: Use only for an authorized irreversible, destructive, externally visible, ambiguous, or materially high-blast-radius state change, including consequential replacement, migration, cleanup, retry, publish, or external effects. Do not trigger for reads, planning, or ordinary reversible local edits.
 ---
 
 # Side-Effect Safety
 
-The checks below are mandatory safety controls for authorized side effects, not optional post-implementation validation. They remain required when general validation is user-gated.
+The controls below are mandatory only when this skill's narrow trigger applies. They are safety controls for consequential side effects, not a general exception that authorizes post-implementation validation for ordinary writes.
 
 Before the effect:
 
-1. Resolve the exact target and scope with a read-only check.
-2. Identify blast radius, partial-failure modes, reversibility, and a rollback or compensation path.
+1. Resolve the exact target and scope when they are not already established by authoritative state.
+2. Identify material blast radius, partial-failure modes, reversibility, and a rollback or compensation path.
 3. Make retries idempotent or explicitly bounded.
-4. Split destructive work into independently verifiable steps.
+4. Split destructive work only when necessary to preserve recovery or prevent irreversible partial failure.
 
-For replacement or cleanup, verify the new backup or replacement before retiring the old one.
+For replacement or cleanup, establish that the replacement or backup is usable before retiring the old resource when retirement would make recovery materially harder.
 
-After the effect, verify the resulting state and leave failures visible. Do not treat a model's completion claim as evidence.
+After the effect, perform one direct state check only when the operation result is ambiguous, the effect is externally asynchronous, or a subsequent irreversible action depends on the resulting state. Otherwise, accept a deterministic successful operation result as evidence for the operation it reports.
+
+Do not add independent checks merely for reassurance or higher confidence.
 
 ## Success signal
 
-A reviewer can identify the target, blast radius, rollback or compensation path, idempotency guard, and fresh post-change verification.
+The consequential effect was bounded, recoverable where required, and any state check was limited to the minimum needed for safe continuation or resolution of an ambiguous effect.
