@@ -1,4 +1,4 @@
 interface:
   display_name: "Side-Effect Safety"
   short_description: "Control consequential state changes"
-  default_prompt: "Use $side-effect-safety immediately before this authorized write, delete, publish, migration, replacement, retry, or external effect."
+  default_prompt: "Use $side-effect-safety only for an authorized irreversible, destructive, externally visible, ambiguous, or materially high-blast-radius effect; do not use it for ordinary reversible local edits."
