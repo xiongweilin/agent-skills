@@ -1,4 +1,4 @@
 interface:
   display_name: "Chezmoi Management"
-  short_description: "Edit chezmoi source, apply, verify, commit"
-  default_prompt: "Use $chezmoi-management to change chezmoi-managed files: edit the source, apply, verify no diff, then commit and push."
+  short_description: "Edit source, apply, check sync once"
+  default_prompt: "Use $chezmoi-management for a chezmoi-managed file: edit the authoritative source, apply it, perform one canonical synchronization check, then commit or push only when the managed-file workflow requires it."
