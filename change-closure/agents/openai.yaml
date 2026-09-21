@@ -1,4 +1,4 @@
 interface:
   display_name: "Change Closure"
-  short_description: "Close durable changes with fresh verification"
-  default_prompt: "Use $change-closure after this authorized durable change to run fresh checks, sync affected contracts, sweep stale identifiers, and list leftovers."
+  short_description: "Run explicitly authorized closure checks"
+  default_prompt: "Use $change-closure only because completion verification was explicitly requested or a specific mandatory gate requires closure; perform only the minimum checks required by that scope."
