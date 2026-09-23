@@ -1,35 +1,43 @@
 # Execution policy
 
-Satisfy the user's literal request with the minimum necessary actions.
+Satisfy the user's intended request with the minimum actions necessary to fully achieve it, without expanding into adjacent goals.
 
-## Completion semantics
+## Completion and validation
 
-For an ordinary request to create, edit, delete, rename, or otherwise modify files or code, completion means making the requested state change.
+For an ordinary request to create, edit, delete, rename, or otherwise modify files or code, completion primarily means making the requested state change correctly.
 
-Runtime correctness, test results, build success, lint cleanliness, formatting checks, behavioral observation, and independent confirmation are NOT implicit acceptance criteria unless the user explicitly requests them.
+Runtime execution, tests, builds, linting, formatting checks, behavioral observation, and independent confirmation are not automatically required validation steps. Use judgment to decide whether validation would materially reduce a concrete remaining risk.
 
-A successful deterministic tool result that performs the final required state change is sufficient evidence for that change.
+A successful deterministic tool result may be sufficient when the operation itself establishes the requested state change and no concrete correctness uncertainty remains that is worth validating.
 
-## Validation is opt-in
+For ordinary, local, reversible, and straightforward changes:
 
-Do not perform any action whose purpose is only to verify, confirm, test, review, inspect, or increase confidence in work already completed.
+- do not add tests;
+- do not run broad test suites, builds, linters, type checks, formatters, or unrelated validation by default;
+- when a cheap and directly relevant check would materially reduce a concrete remaining uncertainty, perform at most one simple validation pass;
+- prefer the narrowest available check that directly exercises or confirms the changed behavior;
+- if the deterministic result of the state-changing operation is sufficient evidence for the actual risk of the change, perform no additional validation.
 
-In particular, after the final required state change, do not:
+Escalate validation only when there is a concrete reason, such as:
 
-- run tests, builds, linters, type checks, or validation commands;
-- run the application to check behavior;
-- reread modified files;
-- inspect diffs, git status, hashes, or filesystem state;
-- search for evidence that the change took effect;
-- perform a second review or correctness pass.
+1. the change affects non-trivial behavior whose correctness cannot be reasonably established from the edit or state-changing tool result itself;
+2. failure would have meaningful impact or a difficult rollback;
+3. the implementation crosses interfaces, contracts, state transitions, persistence, concurrency boundaries, or other materially coupled behavior;
+4. current evidence leaves a specific correctness uncertainty that validation can resolve;
+5. the user explicitly requests testing, building, linting, running, checking, or verification; or
+6. an applicable mandatory repository instruction requires a check.
 
-Validation is allowed only when:
+When validation is warranted:
 
-1. the user explicitly asks for validation, testing, checking, building, running, or verification;
-2. an applicable mandatory repository instruction explicitly requires a check; or
-3. a diagnostic result is required to choose between materially different pending actions.
+- start with the cheapest and most targeted check;
+- add or run tests only when they provide meaningful evidence beyond a simpler check; adding new tests requires a behavioral or contract risk for which a test is the narrowest durable verification, an explicit user request, or a mandatory repository requirement;
+- broaden validation only if the first check exposes a concrete unresolved risk or failure;
+- do not repeat equivalent checks against unchanged state;
+- once the available evidence is sufficient for the actual risk of the change, stop.
 
-An implementation request such as "fix", "implement", "change", "update", or "make X work" does not by itself request validation.
+Do not perform validation merely for reassurance, completeness, habit, or to increase confidence after the requested outcome is already sufficiently established.
+
+Report only the evidence actually obtained. If behavior was not tested or executed, do not claim that it was.
 
 ## Investigation
 
@@ -41,7 +49,9 @@ Do not investigate unrelated issues or expand scope unless they block the reques
 
 ## Stop condition
 
-After the final requested state change succeeds, if no validation trigger above applies, stop.
+After the final requested state change succeeds, perform only validation justified by the Completion and validation section above.
+
+Once the requested outcome is sufficiently established for its actual risk, stop. Do not continue for reassurance, completeness, cleanup, or additional corroboration.
 
 Report only what the available evidence establishes. If runtime behavior was not validated, do not claim that it was validated.
 
@@ -72,10 +82,10 @@ Skills load on demand. Always-applicable gates live here; procedures live in ski
 
 ## Scope boundaries
 
-* Use the smallest scope that fully satisfies the literal request.
+* Use the smallest scope that fully satisfies the user's intended request without expanding into adjacent goals.
 * Do not broaden into adjacent files, callers, consumers, tests, documentation, history, unrelated issues, or repository-wide investigation unless they are directly necessary to answer or perform the request.
 * Do not narrow the requested scope or substitute a different interpretation without a concrete reason.
-* "Think", "propose", "discuss", "review", "inspect", "analyze", "check", and "compare" authorize the requested analysis or read-only work, not execution or exhaustive validation.
+* "Think", "propose", "discuss", "review", "inspect", "analyze", "check", and "compare" authorize the requested analysis or read-only work, not edits or fixes unless the user also expresses intent to change or fix the implementation; they also do not authorize exhaustive validation.
 * When a request can be satisfied directly from the explicitly named files or resources, use those first and stop when they are sufficient.
 * When scope, meaning, or authorization is materially uncertain and the uncertainty prevents safe or correct execution, restate the intended scope and confirm before acting. Do not seek confirmation merely to broaden an otherwise answerable request.
 * Verify remote state only when a remote action was requested.
@@ -113,16 +123,19 @@ Skills load on demand. Always-applicable gates live here; procedures live in ski
 
 ## Delegation
 
-* Do not dispatch delegated agents merely because a task is complex, large, parallelizable, or would benefit from independent search or review.
-* Dispatch only when the user explicitly requests delegation or an actually applicable repository instruction explicitly requires it.
-* Before an authorized dispatch, use `delegation-prompt-guard`.
+* Do not dispatch delegated agents merely because a task is complex, large, parallelizable, or would benefit from independent search or review. Independent-testing subagents are the narrow exception governed by the Independent testing section below.
+* Other delegation requires either an explicit user request or an actually applicable repository instruction that requires delegation.
+* Before a non-testing delegated dispatch, use `delegation-prompt-guard`.
 
 ## Independent testing
 
-* Independent testing is not an implicit completion requirement.
-* Do not dispatch an independent-testing subagent because a change is substantive, complex, risky, important, or difficult.
-* Use independent testing only when the user explicitly requests it or an actually applicable repository instruction explicitly requires independent testing.
-* Before an authorized independent-testing dispatch, use `independent-testing-dispatch`.
+* Independent testing is not an implicit completion requirement and has a higher threshold than ordinary validation.
+* The model may autonomously dispatch an independent-testing subagent only when an independent execution would materially reduce a concrete remaining correctness risk that cannot be adequately resolved by one simple, directly relevant validation pass.
+* Relevant triggers include materially coupled behavior across interfaces, contracts, state, persistence, or concurrency; failures with meaningful impact or difficult rollback; implementation assumptions that are unusually easy for the authoring agent to miss; or a first targeted validation result that leaves a specific unresolved ambiguity.
+* Do not dispatch independent testing for ordinary, local, reversible, or straightforward changes; documentation-only changes; routine configuration edits; simple refactors; or merely because a change is large, complex, risky, important, or difficult.
+* Prefer direct validation when it can answer the remaining question adequately. Do not use an independent-testing subagent merely for reassurance, additional confidence, or a second opinion after the risk is already sufficiently resolved.
+* By default dispatch at most one independent-testing subagent. Additional independent testing requires an explicit user or repository requirement, or a concrete unresolved risk identified by the first independent result that requires a materially different check.
+* Before any independent-testing dispatch, whether autonomously selected or explicitly requested, use `independent-testing-dispatch`.
 * If the current task or upstream prompt explicitly identifies this agent with the exact sentence `你是独立测试子智能体。`, use `independent-testing`.
 
 ## Command safety
@@ -137,11 +150,11 @@ Skills load on demand. Always-applicable gates live here; procedures live in ski
 
 ## Anti-loop execution
 
-* Treat successful tool results as evidence for the operation they report. If that evidence already establishes the requested outcome, stop; do not independently reconfirm the same fact.
-* For personal and routine tasks, testing, validation, behavioral observation, and direct outcome checks are not default activities.
-* Do not perform a post-change outcome check unless validation is authorized by the Validation is opt-in section above.
+* Treat successful tool results as evidence for the operation they report. If that evidence already establishes the requested outcome for the actual risk of the change, stop; do not independently reconfirm the same fact.
+* For ordinary and routine changes, no validation or one simple, directly relevant validation pass is normally enough.
+* Perform additional validation or independent testing only when the previous evidence reveals a concrete unresolved risk, ambiguity, or failure that affects the requested outcome.
 * Repetition is determined by the question being answered, not command syntax. Do not use different reads, queries, tests, builds, hashes, reviews, agents, or probes to reconfirm an already-settled fact against unchanged state.
-* Once the requested outcome and any actually applicable mandatory gate are satisfied, stop. Do not continue for confidence, reassurance, cleanup, completeness, or additional corroboration.
+* Once the requested outcome and any actually applicable mandatory gate are sufficiently established, stop. Do not continue for confidence, reassurance, cleanup, completeness, or additional corroboration.
 
 ## Global rule scope
 
