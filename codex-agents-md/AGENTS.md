@@ -28,7 +28,9 @@ Prefer direct bounded operations with reliable failure semantics over speculativ
 
 Keep the planning horizon short. For multiple requested outcomes, identify only the dependencies and ordering needed to choose the next independently completable unit; do not fully investigate or solve later units in advance.
 
-Once the current unit is sufficiently understood and authorized, execute it before expanding analysis to later units. Complete the smallest useful inspect-decide-act loop, then continue from the resulting state.
+Once the current unit is sufficiently understood and authorized, execute its coherent change set continuously before expanding analysis to later units. A file edit, command, API call, or individual mutation is not a reasoning or validation boundary by itself.
+
+Do not insert rereading, review, validation, or reconsideration between reversible steps whose required actions are already known. Pause only when the result of one step is actually needed to choose the next step, when an observed failure changes the path, or when a hard boundary requires it.
 
 Batch work within the current decision boundary. Batch across separate units only when they share the same prerequisite or can be completed independently without making later reasoning stale. Keep real dependencies, approvals, destructive effects, and adaptive failure handling sequential.
 
@@ -60,7 +62,7 @@ The burden of proof is on escalation. Use the least expensive escalation only wh
 
 Do not load a skill, workflow, history source, auxiliary documentation, or additional context merely because it could be useful, relevant, conventional, or confidence-increasing. Use it only when its specific capability is necessary for the current decision.
 
-For ordinary, local, reversible, and straightforward changes, validation is normally zero or one cheap directly relevant pass. Do not add tests or run broad tests, builds, linters, type checks, formatters, or unrelated checks by default. Escalate only for a concrete remaining correctness risk, meaningful failure impact, materially coupled contracts or state, an explicit request, or a mandatory gate. Start narrow and stop when the risk is sufficiently resolved.
+For an ordinary coherent change set, validation is normally zero or one cheap directly relevant pass for the set as a whole, not per edit, command, file, or intermediate step. Do not add tests or run broad tests, builds, linters, type checks, formatters, or unrelated checks by default. Escalate only for a concrete remaining correctness risk, meaningful failure impact, materially coupled contracts or state, an explicit request, or a mandatory gate. Start narrow and stop when the risk is sufficiently resolved.
 
 Independent testing has a higher threshold than ordinary validation. The model may autonomously dispatch one independent-testing subagent only when independent execution would materially reduce a concrete remaining correctness risk that one simple direct validation pass cannot adequately resolve. Do not use independent testing for reassurance or merely because work is important, complex, or risky. Before dispatch, use `independent-testing-dispatch`; an agent explicitly identified with `你是独立测试子智能体。` uses `independent-testing`.
 
@@ -88,11 +90,13 @@ For personal-platform work, start with `D:\agent\ratio\元模型\个人平台总
 
 Acquire evidence only to cross the threshold required for the next decision, not to maximize confidence or accumulate context. Relevance alone does not justify an action. Use the cheapest sufficient representation or operation for the current question, and expand only when the current result exposes a grounded unresolved condition that can materially change what happens next.
 
-Treat a successful deterministic tool result as evidence for the operation it reports. Do not independently reconfirm an already-settled fact against unchanged state.
+Treat a successful deterministic tool result as evidence for the operation it reports. When a later step depends only on whether the previous operation completed, use that result directly; do not perform a separate state check. Additional validation is justified only when the later decision depends on a property the operation result does not establish.
+
+Do not independently reconfirm an already-settled fact against unchanged state.
 
 Verify volatile runtime or remote state only when it is needed to choose a still-pending action, explicitly requested, or required by an applicable workflow. Keep runtime evidence, repository state, and documentation state distinct; mutable facts have one authoritative owner and derived views must remain traceable to it.
 
-Before a consequential step that depends on a previous operation, confirm that prerequisite succeeded. This does not require serializing independent work.
+Before a consequential step that depends on a previous operation, require only the evidence needed for that dependency. This does not require serializing or separately validating independent or already-established work.
 
 Treat expected no-match and nonzero native results explicitly. Do not retry an unchanged failed action. Use at most one materially different fallback when needed. For remote transport failures, distinguish transport, authentication, endpoint, and input failures; confirm remote state through a read-only alternate path before using a verified alternate endpoint for a write or push.
 
