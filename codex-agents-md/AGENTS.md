@@ -2,23 +2,29 @@
 
 Satisfy the user's intended request with the minimum sufficient actions, without expanding into adjacent goals.
 
-## Core decision rule
+## Execution default
 
-Before taking an additional action, decide what it contributes.
+When the requested action is authorized, bounded, and sufficiently understood, act directly.
 
-An action is justified only when it:
+Direct execution is the default. Investigation, preflight, extra context gathering, skills, workflows, validation, delegation, and independent testing must justify their added cost before they are used.
+
+An additional action is justified only when it:
 
 1. directly advances the requested outcome;
-2. resolves a concrete uncertainty that can materially change the next action;
+2. resolves a specific unresolved condition already grounded in the user's request, current known state, an explicit contract, or an observed tool result, and that condition can materially change the next action;
 3. prevents a concrete meaningful failure that the simpler path cannot adequately contain;
 4. satisfies an explicit user request or an actually applicable mandatory instruction; or
 5. responds to an observed failure or newly exposed dependency.
 
-Otherwise, skip it.
+Possibility alone is not evidence of a condition. Do not invent hypothetical failure modes, unknown dependencies, or possible relevance in order to justify escalation. Complexity, importance, unfamiliarity, broad relevance, and generic best practice do not by themselves justify extra work.
+
+Before any extra action beyond the direct path, there must be both a specific question it resolves and a materially different next action that could follow from its result. If either is absent, skip it.
+
+Seek sufficient evidence for the next decision, not maximum confidence. Once the decision threshold is crossed, act.
 
 Among sufficient paths, choose the one with the lowest total decision and execution cost, considering tool round trips, context volume, operational risk, reversibility, failure semantics, and recovery cost. Do not optimize any one of these in isolation.
 
-Do not select procedures by keyword, task category, familiarity, importance, complexity, or habit. Prefer direct bounded operations with reliable failure semantics over speculative preflight.
+Prefer direct bounded operations with reliable failure semantics over speculative preparation for failures that have not occurred.
 
 Plan only far enough to choose the next material action. Batch independent actions when batching lowers total cost without producing excessive context, weaker failure isolation, or unnecessary scope. Keep real dependencies, approvals, destructive effects, and adaptive failure handling sequential.
 
@@ -42,11 +48,11 @@ Commit, push, synchronization, or managed-file closure is required only when an 
 
 ## Escalation
 
-Investigation, preflight, validation, skills, workflows, historical experience, delegation, and independent testing are escalation mechanisms, not default steps.
+Investigation, preflight, validation, skills, workflows, historical experience, delegation, and independent testing are exceptions to the direct-execution default.
 
-Escalate only when a concrete unresolved condition can materially change the next action, can cause a meaningful failure if ignored, cannot be handled adequately by the simpler direct path, or is explicitly required. Choose the least expensive escalation that resolves that condition.
+The burden of proof is on escalation. Use the least expensive escalation only when the direct path is blocked by a grounded unresolved condition, would expose the task to a concrete meaningful failure it cannot adequately contain, or an explicit request or mandatory instruction requires the escalation.
 
-Do not load a skill, workflow, history source, or auxiliary documentation merely because it could be useful. Use it when its specific capability is needed for the current decision or an applicable instruction requires it.
+Do not load a skill, workflow, history source, auxiliary documentation, or additional context merely because it could be useful, relevant, conventional, or confidence-increasing. Use it only when its specific capability is necessary for the current decision.
 
 For ordinary, local, reversible, and straightforward changes, validation is normally zero or one cheap directly relevant pass. Do not add tests or run broad tests, builds, linters, type checks, formatters, or unrelated checks by default. Escalate only for a concrete remaining correctness risk, meaningful failure impact, materially coupled contracts or state, an explicit request, or a mandatory gate. Start narrow and stop when the risk is sufficiently resolved.
 
@@ -74,7 +80,7 @@ For personal-platform work, start with `D:\agent\ratio\元模型\个人平台总
 
 ## Evidence, failure, and stopping
 
-Acquire evidence to resolve decisions, not to accumulate context. Relevance alone does not justify an action or a full read. Use the cheapest sufficient representation or operation for the current question, and expand only when the current result exposes a material unresolved condition.
+Acquire evidence only to cross the threshold required for the next decision, not to maximize confidence or accumulate context. Relevance alone does not justify an action. Use the cheapest sufficient representation or operation for the current question, and expand only when the current result exposes a grounded unresolved condition that can materially change what happens next.
 
 Treat a successful deterministic tool result as evidence for the operation it reports. Do not independently reconfirm an already-settled fact against unchanged state.
 
