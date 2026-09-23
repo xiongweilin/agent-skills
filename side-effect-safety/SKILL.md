@@ -1,25 +1,25 @@
 ---
 name: side-effect-safety
-description: Use only for an authorized irreversible, destructive, externally visible, ambiguous, or materially high-blast-radius state change, including consequential replacement, migration, cleanup, retry, publish, or external effects. Do not trigger for reads, planning, or ordinary reversible local edits.
+description: Use only for an authorized state change with material irreversible or externally visible blast radius, difficult rollback, or meaningful partial-failure risk. Do not trigger from an operation category or keyword alone, and do not use for ordinary reversible local edits.
 ---
 
 # Side-Effect Safety
 
-The controls below are mandatory only when this skill's narrow trigger applies. They are safety controls for consequential side effects, not a general exception that authorizes post-implementation validation for ordinary writes.
+This skill applies only when the actual risk of the pending effect justifies additional safety work. It does not create authority for the effect and is not a generic validation checklist.
 
 Before the effect:
 
-1. Resolve the exact target and scope when they are not already established by authoritative state.
-2. Identify material blast radius, partial-failure modes, reversibility, and a rollback or compensation path.
-3. Make retries idempotent or explicitly bounded.
-4. Split destructive work only when necessary to preserve recovery or prevent irreversible partial failure.
+1. Resolve the exact target and scope if they are not already established.
+2. Identify only the material blast radius, partial-failure modes, reversibility, and rollback or compensation path needed for safe execution.
+3. Make retries idempotent or explicitly bounded when retry is a real possibility.
+4. Split work only when doing so materially improves recovery or prevents irreversible partial failure.
 
-For replacement or cleanup, establish that the replacement or backup is usable before retiring the old resource when retirement would make recovery materially harder.
+When retiring an old resource would make recovery materially harder, establish that the replacement or backup needed for recovery is usable before retirement.
 
 After the effect, perform one direct state check only when the operation result is ambiguous, the effect is externally asynchronous, or a subsequent irreversible action depends on the resulting state. Otherwise, accept a deterministic successful operation result as evidence for the operation it reports.
 
-Do not add independent checks merely for reassurance or higher confidence.
+Do not add safety steps, checks, backups, or retries merely because they are customary for that class of operation.
 
 ## Success signal
 
-The consequential effect was bounded, recoverable where required, and any state check was limited to the minimum needed for safe continuation or resolution of an ambiguous effect.
+The consequential effect was bounded, recoverable where required, and any extra safety work was limited to what the actual risk required.
