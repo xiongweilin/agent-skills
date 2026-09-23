@@ -39,13 +39,71 @@ Do not perform validation merely for reassurance, completeness, habit, or to inc
 
 Report only the evidence actually obtained. If behavior was not tested or executed, do not claim that it was.
 
+## Latency and tool-round-trip discipline
+
+Treat tool round trips as a material execution cost. Minimize the number of sequential decision-and-tool cycles while preserving correctness and safety.
+
+For ordinary read, create, update, delete, rename, move, configuration, documentation, and implementation tasks, prefer this execution shape:
+
+1. one batched discovery or preflight pass for the information already known to be necessary;
+2. one batched state-change pass when the required actions are known;
+3. zero or one narrow validation pass when justified by the Completion and validation section.
+
+This is a default execution shape, not a hard call limit. Exceed it only when a result reveals a concrete new dependency, ambiguity, failure, or risk that could not reasonably have been handled in the previous batch.
+
+### Batch predictable work
+
+* Before the first read or search, identify the independent facts already known to be needed for the next decision and retrieve them together.
+* Batch independent searches, file reads, metadata queries, and other read-only operations into one tool call or parallel tool batch whenever the available tools support it.
+* When using a shell, prefer one bounded command that searches or reads multiple known targets over one command per file or target.
+* Do not use the result of one read merely to justify another read whose need was already predictable before the first read.
+* When multiple independent requested changes are already known, prefer one patch, batch API call, or grouped mutation when it preserves clear failure semantics and does not increase material risk.
+* Keep genuinely dependent operations, destructive actions, approvals, and adaptive failure handling sequential.
+
+### Read narrowly
+
+* Prefer targeted searches, headings, line ranges, symbols, structured queries, or metadata over full-file reads when they are sufficient.
+* Read a full file only when its complete context is actually needed or targeted retrieval cannot reliably determine the required action.
+* Once an unchanged file or fact has been read sufficiently for the current decision, do not reread it in another form for orientation, reassurance, or summary preparation.
+* Do not repeat a full-file read after compaction when the relevant facts are already preserved in current context.
+* Avoid large command output when a bounded query can answer the same question.
+
+### Act once the decision is available
+
+* As soon as the required action is known with sufficient evidence, perform it instead of gathering additional context.
+* Expand investigation only to answer a concrete unresolved question that can materially change the pending action.
+* Do not inspect adjacent callers, consumers, history, tests, documentation, configuration, or repository-wide state merely because they may be relevant in principle.
+* Do not perform exploratory reads after the implementation decision is already sufficiently determined.
+
+### Repository-state checks
+
+* Do not run repository-wide `git status`, diffs, history, hashes, or equivalent state inspection by default.
+* Inspect existing changes only when the requested operation could overwrite, conflict with, depend on, or otherwise interfere with them.
+* When such inspection is needed, prefer path-scoped or otherwise narrowly targeted state checks.
+
+### Skills and auxiliary workflows
+
+* Do not load a skill, run a routing workflow, consult historical experience, or open auxiliary documentation merely because it could be useful.
+* Use one only when the user explicitly requests it, an applicable instruction requires it, or a concrete non-routine risk or unresolved question makes that procedure materially useful.
+* Ordinary CRUD, local edits, routine configuration changes, and straightforward implementation are not by themselves reasons to load additional skills or workflows.
+
+### Stop expanding
+
+* After one discovery batch, if the requested action is clear, act.
+* After a successful state-changing operation, do not return to discovery unless the operation reports a failure or exposes a concrete unresolved issue.
+* After sufficient validation, do not resume investigation.
+
 ## Investigation
 
-Inspect only information required to determine the next required action.
+Determine the information required for the next material decision before issuing reads or searches, and retrieve independent required information together whenever practical.
 
-Once the next required action is known, perform it instead of gathering additional evidence.
+Use the first discovery pass to answer all predictable questions needed for that decision. Do not split predictable independent reads into serial read-decide-read cycles.
 
-Do not investigate unrelated issues or expand scope unless they block the requested change.
+Once the next required action is known with sufficient evidence, perform it instead of gathering additional context.
+
+A subsequent investigation pass requires a concrete new dependency, ambiguity, failure, or risk revealed by the previous result.
+
+Do not investigate unrelated issues or expand scope unless they block or can materially change the requested action.
 
 ## Stop condition
 
@@ -140,7 +198,7 @@ Skills load on demand. Always-applicable gates live here; procedures live in ski
 
 ## Command safety
 
-* Check the exit status of the previous command before a consequential next step.
+* Before a consequential step that depends on a previous operation, confirm that the prerequisite operation succeeded. This does not require serializing independent read-only operations or other actions with no dependency between them.
 * Treat expected no-match and nonzero native results explicitly.
 * If a tool or command fails, do not repeat the unchanged call.
 * Use only bounded, materially different fallbacks that distinguish transport, authentication, endpoint, and input failures. If a remote transport fails, confirm remote state through a read-only alternate path, then use that verified alternate endpoint explicitly for the write or push; do not silently switch transports or push from unconfirmed local state.
