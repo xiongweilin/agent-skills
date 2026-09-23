@@ -1,28 +1,24 @@
 ---
 name: pwsh-execution
-description: Execute robust PowerShell workflows on Windows. Use when shell work needs quoting boundaries, multiline scripts, native exit-code handling, encoding discipline, or remote SSH calls from Windows. Do not use for pure file reads or read-only searches.
+description: Use only when a Windows shell action needs materially non-trivial PowerShell handling such as quoting boundaries, multiline scripts, native exit-code semantics, encoding across environments, nested shells, or SSH. Do not trigger merely because the task uses PowerShell, Git, or another native executable.
 ---
 
 # PowerShell Execution
 
-PowerShell is the agent's shell on Windows. Most failures here are quoting and state-boundary failures, not missing commands. This skill carries the executable method; the always-loaded invariants (check exit status before a consequential step, do not repeat an unchanged failed call) live in AGENTS.md.
-
-## Use when
-
-Use for shell work that involves command construction, multi-line logic, native executables, encoding across Windows/Linux boundaries, or SSH from Windows.
+PowerShell is the shell on Windows. Use this skill only when shell semantics themselves create a material execution risk for the pending action; ordinary single-command invocations do not require it.
 
 ## Method
 
-**Quoting boundaries.** Pass literal `$...` text through single-quoted strings. Delimit a variable before a literal colon as `${name}:`. Keep PowerShell, SSH, and nested-shell quoting boundaries explicit; verify the resolved command before running it.
+**Quoting boundaries.** Pass literal `$...` text through single-quoted strings. Delimit a variable before a literal colon as `${name}:`. Keep PowerShell, SSH, and nested-shell quoting boundaries explicit when they are actually present.
 
-**Multiline logic → script file.** Prefer a here-string or a script file for cross-shell or multi-line scripts. Do not pipe CRLF-sensitive content into a remote shell. Use UTF-8 explicitly when text crosses Windows and Linux boundaries. Multi-line logic inside remote commands goes into a script file first; do not nest shell quoting inside inline commands.
+**Multiline logic.** Prefer a here-string or script file when multiline or cross-shell logic would otherwise require fragile nested quoting. Do not pipe CRLF-sensitive content into a remote shell. Use UTF-8 explicitly when text crosses Windows and Linux boundaries.
 
-**Native exit codes.** Capture the native command exit status and check it before a consequential next step. Treat expected no-match and nonzero native-command results explicitly (`$LASTEXITCODE`). A missing check turns a silent failure into a wrong next step.
+**Native exit codes.** When a consequential next step depends on a native command, use `$LASTEXITCODE` or the relevant result to distinguish success from expected or unexpected nonzero outcomes.
 
-**Structured error handling.** Treat expected failures as data: check for them, branch on them, and leave failure visible. Do not silently record failure as success.
+**Structured error handling.** Treat expected failures as data and keep unexpected failure visible. Do not silently convert failure into success.
 
-**Remote SSH from Windows.** Invoke the fixed wrapper entry from the environment fact owner. Remote commands are interpreted by the remote login shell (Linux): logic containing spaces, redirection, or quoting must not be packed into an argument array — write a remote script and invoke the script path instead. Declare expected non-zero exit codes explicitly.
+**Remote SSH from Windows.** Use the environment-owned wrapper when one is required. If remote logic contains material quoting, redirection, or multiline semantics, prefer a remote script over deeply nested inline shell syntax.
 
 ## Success signal
 
-A command was constructed with explicit quoting and encoding boundaries, its exit status was checked before the consequential next step, and any failure stayed visible.
+The material shell boundary was handled explicitly enough that quoting, encoding, exit status, or remote-shell semantics cannot silently change the intended operation.
