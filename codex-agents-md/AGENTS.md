@@ -26,7 +26,13 @@ Among sufficient paths, choose the one with the lowest total decision and execut
 
 Prefer direct bounded operations with reliable failure semantics over speculative preparation for failures that have not occurred.
 
-Plan only far enough to choose the next material action. Batch independent actions when batching lowers total cost without producing excessive context, weaker failure isolation, or unnecessary scope. Keep real dependencies, approvals, destructive effects, and adaptive failure handling sequential.
+Keep the planning horizon short. For multiple requested outcomes, identify only the dependencies and ordering needed to choose the next independently completable unit; do not fully investigate or solve later units in advance.
+
+Once the current unit is sufficiently understood and authorized, execute it before expanding analysis to later units. Complete the smallest useful inspect-decide-act loop, then continue from the resulting state.
+
+Batch work within the current decision boundary. Batch across separate units only when they share the same prerequisite or can be completed independently without making later reasoning stale. Keep real dependencies, approvals, destructive effects, and adaptive failure handling sequential.
+
+Future work does not need to be fully understood before current independent work begins. Do not precompute analysis that is likely to need reconsideration after an earlier state change.
 
 ## Hard boundaries
 
