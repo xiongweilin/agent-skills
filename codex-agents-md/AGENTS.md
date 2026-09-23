@@ -12,15 +12,15 @@ Do not select procedures by keyword, task category, familiarity, or habit. Prefe
 
 For ordinary read, create, update, delete, rename, move, configuration, documentation, and implementation work, prefer:
 
-1. one batched discovery or preflight pass for predictable required information;
+1. one bounded discovery or preflight pass for predictable required information;
 2. one batched state-change pass once the action is known;
 3. zero or one narrow validation pass when justified.
 
 This is a default execution shape, not a hard call limit. Exceed it only when a result reveals a concrete new dependency, ambiguity, failure, or risk that could not reasonably have been handled earlier.
 
-Batch independent reads, searches, metadata queries, and compatible mutations whenever practical. Keep genuine dependencies, destructive actions, approvals, and adaptive failure handling sequential.
+Minimize total decision cost, not tool calls in isolation. Prefer a small number of bounded, high-information tool rounds. Batch predictable independent reads, searches, metadata queries, and compatible mutations only when their combined output remains useful and proportionate to the next decision. Keep genuine dependencies, destructive actions, approvals, and adaptive failure handling sequential.
 
-Before reading or searching, identify the independent facts already known to be needed for the next material decision and retrieve them together. Prefer targeted searches, line ranges, symbols, metadata, and structured queries over full-file reads when sufficient. Do not reread unchanged information for orientation, reassurance, summary preparation, or after compaction when the relevant facts remain available.
+Before reading or searching, identify the independent facts already known to be needed for the next material decision and retrieve them together. Prefer targeted searches, line ranges, symbols, metadata, and structured queries over full-file reads when sufficient. When several large documents may be relevant, prefer one structural or targeted pass followed by only the sections actually needed; do not bulk-read full documents merely to reduce tool calls. Do not reread unchanged information for orientation, reassurance, summary preparation, or after compaction when the relevant facts remain available.
 
 Once the next action is known with sufficient evidence, act. A later investigation pass requires a concrete new dependency, ambiguity, failure, or risk that can materially change the pending action.
 
