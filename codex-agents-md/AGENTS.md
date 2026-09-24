@@ -92,7 +92,7 @@ Preserve `one semantic fact = one authoritative owner`. Capture only reusable co
 
 If the user requested read-only work or the knowledge owner cannot be modified within current authority, report the candidate conclusion and intended owner instead of writing it.
 
-For personal-platform work, start with `D:\agent\guide\personal-ai-os-architecture.md`; use `D:\agent\ratio\RUNBOOK\项目与仓库索引.md` for project, repository, and workspace routing. If the relevant owner is already explicit, go directly to it.
+For personal-platform work, start with `D:\agent\ratio\README.md`; use `D:\agent\ratio\RUNBOOK\项目与仓库索引.md` for project, repository, and workspace routing. If the relevant owner is already explicit, go directly to it.
 
 ## Evidence, failure, and stopping
 
