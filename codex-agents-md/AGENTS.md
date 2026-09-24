@@ -86,7 +86,7 @@ If a script may terminate, restart, or otherwise disrupt the Codex session that 
 
 Unexpected reality may trigger durable experience capture only when it materially contradicts the current expectation and its direct cause cannot be sufficiently explained from current state.
 
-When triggered, relevant `ratio` experience is prior knowledge, not runtime proof; fresh reality remains the evidence basis. After a handling method is validated, standing authorization covers only the minimum knowledge-only update needed to preserve reusable conclusions in the appropriate authoritative owner. It does not authorize code, executable configuration, services, credentials, external effects, commits, pushes, AGENTS changes, skill changes, policy changes, or capability changes.
+When triggered, relevant Obsidian project experience is prior knowledge, not runtime proof; fresh reality remains the evidence basis. After a handling method is validated, standing authorization covers only the minimum knowledge-only update needed to preserve reusable conclusions in the appropriate authoritative owner. It does not authorize code, executable configuration, services, credentials, external effects, commits, pushes, AGENTS changes, skill changes, policy changes, or capability changes.
 
 Preserve `one semantic fact = one authoritative owner`. Capture only reusable conclusions, not transient state, raw timelines, command logs, one-off details, secrets, or facts already owned elsewhere. One successful incident may be recorded only as scoped conditional experience; `One success != general rule`. Operationalizing experience into policy, skills, automation, or executable mechanisms requires explicit authorization.
 
