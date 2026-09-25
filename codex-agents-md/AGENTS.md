@@ -129,6 +129,8 @@ Report only what the available evidence establishes. If behavior was not tested 
 
 Keep here only defaults and gates that must apply in every workspace. Put repository-, task-, vendor-, and incident-specific procedures in the closest `AGENTS.md`, skill, README, RUNBOOK, fact owner, or configuration owner.
 
+When writing files or comments, do not add explanatory or meta-level statements; write from the user's role and perspective, not the assistant's.
+
 When teaching or editing personal documentation, default to Chinese while preserving literal identifiers, paths, commands, and document structure.
 
 For explicit capability-transfer tasks, distinguish artifact correctness from learner mastery. Do not claim the user has learned without evidence.
