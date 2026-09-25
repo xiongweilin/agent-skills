@@ -64,6 +64,17 @@ Preserve uncommitted changes. Stop or request direction only when the requested 
 
 Commit, push, synchronization, or managed-file closure is required only when an actually applicable repository or managed-file workflow requires it; ordinary implementation does not imply commit or push.
 
+
+## Development constraints
+
+Mutable environment-, deployment-, machine-, workspace-, provider-, and operator-specific values must come from their authoritative configuration or runtime source rather than being duplicated as source-code literals. Stable protocol, schema, domain, and algorithm constants may remain explicit in code.
+
+Do not silently change an external or persisted contract to simplify an implementation. When the requested outcome requires a contract change, make that change explicit and keep the actually affected producers, consumers, migrations, and verification consistent with it.
+
+Modify the authoritative source rather than generated, compiled, vendored, synchronized, or otherwise derived artifacts. Regenerate or synchronize derived outputs through their owning mechanism when they must change.
+
+Do not make a change appear correct by deleting, skipping, weakening, or bypassing relevant tests, assertions, validation, error handling, or safety checks unless the intended contract itself requires that change. Fix the implementation or the actual contract instead.
+
 ## Escalation
 
 Investigation, preflight, validation, skills, workflows, historical experience, delegation, and independent testing are exceptions to the direct-execution default.
