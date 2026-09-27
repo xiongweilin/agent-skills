@@ -5,7 +5,9 @@ document_status: active
 knowledge_scope: skill-governance
 ---
 
-[![CI](https://github.com/xiongweilin/agent-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/xiongweilin/agent-skills/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![CI](https://github.com/xiongweilin/agent-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/xiongweilin/agent-skills/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![Docs: EN / 中文](https://img.shields.io/badge/docs-EN%20%7C%20%E4%B8%AD%E6%96%87-blue.svg)](README.zh-CN.md)
+
+[English](README.md) | [简体中文](README.zh-CN.md)
 
 # Agent Skills
 
