@@ -1,14 +1,12 @@
-"""Validate the skill-index repository structure.
+"""验证 skill-index 仓库结构。
 
-Checks, using only the standard library:
+仅使用标准库检查：
 
-1. every top-level skill directory is a skill with the canonical layout
-   (``SKILL.md`` + ``agents/openai.yaml``);
-2. ``SKILL.md`` frontmatter ``name`` matches the directory and a
-   ``description`` is present;
-3. ``agents/openai.yaml`` carries display metadata that references the skill;
-4. the README skill table and the on-disk skill set agree in both directions;
-5. local Markdown links (relative paths and fragments) resolve.
+1. 每个顶层 skill 目录都遵循规范布局（``SKILL.md`` + ``agents/openai.yaml``）；
+2. ``SKILL.md`` frontmatter 中的 ``name`` 与目录一致，并包含 ``description``；
+3. ``agents/openai.yaml`` 包含引用对应 skill 的展示元数据；
+4. README skill 表与磁盘上的 skill 集合双向一致；
+5. 本地 Markdown 链接（相对路径和 fragment）可以解析。
 """
 
 from __future__ import annotations
@@ -19,14 +17,29 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-TOP_LEVEL_FILES = {"README.md", "CONTRIBUTING.md", "SECURITY.md", "LICENSE", "LICENSE.md", "CODE_OF_CONDUCT.md", "CODE_OF_CONDUCT", ".editorconfig", ".gitignore", ".gitattributes"}
+TOP_LEVEL_FILES = {
+    "README.md",
+    "README.zh-CN.md",
+    "CONTRIBUTING.md",
+    "CONTRIBUTING.zh-CN.md",
+    "SECURITY.md",
+    "SECURITY.zh-CN.md",
+    "LICENSE",
+    "LICENSE.md",
+    "CODE_OF_CONDUCT.md",
+    "CODE_OF_CONDUCT.zh-CN.md",
+    "CODE_OF_CONDUCT",
+    ".editorconfig",
+    ".gitignore",
+    ".gitattributes",
+}
 NON_SKILL_DIRS = {"codex-agents-md"}
 SKILL_FILE = "SKILL.md"
 AGENT_META = Path("agents") / "openai.yaml"
 
 
 def read_frontmatter(path: Path) -> dict[str, str]:
-    """Read the ``---`` delimited frontmatter block of a Markdown file."""
+    """读取 Markdown 文件中由 ``---`` 分隔的 frontmatter。"""
     text = path.read_text(encoding="utf-8")
     match = re.match(r"^---\s*\n(.*?)\n---\s*\n", text, flags=re.DOTALL)
     if not match:
