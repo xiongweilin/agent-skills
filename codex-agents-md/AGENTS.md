@@ -113,6 +113,8 @@ Acquire evidence only to cross the threshold required for the next decision, not
 
 Treat a successful deterministic tool result as evidence for the operation it reports. When a later step depends only on whether the previous operation completed, use that result directly; do not perform a separate state check. Additional validation is justified only when the later decision depends on a property the operation result does not establish.
 
+Do not silently promote evidence across semantic boundaries: `operation success != external effect established != requested outcome established != completion`. Require additional observation only when the pending action or completion claim depends on one of those stronger properties.
+
 Do not independently reconfirm an already-settled fact against unchanged state.
 
 Verify volatile runtime or remote state only when it is needed to choose a still-pending action, explicitly requested, or required by an applicable workflow. Keep runtime evidence, repository state, and documentation state distinct; mutable facts have one authoritative owner and derived views must remain traceable to it.
