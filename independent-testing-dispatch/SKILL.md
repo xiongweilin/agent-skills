@@ -11,7 +11,7 @@ Use this skill only in the implementing or parent agent after independent testin
 
 Complete one coherent implementation phase before dispatching. Do not dispatch after each small implementation step.
 
-Treat the candidate as ready when the bounded change is coherent enough to test as a whole. Candidate size, complexity, risk, or importance does not independently justify testing.
+Treat the candidate as ready when the bounded change is coherent enough to test as a whole. Candidate size, complexity, risk, or importance does not independently justify testing. A simple direct validation being available does not by itself make independent testing unnecessary; the relevant question is whether independent test design or execution breaks a material common-mode assumption.
 
 ## Prepare the handoff
 
