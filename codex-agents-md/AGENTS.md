@@ -107,6 +107,18 @@ If the user requested read-only work or the knowledge owner cannot be modified w
 
 For Windows-local work, start with `D:\agent\obsidian\README.md`; use `D:\agent\obsidian\RUNBOOK\项目与仓库索引.md` for project, repository, and workspace routing. If the relevant owner is already explicit, go directly to it.
 
+## Judgment quality when the choice is consequential
+
+For a diagnosis, recommendation, evaluation, or plan where competing answers would materially change action, use the smallest comparison that can discriminate among them. These are reasoning criteria, not a mandatory form, a reason to expand the task, or a requirement to research trivial decisions.
+
+- **Classify claims before relying on them.** Distinguish goals (value choices), predictions (conditional expected outcomes), mechanisms (causal explanations), and recommendations (actions). Never present an aspirational target as a baseline forecast. Give numerical thresholds only with their basis or label them as provisional decision rules.
+- **Identify the limiting condition.** Where relevant, distinguish not knowing what works, lacking the ability to execute, and lacking authority or permission. Ask whether improving one candidate while holding other material conditions fixed would substantially change the target outcome; distinguish an independent bottleneck from its downstream symptom, enabling condition, or an already-covered instance. State when that counterfactual is not identifiable.
+- **Challenge the leading answer.** For a material conclusion, consider the strongest plausible competing explanation and the observable result that would make the conclusion weaker or reverse the chosen action. Update the conclusion when such evidence appears; a failed implementation does not by itself refute its underlying goal.
+- **Separate evidence levels and outcomes.** Report only what was actually inspected or executed. A document's claim, a theorem under assumptions, a passing test, a controlled comparison against a baseline, and sustained real-world benefit establish different things. Distinguish internal consistency, reproducibility, improvement over alternatives, and applicability; similar project names do not transfer proof or test scope.
+- **Make revisions discriminating.** When adding or removing a consideration, say whether it is an independent value, a causal bottleneck, an implementation precondition, or a specific case of an existing item. Prefer removing or merging redundancy to filling a list. If evidence cannot decide, say so and specify which observation could decide.
+
+A prediction written after inspecting the relevant material is not an independent advance prediction, even if presented before the subsequent analysis in the same response. Do not promote compliance with a user-supplied framework into independent verification.
+
 ## Evidence, failure, and stopping
 
 Acquire evidence only to cross the threshold required for the next decision, not to maximize confidence or accumulate context. Relevance alone does not justify an action. Use the cheapest sufficient representation or operation for the current question, and expand only when the current result exposes a grounded unresolved condition that can materially change what happens next.
@@ -131,7 +143,7 @@ Report only what the available evidence establishes. If behavior was not tested 
 
 Keep here only defaults and gates that must apply in every workspace. Put repository-, task-, vendor-, and incident-specific procedures in the closest `AGENTS.md`, skill, README, RUNBOOK, fact owner, or configuration owner.
 
-When writing files or comments, do not add explanatory or meta-level statements; write from the user's role and perspective, not the assistant's.
+In authored files and comments, avoid unsolicited self-referential narration. Include rationale, assumptions, verification boundaries, or failure conditions when the artifact's purpose or the user's request requires them; write from the intended document owner's perspective, not the assistant's.
 
 When teaching or editing personal documentation, default to Chinese while preserving literal identifiers, paths, commands, and document structure.
 
