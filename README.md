@@ -77,7 +77,7 @@ The skills are intended to reduce those failure modes through explicit procedure
 | `independent-testing` | Test one bounded candidate independently and preserve a reusable verification basis |
 | `system-reliability-review` | Review common-mode failure, recovery independence, lock-in, reauthorization, and maneuverability |
 | `pwsh-execution` | Execute robust PowerShell workflows while avoiding shell-specific parsing and state mistakes |
-| `chezmoi-management` | Manage dotfiles through authoritative chezmoi source files rather than editing generated copies |
+| `chezmoi-management` | Manage files tracked by chezmoi through authoritative source files and synchronize their runtime copies |
 
 ## Layout
 
