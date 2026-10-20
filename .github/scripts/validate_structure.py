@@ -2,7 +2,7 @@
 
 仅使用标准库检查：
 
-1. 每个顶层 skill 目录都遵循规范布局（``SKILL.md`` + ``agents/openai.yaml``）；
+1. 每个顶层 skill 目录都遵循规范布局（``SKILL.md`` + ``agents/openai.yaml``，且不含 ``SKILL.zh-CN.md`` 等翻译副本）；
 2. ``SKILL.md`` frontmatter 中的 ``name`` 与目录一致，并包含 ``description``；
 3. ``agents/openai.yaml`` 包含引用对应 skill 的展示元数据；
 4. README skill 表与磁盘上的 skill 集合双向一致；
@@ -57,6 +57,11 @@ def check_skill_layout(skill_dir: Path, failures: list[str]) -> None:
     agent_yaml = skill_dir / AGENT_META
     if not skill_md.is_file():
         failures.append(f"{skill_dir.name}: missing {SKILL_FILE}")
+    for extra_skill_file in sorted(skill_dir.glob("SKILL.*")):
+        if extra_skill_file.name != SKILL_FILE:
+            failures.append(
+                f"{skill_dir.name}: unexpected {extra_skill_file.name}; skill files are English-only"
+            )
     if not agent_yaml.is_file():
         failures.append(f"{skill_dir.name}: missing {AGENT_META}")
         return

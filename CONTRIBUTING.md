@@ -1,21 +1,21 @@
-# 贡献指南
+# Contributing
 
-本仓库是个人通用 agent skill 集。提交前请先阅读本文件的准入条件与同步流程。
+This repository is a personal collection of reusable agent skills. Read the admission criteria and synchronization workflow below before submitting.
 
-## 准入条件（新增或修改 skill）
+## Admission criteria (new or modified skill)
 
-一个新 skill 必须满足全部条件：
+A new skill must satisfy all conditions:
 
-1. **触发条件明确而窄**：能区分"该触发"与"不该触发"，不把低风险任务拖进重流程。
-2. **解决重复出现的问题**：不是一次性经验或单次观察的制度化。
-3. **提供实际可执行的方法**：不是换一种措辞重复 AGENTS.md 的既有规则。
-4. **不独占任何 always-applicable 的 gate**：授权、scope、证据、完成验证等全局门槛永远在部署的 AGENTS.md；skill 只能实现其流程。
-5. **不复制 fact owner 的环境事实**：主机、路径、代理、版本、部署位置等 volatile / machine-specific 事实在权威 fact owner，不进 skill 正文。
-6. **与已有 skill 边界清晰**：重叠时优先扩展或收窄已有 skill，不堆叠新 skill。
-7. **配套运行时 metadata**：`agents/openai.yaml` 与 `SKILL.md` 的 name/description 一致；catalog description 只识别适用场景，不教做法。
-8. **修改后一致性检查**：更新 README 的 skill 表；检查 catalog、安装副本与 identifier 一致性。
+1. **Narrow, explicit trigger**: distinguish when it should fire from when it should not; do not pull low-risk tasks into a heavy process.
+2. **Solves a recurring problem**: it is not the institutionalization of a one-off experience or a single observation.
+3. **Provides a practically executable method**: it is not a restatement of an existing AGENTS.md rule in different words.
+4. **Does not own an always-applicable gate**: authorization, scope, evidence, and completion gates remain in the deployed AGENTS.md; a skill can only implement their procedure.
+5. **Does not duplicate environment facts owned by a fact owner**: hosts, paths, proxies, versions, deployment locations, and other volatile or machine-specific facts stay with their authoritative fact owner, not in the skill body.
+6. **Has a clear boundary with existing skills**: when scopes overlap, extend or narrow an existing skill instead of stacking a new one.
+7. **Ships matching runtime metadata**: `agents/openai.yaml` matches the name/description in `SKILL.md`; the catalog description only identifies applicability, not the procedure.
+8. **Is followed by a consistency check**: update the README skill table; check the catalog, installed copies, and identifiers for consistency.
 
-## 目录形态
+## Directory shape
 
 ```text
 <skill-name>/
@@ -24,16 +24,22 @@
     └── openai.yaml
 ```
 
-`SKILL.md` 保持简短；存在可复用细节时放入 `references/`，避免正文膨胀。
+Keep `SKILL.md` short; put reusable details in `references/` rather than inflating the main file.
 
-## 同步安装副本
+## Synchronizing installed copies
 
-以本仓库作为安装源时，修改后同步到当前 agent 运行时的 skills 安装目录（`~/.codex/skills/`），并检查安装副本与源文件一致（哈希比对）。
+When this repository is the installation source, synchronize changes to the current agent runtime's installed skills directory (for example `~/.codex/skills/` or the OpenCode skills directory synchronized by `sync-opencode-agents.ps1`), and verify that installed copies match the source files by hash.
 
-全局 `AGENTS.md` 由 `codex-agents-md/` 持有。修改后运行 `codex-agents-md\sync-codex-agents.ps1`，将源文件同步到 `C:\Users\metra\.codex\AGENTS.md` 并核对哈希；全局运行副本不再由 chezmoi 跟踪。
+The global `AGENTS.md` is owned by `codex-agents-md/`. After changes, run `codex-agents-md\sync-codex-agents.ps1` to synchronize the source to `C:\Users\metra\.codex\AGENTS.md` and verify the hash; the global runtime copy is no longer tracked by chezmoi.
 
-## 提交约定
+## Language rules
 
-- 小步提交，提交信息说明改动内容（仓库历史为短句风格，如 `Narrow governance skill triggers`）。
-- 不提交密钥、PII 或业务敏感样本；示例一律使用占位符。
-- 合入前运行 `.github/scripts/validate_structure.py` 本地核对结构；CI 在 push 到 main 与 PR 时运行结构校验与本地链接检查。
+- Skill files and runtime metadata are English-only. Do not add `SKILL.zh-CN.md` or other per-skill translated copies.
+- Public repository documents are paired: an English canonical `*.md` file with a Chinese `*.zh-CN.md` file. `LICENSE`, third-party content, and generated content are exempt.
+- First-party full-line code comments use Chinese. Inline comments, docstrings, and API documentation are exempt and stay in their existing language.
+
+## Commit conventions
+
+- Make small commits; the commit message explains the change (the repository history uses short-sentence style, for example `Narrow governance skill triggers`).
+- Do not commit secrets, PII, or sensitive business samples; always use placeholders in examples.
+- Before merging, run `.github/scripts/validate_structure.py` locally; CI runs structure validation and local link checking on pushes to main and on pull requests.
