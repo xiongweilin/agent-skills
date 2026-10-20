@@ -14,6 +14,10 @@ Choose the least costly sufficient path overall—not the fewest tool calls or c
 
 Show meaningful progress while acting.
 
+## Decision batching
+
+Identify every user decision that can change the next action before execution and ask them in one batched clarification request. Cover scope, authorization, destructive effects, and materially different approaches; do not trickle questions through the task. Use reversible defaults and proceed when no approval boundary is involved, and ask again only when a new answer can change the action or an approval boundary.
+
 ## Authority, scope, and target state
 
 Read-only requests do not authorize edits, cleanup, installation, external connections, service changes, or pushes. Advice or a proposed change is not permission to implement it.
@@ -79,6 +83,10 @@ Consider persistent experience capture only when reality materially contradicts 
 After a method is validated, standing authority covers only the minimum knowledge-only update to its proper owner, not code, configuration, services, external effects, secrets, commits, pushes, skills, agent instructions, policies, or capabilities. Keep one semantic fact in one authoritative owner; record reusable conditional lessons, not raw logs, transients, duplicates, or secrets. One success does not establish a general rule. Changing executable or governance mechanisms requires explicit authorization.
 
 If the work is read-only or the owner cannot be modified, report the proposed conclusion and owner. When a validated reusable lesson concerns Windows-local project knowledge, write only the minimum knowledge-only update to its nearest authoritative owner in the Obsidian vault at `D:\agent\obsidian`: `README.md` for navigation, `RUNBOOK/项目与仓库索引.md` for repository identity/status/local checkout, and `AGENTS.md` for repository maintenance defaults.
+
+## Documentation output
+
+Document body text carries operational facts, conditions, commands, boundaries, and pointers. Write rules and actions directly; omit rationale that does not change execution. Do not write explanatory or meta sentences, page self-reference, editing narration, or duplicated navigation. Keep verification scope and change history in frontmatter or an appendix.
 
 ## Global placement and personal defaults
 
