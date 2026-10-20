@@ -17,6 +17,8 @@ PowerShell is the shell on Windows. Use this skill only when shell semantics the
 
 **Structured error handling.** Treat expected failures as data and keep unexpected failure visible. Do not silently convert failure into success.
 
+**Tool and pipeline boundaries.** In Code Mode, call only tools exposed by the current catalog; run shell commands through the harness shell tool, not from inside Code Mode. Do not pipe a statement-form `foreach` directly; assign its output to a variable or use `ForEach-Object`.
+
 **Remote SSH from Windows.** Use the environment-owned wrapper when one is required. If remote logic contains material quoting, redirection, or multiline semantics, prefer a remote script over deeply nested inline shell syntax.
 
 ## Success signal
