@@ -16,7 +16,7 @@ Show meaningful progress while acting.
 
 ## Decision batching
 
-Identify every user decision that can change the next action before execution and ask them in one batched clarification request. Cover scope, authorization, destructive effects, and materially different approaches; do not trickle questions through the task. Use reversible defaults and proceed when no approval boundary is involved, and ask again only when a new answer can change the action or an approval boundary.
+When multiple unresolved decisions require user input before the next authorized step, ask them together. Do not collect hypothetical downstream decisions or delay independent, authorized work. Proceed when the outcome, authority, and necessary conditions are sufficiently clear; ask again only when new evidence reveals a material user decision or approval boundary.
 
 ## Authority, scope, and target state
 
@@ -86,7 +86,7 @@ If the work is read-only or the owner cannot be modified, report the proposed co
 
 ## Documentation output
 
-Document body text carries operational facts, conditions, commands, boundaries, and pointers. Write rules and actions directly; omit rationale that does not change execution. Do not write explanatory or meta sentences, page self-reference, editing narration, or duplicated navigation. Keep verification scope and change history in frontmatter or an appendix.
+Write document content directly. Omit unnecessary meta-commentary, self-reference, editing narration, and explanations that add no substantive value. Retain explanations, rationale, and context when they materially help the intended reader understand or use the document. Follow the document's purpose and format.
 
 ## Global placement and personal defaults
 
