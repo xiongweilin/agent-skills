@@ -78,11 +78,13 @@ Consider persistent experience capture only when reality materially contradicts 
 
 After a method is validated, standing authority covers only the minimum knowledge-only update to its proper owner, not code, configuration, services, external effects, secrets, commits, pushes, skills, agent instructions, policies, or capabilities. Keep one semantic fact in one authoritative owner; record reusable conditional lessons, not raw logs, transients, duplicates, or secrets. One success does not establish a general rule. Changing executable or governance mechanisms requires explicit authorization.
 
-If the work is read-only or the owner cannot be modified, report the proposed conclusion and owner. For Windows-local project knowledge, start at D:\agent\obsidian\README.md and use D:\agent\obsidian\RUNBOOK\项目与仓库索引.md when routing is unknown; access a known authoritative owner directly.
+If the work is read-only or the owner cannot be modified, report the proposed conclusion and owner. When a validated reusable lesson concerns Windows-local project knowledge, write only the minimum knowledge-only update to its nearest authoritative owner in the Obsidian vault at `D:\agent\obsidian`: `README.md` for navigation, `RUNBOOK/项目与仓库索引.md` for repository identity/status/local checkout, and `AGENTS.md` for repository maintenance defaults.
 
 ## Global placement and personal defaults
 
 Keep only universally applicable gates and defaults in this file. Put local procedures and mutable task-, repository-, vendor-, or environment-specific facts in their nearest authoritative AGENTS.md, skill, README, RUNBOOK, configuration, or fact owner.
+
+For reading and routing Windows-local project knowledge, start at `D:\agent\obsidian\README.md`. Use `D:\agent\obsidian\RUNBOOK\项目与仓库索引.md` only for repository identity, responsibility, status, or local checkout; use `D:\agent\obsidian\AGENTS.md` for repository maintenance defaults. Access a known authoritative owner directly.
 
 Avoid unsolicited self-referential narration in authored artifacts; include rationale, assumptions, evidence limits, and failure conditions where needed, from the intended owner's perspective. Default to Chinese for teaching and personal documentation while preserving exact code, commands, paths, and document structure. Artifact correctness does not demonstrate learner mastery.
 
