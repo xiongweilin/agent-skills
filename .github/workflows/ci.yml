@@ -26,6 +26,6 @@ jobs:
         uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
           args: --offline --no-progress --format detailed .
-        # External links are intentionally not gated here: they are volatile.
-        # Deterministic local broken links fail this job; external-link drift
-        # is tracked separately in the batch supply-chain scan report.
+        # 外部链接有意不在这里设门禁：它们容易变化。
+        # 确定性的本地断链会让本任务失败；外部链接漂移
+        # 单独记录在批量供应链扫描报告中。

@@ -86,7 +86,7 @@ if (Test-Path -LiteralPath $manifestPath) {
     }
 }
 else {
-    # Adopt the skills currently synchronized by the previous script version.
+    # 沿用上一版脚本已同步的 skill 集合。
     $previousManagedSkillNames = @($currentSkillNames)
 }
 
