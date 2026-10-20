@@ -34,7 +34,7 @@
 
 ## 语言规则
 
-- skill 文件与运行时 metadata 只保留英文；不新增 `SKILL.zh-CN.md` 或其他按 skill 翻译的副本。
+- skill 文件与运行时 metadata 只保留英文；必须逐字匹配的触发语句或协议字面量除外。不新增 `SKILL.zh-CN.md` 或其他按 skill 翻译的副本。
 - 公开仓库文档成对保留：英文主文件 `*.md` 与中文 `*.zh-CN.md`。`LICENSE`、第三方内容与生成内容不适用。
 - 第一方代码的整行注释使用中文；行内注释、docstring 与 API 文档不适用，保持原有语言。
 

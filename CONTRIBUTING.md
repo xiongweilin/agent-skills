@@ -34,7 +34,7 @@ The global `AGENTS.md` is owned by `codex-agents-md/`. After changes, run `codex
 
 ## Language rules
 
-- Skill files and runtime metadata are English-only. Do not add `SKILL.zh-CN.md` or other per-skill translated copies.
+- Skill files and runtime metadata are English-only, except exact trigger phrases or protocol literals that must remain verbatim. Do not add `SKILL.zh-CN.md` or other per-skill translated copies.
 - Public repository documents are paired: an English canonical `*.md` file with a Chinese `*.zh-CN.md` file. `LICENSE`, third-party content, and generated content are exempt.
 - First-party full-line code comments use Chinese. Inline comments, docstrings, and API documentation are exempt and stay in their existing language.
 
