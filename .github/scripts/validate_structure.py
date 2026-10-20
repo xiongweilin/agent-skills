@@ -6,7 +6,8 @@
 2. ``SKILL.md`` frontmatter 中的 ``name`` 与目录一致，并包含 ``description``；
 3. ``agents/openai.yaml`` 包含引用对应 skill 的展示元数据；
 4. README skill 表与磁盘上的 skill 集合双向一致；
-5. 本地 Markdown 链接（相对路径和 fragment）可以解析。
+5. 顶层公开文档保留英文/中文配对；
+6. 本地 Markdown 链接（相对路径和 fragment）可以解析。
 """
 
 from __future__ import annotations
@@ -34,6 +35,12 @@ TOP_LEVEL_FILES = {
     ".gitattributes",
 }
 NON_SKILL_DIRS = {"codex-agents-md"}
+REQUIRED_LANGUAGE_PAIRS = (
+    ("README.md", "README.zh-CN.md"),
+    ("CONTRIBUTING.md", "CONTRIBUTING.zh-CN.md"),
+    ("SECURITY.md", "SECURITY.zh-CN.md"),
+    ("CODE_OF_CONDUCT.md", "CODE_OF_CONDUCT.zh-CN.md"),
+)
 SKILL_FILE = "SKILL.md"
 AGENT_META = Path("agents") / "openai.yaml"
 
@@ -136,6 +143,9 @@ def main() -> int:
         if entry.is_dir() and not entry.name.startswith(".") and entry.name not in NON_SKILL_DIRS:
             check_skill_layout(entry, failures)
     check_readme_table(skill_names, failures)
+    for english, chinese in REQUIRED_LANGUAGE_PAIRS:
+        if not (ROOT / english).is_file() or not (ROOT / chinese).is_file():
+            failures.append(f"missing language pair: {english} / {chinese}")
     for entry in sorted(ROOT.iterdir()):
         if entry.is_file() and entry.name not in TOP_LEVEL_FILES:
             failures.append(f"unexpected top-level file: {entry.name}")
