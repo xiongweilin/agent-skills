@@ -1,6 +1,6 @@
 # Contributing
 
-This repository is a personal collection of reusable agent skills. Read the admission criteria and synchronization workflow below before submitting.
+This repository is a personal collection of reusable agent skills. New or modified skills must satisfy the admission criteria and synchronization workflow.
 
 ## Admission criteria (new or modified skill)
 
