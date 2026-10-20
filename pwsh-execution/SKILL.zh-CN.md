@@ -17,6 +17,8 @@ Windows 上使用 PowerShell。只有当 shell 语义本身会给待执行操作
 
 **结构化错误处理。** 把预期失败视为数据，并让非预期失败保持可见。不要静默把失败转换成成功。
 
+**工具与管道边界。** 在 Code Mode 中只调用当前 catalog 暴露的工具；shell 命令通过 harness 的 shell tool 执行，不在 Code Mode 内调用。不要把语句形式的 `foreach` 直接接入管道；先把输出赋给变量，或使用 `ForEach-Object`。
+
 **Windows 上的远端 SSH。** 环境要求 wrapper 时使用环境 owner 提供的 wrapper。远端逻辑包含重要 quoting、redirection 或多行语义时，优先使用远端脚本，而不是深层嵌套 inline shell。
 
 ## 成功信号
