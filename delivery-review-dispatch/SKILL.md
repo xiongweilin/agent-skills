@@ -25,7 +25,7 @@ Include the exact sentence `你是交付审核子智能体。` in the delegated 
 Allow at most five review dispatches per task, counting retries and re-reviews, even after repairs or splits; await verdict or terminal failure.
 
 - `PASS`: no material blocker found for this artifact/revision and scope; not approval of later changes, a substitute for required tests, or external authorization.
-- `BLOCK`: isolate the underlying defect and its dependent parts; repair and obtain fresh PASS. Keep independently supported separable parts eligible.
+- `BLOCK`: isolate defects and dependents; repair or remove them. Get fresh PASS for consequential revisions; keep safe independent parts eligible.
 - `UNRESOLVED`: withhold unverified parts and dependents; safe separable portions need support, authority, and PASS if consequential.
 
-Only PASS for the materially unchanged final artifact permits release. Material revisions after PASS/BLOCK require re-review; parent cannot self-clear. After five attempts without PASS, stop and report noncompletion or deliver independently safe partials (PASS if consequential). Never reset the count by splitting work or claim an unrun review.
+Only PASS for unchanged final work permits release. Material revisions after PASS/BLOCK need re-review; parent cannot self-clear. Stop at five dispatches: prior PASS covers only unchanged work. Deliver independently supported parts with current PASS if consequential; report the rest incomplete. Never reset by splitting or claim unrun review.
