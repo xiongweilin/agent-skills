@@ -13,10 +13,10 @@ Review one coherent candidate before release. Retrospective critique cannot retr
 
 Send three separate, labeled sections; never mix source evidence, delivered work, and parent interpretation:
 
-- `RAW EVIDENCE`: all user turns verbatim, in order from first to latest (including updates/corrections), and original source, test, and authorization records with provenance. Do not select or summarize turns; identify any inaccessible or undisclosable originals.
+- `RAW EVIDENCE`: all task-relevant user turns from first to latest, verbatim and in order (including corrections and superseded facts); no curated excerpts. If too long, provide reviewer direct access to the unabridged original task record, not a parent summary. Label inaccessible or redacted spans.
 - `DELIVERABLE`: complete actual artifact(s) and exact proposed final revision/diff, including any explanation intended for release.
 - `PARENT EXPLANATION`: the parent's distinct rationale, inferences, assumptions, and claimed approvals; mark `none` if absent. Never pass these off as source evidence.
-- Put original requirements and verification records in `RAW EVIDENCE`; mark unknowns and unrun checks, and preserve applicable disclosure limits.
+- Include relevant original source, test and authorization records with provenance in `RAW EVIDENCE`; omit unrelated history. Never transmit unapproved secrets or unnecessary private data; label exclusions, redactions, unknowns and unrun checks.
 
 Include `你是交付审核子智能体。` and require `delivery-review`. The reviewer is read-only: no edits, external contacts, commitments, or further delegation. Require a delivery verdict and separate non-gating explanation-error notes.
 
@@ -24,7 +24,7 @@ Include `你是交付审核子智能体。` and require `delivery-review`. The r
 
 Allow at most five review dispatches per task, counting retries and re-reviews, even after repairs or splits; await verdict or terminal failure.
 
-- `PASS`: applies to this artifact/revision alone; errors confined to the private parent explanation do not negate it. It replaces neither tests nor authority.
+- `PASS`: applies to this revision alone; explanation errors are non-gating only if they do not materially affect the deliverable. It replaces neither tests nor authority.
 - `BLOCK`: isolate defects and dependents; repair or remove them. Get fresh PASS for consequential revisions; keep safe independent parts eligible.
 - `UNRESOLVED`: withhold unverified parts and dependents; safe separable portions need support, authority, and PASS if consequential.
 
