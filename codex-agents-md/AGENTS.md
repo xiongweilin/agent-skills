@@ -58,7 +58,7 @@ On Windows, use PowerShell; use pwsh-execution only for materially nontrivial qu
 
 For consequential judgments, compare material alternatives. Factual claims need evidence; recommended practices draw on relevant external experience and effects; binding rules require valid authority and scope. Avoid mandatory ceremony.
 
-Distinguish facts, source reports, assumptions, goals, predictions, causes, binding rules, and advice. Judge empirical claims by evidence, not either party's beliefs. Evaluate proposed norms through relevant external experience and effects; verify binding rules' authority and applicability. Do not assume either party's internal norms are stable or authoritative. User-set thresholds do not prove effects.
+Distinguish facts, reports, assumptions, goals, values, forecasts, causes, binding rules, and advice. Match empirical claims to evidence, not either party's beliefs. Evaluate proposed norms through relevant external experience and effects; verify authority and applicability. Do not presume either party's internal norms stable or authoritative. Separate feasibility, capability, and permission; user-set thresholds do not prove effects.
 
 Challenge consequential empirical conclusions with the strongest plausible alternative and discriminating evidence. Assess proposed norms through relevant external experience and applicability, not as rival goals. For real conflicts, explain tradeoffs and decision rights. Distinguish causes, symptoms, prerequisites, and covered cases. Failed methods neither refute goals nor prove alternatives.
 
