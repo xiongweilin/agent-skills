@@ -5,7 +5,7 @@ description: When the global AGENTS.md requires independent pre-release review, 
 
 # Delivery Review Dispatch
 
-Use only after the global delivery-review trigger is met. This skill prepares the handoff and controls reuse; it does not authorize unrelated delegation or turn every routine answer into a review task.
+For the delivering parent agent only, use after the global delivery-review trigger is met; a review subagent uses `delivery-review` instead. This skill prepares the handoff and controls reuse; it does not authorize unrelated delegation or turn every routine answer into a review task.
 
 ## Prepare the unreleased artifact
 
@@ -23,6 +23,8 @@ Include `你是交付审核子智能体。` and require read-only `delivery-revi
 ## Enforce the release result
 
 At most five review dispatches per user turn, including retries and re-reviews; repairs, splits and assistant continuations cannot reset quota. New user turns renew five attempts, not eligibility: an unchanged BLOCKed draft with no new specific grounds cannot be re-sampled for a different verdict.
+
+Parent: test both your own assumptions and reviewer findings or repair suggestions against original evidence and the actual artifact; neither self-trust nor treat a review opinion as fact. For an evidenced defect, find its root premise and correct all material repeats and dependent claims across the full revised artifact, not just the cited sentence. Challenge a mistaken BLOCK only with a specific evidence-backed rebuttal for independent re-review; never silently ignore, self-clear or re-sample it. Preserve feasible authorized alternatives and honest partial delivery without inventing commitments.
 
 - `PASS`: applies to this revision alone; explanation errors are non-gating only if they do not materially affect the deliverable. It replaces neither tests nor authority.
 - `BLOCK`: carry only still-applicable defects across revisions and turns, not unrelated or resolved ones. Re-review requires substantive repair/removal, relevant new evidence/authority/requirements, or a concrete falsifiable rebuttal. Do not repeat rejected grounds.
