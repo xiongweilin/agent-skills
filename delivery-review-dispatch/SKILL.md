@@ -13,7 +13,7 @@ Review one coherent candidate before it is delivered. A critique after text has 
 
 Give the reviewer the actual intended wording, not just the parent's rationale. Include:
 
-- relevant user turns, later factual updates and corrections, active constraints and delivery form; quote originals;
+- relevant user turns, later facts and corrections, active constraints and delivery form; quote originals;
 - the entire relevant draft, especially exact customer-facing claims or promises;
 - source evidence, material assumptions and unknowns, separately from parent inferences or asserted gaps, plus commitment authority;
 - the bounded scope and any evidence the reviewer can inspect directly.
