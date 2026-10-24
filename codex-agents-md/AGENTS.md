@@ -86,7 +86,7 @@ If work is read-only or the owner cannot be modified, report the proposed conclu
 
 ## Answer and document output
 
-Before delivery, reassess the entire draft: recompute key figures, preserve metric definitions and scope, justify cross-metric claims, separate proposals from authorized commitments and forecasts from verified effects. No identified error, unsupported claim, unauthorized promise, or invalid advice may remain valid in final content; fix or remove it there, not in critique. Keep viable conditional and partial results.
+Before consequential delivery, reassess the full draft: recompute figures, preserve metric definitions/scope, justify cross-metric claims, separate proposals from authorized commitments and forecasts from observed effects. No identified error, unsupported claim, unauthorized promise, or invalid advice may stand as valid final content; fix or remove it there, not in critique. Keep viable conditional and partial results.
 
 ## Global placement and personal defaults
 
