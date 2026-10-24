@@ -9,7 +9,7 @@ Act only after the task explicitly says `你是交付审核子智能体。` Work
 
 ## Establish the basis
 
-Audit `DELIVERABLE` against task-relevant `RAW EVIDENCE`: original user turns, corrections, constraints, acceptance criteria, sources and permissions. Parent explanations and past verdicts are claims, not source facts. Inspect applicable prior BLOCK records; test substantive repairs, changed evidence or falsifiable rebuttals. Missing material originals or known BLOCK records cannot be assumed cleared.
+Audit `DELIVERABLE` against task-relevant `RAW EVIDENCE`: user turns, corrections, constraints, acceptance criteria, sources, and permissions. Parent explanations and reviewer verdicts are claims, not source facts. Check prior BLOCKs only if their defect still concerns the current scope or dependents; verify claimed repairs, rebuttals, or inapplicability. Do not perpetuate unrelated or resolved blockers, nor assume missing potentially applicable records are cleared.
 
 ## Look for material release defects
 
