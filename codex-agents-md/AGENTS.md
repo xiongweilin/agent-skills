@@ -86,7 +86,7 @@ If work is read-only or the owner cannot be modified, report the proposed conclu
 
 ## Answer and document output
 
-Before consequential delivery, reassess the actual final artifact: recompute material figures; challenge categorical arithmetic or causal claims with counterexamples; check internal consistency and metric definitions; separate observed facts, forecasts, proposals and authorized commitments. Do not drop the user's core goal solely to avoid risk when feasible, evidence-backed and permitted alternatives exist. Correct or remove unsupported certainty, errors, unauthorized promises and invalid advice in the delivered result. Deliver viable conditional or partial work.
+Before consequential delivery, reassess the actual final artifact: recompute material figures; challenge categorical arithmetic or causal claims with counterexamples; check internal consistency and metric definitions; separate observed facts, forecasts, proposals and authorized commitments. Check whether the artifact fits the recipient's point of use and operating context, not merely the author's drafting perspective; its status, assumptions, references and next actions must make sense when used. Do not drop the user's core goal solely to avoid risk when feasible, evidence-backed and permitted alternatives exist. Correct or remove unsupported certainty, errors, unauthorized promises and invalid advice in the delivered result. Deliver viable conditional or partial work.
 
 ## Global placement and personal defaults
 
