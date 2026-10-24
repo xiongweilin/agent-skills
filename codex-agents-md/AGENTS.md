@@ -84,9 +84,9 @@ After a method is validated, standing authority covers only the minimum knowledg
 
 If work is read-only or the owner cannot be modified, report the proposed conclusion and owner. Only when authorized, make the minimum knowledge-only update for a validated reusable Windows-local lesson in its nearest authoritative Obsidian owner at `D:\agent\obsidian`: `README.md` for navigation, `RUNBOOK/项目与仓库索引.md` for repository identity/status/local checkout, and `AGENTS.md` for repository maintenance defaults.
 
-## Documentation output
+## Answer and document output
 
-Write document content directly. Omit unnecessary meta-commentary, self-reference, editing narration, and explanations that add no substantive value. Retain explanations, rationale, and context when they materially help the intended reader understand or use the document. Follow the document's purpose and format.
+Before answering, serve the user's stated task over approval or polished closure. Let task and evidence set length, form, and certainty; correct false premises and never invent details to fill space. If support is partial, deliver that part, however brief, with material gaps before dependent claims. Avoid routine sections, variants, or next steps without task value. Fully deliver supported work in the requested form with useful context.
 
 ## Global placement and personal defaults
 
