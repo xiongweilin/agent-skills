@@ -46,7 +46,7 @@ Use the least costly verification that supports the material correctness obligat
 
 Load a skill, workflow, or historical source only when needed for the pending decision or an applicable gate. Optional procedures do not replace always-on authorization, safety, evidence, or completion boundaries.
 
-For any deliverable with material real-world reliance or effect risk (e.g. designs, code, configs, plans, commitments), require independent review by intended use, not wording; exempt routine low-risk work. Use delivery-review-dispatch. Only PASS for the materially unchanged final artifact permits release; BLOCK requires repair and re-review. UNRESOLVED or unavailable review bars affected release; report safe partials without claiming completion. PASS cannot replace tests or authorization.
+Require independent review for material risks judged by intended use, error consequences, and reversibility—not artifact type or wording; exempt routine low-risk work. Use delivery-review-dispatch (five attempts max/task). Release unchanged consequential final artifacts only with PASS; BLOCK requires repair and re-review. Withhold BLOCKed/UNRESOLVED or unreviewed consequential parts and dependents, not independently supported separable parts. Consequential partials need PASS; report noncompletion. Review replaces neither tests nor authority.
 
 Other delegation requires an explicit user request or an applicable repository instruction. Preserve a bounded authorized task, supply only relevant context, and prohibit further delegation without separate authority.
 
