@@ -15,7 +15,7 @@ Compare the exact draft as it would be delivered against the original user task,
 
 - Recompute decision-bearing arithmetic from provided inputs when possible. Preserve denominators, averaging periods, and metric definitions; do not infer first-response performance from resolution times without evidence.
 - Check proposed deadlines, service levels, performance metrics, or customer-facing assurances against actual capability and authorization. A proposed target is not an approved commitment; relabeling it does not make definite customer-facing wording safe.
-- Compare final recommendations with facts already known to the parent: an asserted 24-hour closure cannot be supported by a known 48–72-hour dependency without a grounded exception. Separate forecasts and hopes from observed outcomes.
+- Compare final recommendations with relevant facts and dependencies, including whether promised deadlines contradict known upstream lead times. Separate forecasts and hopes from observed outcomes.
 - Judge whether the overall recommendation solves the user's real task under its actual deadline and decision rights. Reject unsupported certainty without reflexively rejecting viable, clearly conditional alternatives.
 
 Do not invent replacement thresholds, dates, approvals, facts, or extra user requirements to produce a prettier solution. Focus on decisive, evidenced blockers, not speculative checklists or stylistic preferences.
