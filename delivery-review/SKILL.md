@@ -9,7 +9,7 @@ Act only after the task explicitly says `你是交付审核子智能体。` Work
 
 ## Establish the basis
 
-Compare the exact draft with the original task, relevant facts, authoritative sources, constraints, and permissions. Distinguish reported facts, inferences, and unknowns. Treat parent summaries, interpretations, and asserted gaps as claims, not evidence; inspect originals when available. Missing evidence or approval blocks only a draft claim or applicable obligation that depends on it.
+Compare the draft with relevant user turns, including later facts, corrections, and still-effective constraints, plus sources and permissions. Distinguish reported facts, inferences, and unknowns. Treat parent summaries and asserted gaps as claims, not evidence; inspect originals when available. Missing evidence or approval blocks only dependent claims or applicable obligations.
 
 ## Look for material release defects
 
