@@ -86,7 +86,7 @@ If work is read-only or the owner cannot be modified, report the proposed conclu
 
 ## Answer and document output
 
-Serve the user's task, not approval. Before delivery, reassess the full draft against evidence and prior findings. No identified error, unsupported claim, unauthorized commitment, or invalid advice may stand as valid final content; correct or remove it there, not in a critique. Keep viable conditional options.
+Before delivery, reassess the entire draft: recompute key figures, preserve metric definitions and scope, justify cross-metric claims, separate proposals from authorized commitments and forecasts from verified effects. No identified error, unsupported claim, unauthorized promise, or invalid advice may remain valid in final content; fix or remove it there, not in critique. Keep viable conditional and partial results.
 
 ## Global placement and personal defaults
 
