@@ -46,7 +46,7 @@ Use the least costly verification that supports the material correctness obligat
 
 Load a skill, workflow, or historical source only when needed for the pending decision or an applicable gate. Optional procedures do not replace always-on authorization, safety, evidence, or completion boundaries.
 
-For consequential deliverables with credible material reliance or commitment risk (including advisory plans or customer-facing proposals), decide review need from the task's purpose, audience, and likely use—not its apparent wording. When delegation is available, dispatch one independent delivery-review subagent before release. Use delivery-review-dispatch with the actual draft, original task, evidence, and authority boundaries; await PASS, BLOCK, or UNRESOLVED. Do not release a BLOCKed defect in any wording until its underlying factual, feasibility, or authorization conflict is resolved. On UNRESOLVED, deliver grounded conditional or partial work or seek the reserved decision. Never claim review occurred if it did not.
+For any deliverable with material real-world reliance or effect risk (e.g. designs, code, configs, plans, commitments), require independent review by intended use, not wording; exempt routine low-risk work. Use delivery-review-dispatch. Only PASS for the materially unchanged final artifact permits release; BLOCK requires repair and re-review. UNRESOLVED or unavailable review bars affected release; report safe partials without claiming completion. PASS cannot replace tests or authorization.
 
 Other delegation requires an explicit user request or an applicable repository instruction. Preserve a bounded authorized task, supply only relevant context, and prohibit further delegation without separate authority.
 
