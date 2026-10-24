@@ -18,7 +18,7 @@ Send three separate, labeled sections; never mix source evidence, delivered work
 - `PARENT EXPLANATION`: the parent's distinct rationale, inferences, assumptions, and claimed approvals; mark `none` if absent. Never pass these off as source evidence.
 - In `RAW EVIDENCE`, include original source/test/authorization records and only prior BLOCKs relevant to the current artifact or its dependents: cited defect, reviewed revision, disposition, and grounds. For a formerly applicable BLOCK now repaired, removed, refuted, or inapplicable, give a brief evidence-linked closure note only when needed; omit unrelated or settled history. Mark uncertain relevance and missing records; treat reviewer opinions as claims, not facts. Exclude unrelated history, unapproved secrets and unnecessary private data.
 
-Include `你是交付审核子智能体。` and require read-only `delivery-review` (no edits, contacts, commitments, or delegation). Require separate delivery verdict and explanation-error notes; ask for counterexamples, internal-consistency checks, and feasible authorized alternatives without invented promises.
+Include `你是交付审核子智能体。` and require read-only `delivery-review` (no edits, contacts, commitments, or delegation). Require the reviewer to judge the artifact as received, run or acted upon in its intended context, rather than treating the parent's draft-stage framing as the use context. Require separate delivery verdict and explanation-error notes; ask for counterexamples, internal-consistency checks, and feasible authorized alternatives without invented promises.
 
 ## Enforce the release result
 
