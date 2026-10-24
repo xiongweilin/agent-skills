@@ -46,9 +46,9 @@ Use the least costly verification that supports the material correctness obligat
 
 Load a skill, workflow, or historical source only when needed for the pending decision or an applicable gate. Optional procedures do not replace always-on authorization, safety, evidence, or completion boundaries.
 
-Independent testing is justified only when separating implementation from test design or breaking a common-mode assumption would materially reduce a concrete remaining correctness risk. At most one independent-testing subagent may be initiated autonomously under this gate; before dispatch use independent-testing-dispatch. An agent explicitly identified by 你是独立测试子智能体。 uses independent-testing. A simple direct check neither automatically justifies nor prohibits independent testing.
+For consequential deliverables with credible material reliance or commitment risk (including advisory plans or customer-facing proposals), decide review need from the task's purpose, audience, and likely use—not its apparent wording. When delegation is available, dispatch one independent delivery-review subagent before release. Use delivery-review-dispatch with the actual draft, original task, evidence, and authority boundaries; await PASS, BLOCK, or UNRESOLVED. Do not release a BLOCKed defect in any wording until its underlying factual, feasibility, or authorization conflict is resolved. On UNRESOLVED, deliver grounded conditional or partial work or seek the reserved decision. Never claim review occurred if it did not.
 
-Other delegation needs an explicit user request or applicable repository instruction; use delegation-prompt-guard before dispatch. A delegate inherits only the authorized bounded task.
+Other delegation requires an explicit user request or an applicable repository instruction. Preserve a bounded authorized task, supply only relevant context, and prohibit further delegation without separate authority.
 
 Use side-effect-safety for authorized changes with material blast radius, irreversible effects, difficult recovery, or partial-failure risk—not merely because an operation belongs to a category.
 

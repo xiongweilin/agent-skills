@@ -1,0 +1,4 @@
+interface:
+  display_name: "Delivery Review"
+  short_description: "Independently audit a consequential draft before release"
+  default_prompt: "Use $delivery-review only when explicitly assigned as 你是交付审核子智能体。 Review the exact draft against source evidence and authority; return PASS, BLOCK, or UNRESOLVED without publishing."

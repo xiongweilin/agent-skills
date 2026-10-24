@@ -1,4 +1,0 @@
-interface:
-  display_name: "Independent Testing Dispatch"
-  short_description: "Bound an authorized independent-testing handoff"
-  default_prompt: "Use $independent-testing-dispatch only after independent testing is already authorized; prepare the bounded handoff or determine the minimum established evidence invalidated by a later repair."
