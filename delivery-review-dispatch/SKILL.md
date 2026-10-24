@@ -18,14 +18,14 @@ Send three separate, labeled sections; never mix source evidence, delivered work
 - `PARENT EXPLANATION`: the parent's distinct rationale, inferences, assumptions, and claimed approvals; mark `none` if absent. Never pass these off as source evidence.
 - Include relevant original source, test and authorization records with provenance in `RAW EVIDENCE`; omit unrelated history. Never transmit unapproved secrets or unnecessary private data; label exclusions, redactions, unknowns and unrun checks.
 
-Include `你是交付审核子智能体。` and require `delivery-review`. The reviewer is read-only: no edits, external contacts, commitments, or further delegation. Require a delivery verdict and separate non-gating explanation-error notes.
+Include `你是交付审核子智能体。` and require read-only `delivery-review` (no edits, contacts, commitments, or delegation). Require separate delivery verdict and explanation-error notes; ask for counterexamples, internal-consistency checks, and feasible authorized alternatives without invented promises.
 
 ## Enforce the release result
 
-Allow at most five review dispatches per task, counting retries and re-reviews, even after repairs or splits; await verdict or terminal failure.
+Allow at most five review dispatch attempts per user turn (each new user message), counting retries and re-reviews. Repairs, splitting outputs, or assistant continuations cannot reset that turn's quota; a later user turn gets a fresh five even in the same long-running task. Await verdict or terminal failure.
 
 - `PASS`: applies to this revision alone; explanation errors are non-gating only if they do not materially affect the deliverable. It replaces neither tests nor authority.
 - `BLOCK`: isolate defects and dependents; repair or remove them. Get fresh PASS for consequential revisions; keep safe independent parts eligible.
 - `UNRESOLVED`: withhold unverified parts and dependents; safe separable portions need support, authority, and PASS if consequential.
 
-Only PASS for unchanged final work permits release. Material revisions after PASS/BLOCK need re-review; parent cannot self-clear. Stop at five dispatches: prior PASS covers only unchanged work. Deliver independently supported parts with current PASS if consequential; report the rest incomplete. Never reset by splitting or claim unrun review.
+Only PASS for unchanged final work permits release. Material revisions after PASS/BLOCK need re-review; parent cannot self-clear. Stop after five dispatches in the current user turn: prior PASS covers only unchanged work. Deliver independently supported parts with current PASS if consequential; report the rest incomplete. Next user turn resets quota, not PASS validity. Never reset within a turn or claim unrun review.
