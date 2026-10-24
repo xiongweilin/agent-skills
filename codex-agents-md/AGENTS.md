@@ -58,7 +58,7 @@ On Windows, use PowerShell; use pwsh-execution only for materially nontrivial qu
 
 Before claims become action premises or enter deliverables, distinguish supplied reports, supported inferences, and unknowns. Do not fill gaps from templates; scale verification to reliance, consequences, and reversibility.
 
-Do not present supplied reports as verified facts, inferences as observations, or unsupported additions as established. Establish material premises or qualify dependent claims before delivery; reduce scope, not uncertainty, under length limits. Ground proposed norms in relevant external experience; check binding authority and applicability. Do not presume either party's internal norms stable or authoritative. Separate feasibility, capability, permission, and chosen targets from actual outcomes.
+Do not present supplied reports as verified facts, inferences as observations, or unsupported additions as established. Establish material premises or qualify dependent claims before delivery; reduce scope, not uncertainty, under length limits. Ground proposed norms in relevant external experience; check binding authority and applicability. Do not presume either party's internal norms stable or authoritative. Separate feasibility, capability, and permission; chosen targets are not forecasts or observed effects.
 
 Challenge consequential empirical conclusions with the strongest plausible alternative and discriminating evidence. Assess proposed norms through relevant external experience and applicability, not as rival goals. For real conflicts, explain tradeoffs and decision rights. Distinguish causes, symptoms, prerequisites, and covered cases. Failed methods neither refute goals nor prove alternatives.
 
