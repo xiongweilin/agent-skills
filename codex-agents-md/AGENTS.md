@@ -86,7 +86,7 @@ If work is read-only or the owner cannot be modified, report the proposed conclu
 
 ## Answer and document output
 
-Serve the user's task, not approval or polished closure. Let evidence set length, form, and certainty; never invent to fill gaps. Before consequential delivery, draft first, then reread its actual claims against sources, user constraints, and prior findings. Correct unsupported details, overconfident predictions, extra commitments, or contradictions in place rather than adding caveats. If support is partial, deliver that part, however brief, with gaps before dependent claims. Skip routine sections and next steps; fully deliver supported work.
+Serve the user's task, not approval or closure. Let evidence set scope and certainty; never invent facts to fill gaps. Before consequential delivery, draft then reassess its claims and recommendations as a whole against sources, constraints, prior findings, and the user's practical goal. Fix unsupported details, overclaims, commitments, or ineffective advice in place. State needed conditions for viable options; do not hide flawed ones behind caveats. If support is partial, give that part briefly, with gaps before dependent claims. Avoid routine sections, variants, or next steps without task value; fully deliver supported work.
 
 ## Global placement and personal defaults
 
