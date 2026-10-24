@@ -11,20 +11,20 @@ Use only after the global delivery-review trigger is met. This skill prepares th
 
 Review one coherent candidate before release. Retrospective critique cannot retract a delivered artifact; only still-unreleased content can be gated.
 
-Provide the actual candidate and evidence, not the parent's description alone:
+Send three separate, labeled sections; never mix source evidence, delivered work, and parent interpretation:
 
-- relevant user turns, later facts and corrections, active constraints and delivery form; quote originals;
-- complete relevant artifact(s) and exact revision or diff, including design, code, configuration, or final text as applicable;
-- source evidence, material assumptions and unknowns, separately from parent inferences or asserted gaps, plus commitment authority;
-- applicable acceptance criteria, authority, and required verification evidence, identifying unrun or unavailable checks.
+- `RAW EVIDENCE`: all task-relevant user turns from first to latest, verbatim and in order (including corrections and superseded facts); no curated excerpts. If too long, provide reviewer direct access to the unabridged original task record, not a parent summary. Label inaccessible or redacted spans.
+- `DELIVERABLE`: complete actual artifact(s) and exact proposed final revision/diff, including any explanation intended for release.
+- `PARENT EXPLANATION`: the parent's distinct rationale, inferences, assumptions, and claimed approvals; mark `none` if absent. Never pass these off as source evidence.
+- Include relevant original source, test and authorization records with provenance in `RAW EVIDENCE`; omit unrelated history. Never transmit unapproved secrets or unnecessary private data; label exclusions, redactions, unknowns and unrun checks.
 
-Include the exact sentence `你是交付审核子智能体。` in the delegated task and require `delivery-review`. Keep the assignment read-only. The reviewer cannot rewrite the final artifact, contact third parties, dispatch another agent, or create obligations. Parent explanations are assertions to check, not independent evidence.
+Include `你是交付审核子智能体。` and require `delivery-review`. The reviewer is read-only: no edits, external contacts, commitments, or further delegation. Require a delivery verdict and separate non-gating explanation-error notes.
 
 ## Enforce the release result
 
 Allow at most five review dispatches per task, counting retries and re-reviews, even after repairs or splits; await verdict or terminal failure.
 
-- `PASS`: no material blocker found for this artifact/revision and scope; not approval of later changes, a substitute for required tests, or external authorization.
+- `PASS`: applies to this revision alone; explanation errors are non-gating only if they do not materially affect the deliverable. It replaces neither tests nor authority.
 - `BLOCK`: isolate defects and dependents; repair or remove them. Get fresh PASS for consequential revisions; keep safe independent parts eligible.
 - `UNRESOLVED`: withhold unverified parts and dependents; safe separable portions need support, authority, and PASS if consequential.
 
