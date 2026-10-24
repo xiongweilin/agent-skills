@@ -25,7 +25,7 @@ Include the exact sentence `你是交付审核子智能体。` in the delegated 
 Wait for one terminal review outcome for the candidate:
 
 - `PASS`: the reviewer found no material release blocker within its inspected scope. This is not a guarantee, proof of real-world feasibility, or new authority.
-- `BLOCK`: do not release the flagged claim or recommendation unchanged, even with a disclaimer. Correct or remove the offending wording in the final artifact; preserve workable supported alternatives and useful partial work.
+- `BLOCK`: do not release the flagged defect in any wording, including disguised deadlines or substituted thresholds. Correct or remove the underlying unsupported claim, commitment, or advice; preserve viable conditional alternatives and useful partial work.
 - `UNRESOLVED`: necessary material evidence or access is missing. Do not promote the unverified statement into a fact or commitment. Deliver a grounded conditional or partial result, or seek an owner decision if authority is reserved.
 
-After a repair, check that flagged wording is absent from what will be published. Reuse unaffected findings; ask the same reviewer to assess materially changed portions only if necessary and supported. Do not loop through routine redispatches, and do not present a review as completed when no agent was available.
+After repair, check whether the original factual, metric, feasibility, or authorization defect persists despite paraphrase or a changed threshold. Seek focused re-review for materially substituted claims when available; otherwise withhold unqualified commitments. Reuse unaffected findings, avoid redispatch loops, and never claim an unrun review.
