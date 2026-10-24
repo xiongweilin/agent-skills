@@ -22,10 +22,10 @@ Include the exact sentence `你是交付审核子智能体。` in the delegated 
 
 ## Enforce the release result
 
-Wait for one terminal review verdict for the identified artifact/revision:
+Allow at most five review dispatches per task, counting retries and re-reviews, even after repairs or splits; await verdict or terminal failure.
 
 - `PASS`: no material blocker found for this artifact/revision and scope; not approval of later changes, a substitute for required tests, or external authorization.
-- `BLOCK`: repair or remove the underlying defect, not just its wording. Do not release affected work until the corrected version passes independent review.
-- `UNRESOLVED`: required evidence or review basis is missing. Do not release affected work as final; report limits or deliver separately safe, ungated partials.
+- `BLOCK`: isolate the underlying defect and its dependent parts; repair and obtain fresh PASS. Keep independently supported separable parts eligible.
+- `UNRESOLVED`: withhold unverified parts and dependents; safe separable portions need support, authority, and PASS if consequential.
 
-Only PASS for the materially unchanged final artifact satisfies this review gate. Material revisions after PASS or BLOCK (including new claims, design, behavior, interfaces, or effects) need focused independent re-review to PASS. Neither a parent repair nor an unavailable reviewer may self-clear BLOCK/UNRESOLVED. Reuse unaffected findings, avoid routine loops, and never claim an unrun review.
+Only PASS for the materially unchanged final artifact permits release. Material revisions after PASS/BLOCK require re-review; parent cannot self-clear. After five attempts without PASS, stop and report noncompletion or deliver independently safe partials (PASS if consequential). Never reset the count by splitting work or claim an unrun review.
