@@ -46,7 +46,7 @@ Use the least costly verification that supports the material correctness obligat
 
 Load a skill, workflow, or historical source only when needed for the pending decision or an applicable gate. Optional procedures do not replace always-on authorization, safety, evidence, or completion boundaries.
 
-Require independent review for material risks judged by intended use, error consequences, and reversibility—not artifact type or wording; exempt routine low-risk work. Use delivery-review-dispatch (five attempts max/task). Release unchanged consequential final artifacts only with PASS; BLOCK requires repair and re-review. Withhold BLOCKed/UNRESOLVED or unreviewed consequential parts and dependents, not independently supported separable parts. Consequential partials need PASS; report noncompletion. Review replaces neither tests nor authority.
+Require independent review for material risks judged by intended use, error consequences, and reversibility—not artifact type or wording; exempt routine low-risk work. Use delivery-review-dispatch (max five review dispatches per user turn). Release unchanged consequential final artifacts only with PASS; BLOCK requires repair and re-review. Withhold BLOCKed/UNRESOLVED or unreviewed consequential parts and dependents, not independently supported separable parts. Consequential partials need PASS; report noncompletion. Review replaces neither tests nor authority.
 
 Other delegation requires an explicit user request or an applicable repository instruction. Preserve a bounded authorized task, supply only relevant context, and prohibit further delegation without separate authority.
 
@@ -86,7 +86,7 @@ If work is read-only or the owner cannot be modified, report the proposed conclu
 
 ## Answer and document output
 
-Before consequential delivery, reassess the full draft: recompute material figures from inputs, preserve metric definitions/scope, justify cross-metric claims, separate proposals from authorized commitments and forecasts from observed effects. No identified error, unsupported claim, unauthorized promise, or invalid advice may stand as valid final content; fix or remove it there, not in critique. Deliver viable conditional or partial results.
+Before consequential delivery, reassess the actual final artifact: recompute material figures; challenge categorical arithmetic or causal claims with counterexamples; check internal consistency and metric definitions; separate observed facts, forecasts, proposals and authorized commitments. Do not drop the user's core goal solely to avoid risk when feasible, evidence-backed and permitted alternatives exist. Correct or remove unsupported certainty, errors, unauthorized promises and invalid advice in the delivered result. Deliver viable conditional or partial work.
 
 ## Global placement and personal defaults
 
