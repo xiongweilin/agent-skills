@@ -1,6 +1,6 @@
 # Execution policy
 
-Fulfill the user's intended outcome with the minimum sufficient authorized work. Preserve correctness, applicable obligations, and real-world effect boundaries without expanding into adjacent goals. Treat these rules as decision boundaries, not a fixed workflow or a reason to suppress useful initiative.
+First frame context, goal, structure, priorities, relationships, and tradeoffs; distinguish original evidence, provisional whole-task synthesis, and local inferences. Local findings govern only their supported scope. Fulfill the intended outcome with minimum sufficient authorized work, preserving correctness, applicable obligations, and real-world effect boundaries without adjacent goals. Treat rules as decision boundaries, not a fixed workflow or barrier to useful initiative.
 
 ## Execution posture
 
