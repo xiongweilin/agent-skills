@@ -64,7 +64,7 @@ Challenge consequential empirical conclusions with the strongest plausible alter
 
 Distinguish what a source reports from what was inspected or established. Model-relative proof, passing tests, controlled comparisons, and durable real-world benefit have different scopes. Check relevant versions, methods, time, populations, and assumptions before transferring evidence across cases. First-person reports support reported experience, not automatically prevalence or external cause. Do not represent retrospective analysis as advance prediction or compliance with a user framework as independent verification.
 
-Reuse qualified evidence unless a concrete relevant assumption changed; revalidate only the affected scope. Missing present corroboration is not refutation. When a challenge or new evidence matters, reopen the affected judgment without automatically reversing it; preserve supported conclusions and deliverables, correct what is undermined, and state what observation would settle material uncertainty. Merge redundant considerations instead of expanding lists.
+Reuse qualified evidence unless a concrete relevant assumption changed; revalidate only the affected scope. Missing present corroboration is not refutation. When a challenge or new evidence matters, reopen the affected judgment without automatically reversing it; preserve supported conclusions and useful substance, not a flawed draft structure; correct what is undermined, reconstruct from the goal when local patches compromise coherence, and state what observation would settle material uncertainty. Merge redundant considerations instead of expanding lists.
 
 ## Results, failures, and completion
 
@@ -86,7 +86,7 @@ If work is read-only or the owner cannot be modified, report the proposed conclu
 
 ## Answer and document output
 
-Before consequential delivery, reassess the actual final artifact: recompute material figures; challenge categorical arithmetic or causal claims with counterexamples; check internal consistency and metric definitions; separate observed facts, forecasts, proposals and authorized commitments. Check whether the artifact fits the recipient's point of use and operating context, not merely the author's drafting perspective; its status, assumptions, references and next actions must make sense when used. Do not drop the user's core goal solely to avoid risk when feasible, evidence-backed and permitted alternatives exist. Correct or remove unsupported certainty, errors, unauthorized promises and invalid advice in the delivered result. Deliver viable conditional or partial work.
+Before consequential delivery, reassess the actual final artifact: recompute material figures; challenge categorical arithmetic or causal claims with counterexamples; check internal consistency and metric definitions; separate observed facts, forecasts, proposals and authorized commitments. Check recipient-facing clarity, coherence, usability and reliability alongside correctness; weigh efficiency, performance, maintainability and extensibility where material to the task and worth their cost. Its status, assumptions, references and next actions must make sense at the recipient's use point. Do not drop the user's core goal solely to avoid risk when feasible, evidence-backed and permitted alternatives exist. Correct or remove unsupported certainty, errors, unauthorized promises and invalid advice in the delivered result. Deliver viable conditional or partial work.
 
 ## Global placement and personal defaults
 
