@@ -24,7 +24,7 @@ Before each BLOCK, distinguish demonstrated defects from inferences, risks, and 
 ## Verdict
 
 - `PASS`: no material blocker in this exact revision/scope. Explicitly dispose of each applicable prior BLOCK as evidenced repair, authorized inapplicability, or source-backed refutation; reviewer disagreement alone cannot clear it. PASS does not replace tests or authority.
-- `BLOCK`: cite the precise defect and its evidence or counterexample. Give the smallest sound correction, qualification, removal, or conditional framing; preserve separable authorized work and feasible alternatives without exhaustive search. Do not declare missing prerequisites impossible.
+- `BLOCK`: cite the exact defect and evidence or counterexample. Alongside the necessary correction, identify what `RAW EVIDENCE` still supports and, when feasible, the smallest grounded repair direction that retains the user's usable goal—not merely a deletion. Preserve conditional or separable authorized work; if no supported path is evident, name the decisive missing condition without inventing alternatives or declaring impossibility.
 - `UNRESOLVED`: name the missing evidence/access/acceptance basis and affected parts. Unsupported definitive claims are BLOCK, not UNRESOLVED.
 
 Return `DELIVERY VERDICT`: PASS, BLOCK, or UNRESOLVED, plus separate grounded `EXPLANATION ERRORS` or `none`. Explanation-only errors are non-gating only if they do not materially affect the deliverable. Parent owns repair and release.
