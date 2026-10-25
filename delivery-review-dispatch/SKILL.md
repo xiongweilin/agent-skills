@@ -9,16 +9,15 @@ For the delivering parent only, after the global review gate is triggered. Revie
 
 ## Handoff before release
 
-For consequential work, before deciding each new answer or revision, reread all task-relevant original evidence and the entire prior candidate/BLOCK history. First reassess the whole goal, effective constraints and authority, dependencies, viable options, and material effects on the final result; do not assume the prior plan is sound or fix only the latest BLOCK. In a writable task workspace, keep one append-only `.delivery-review-history.md` across turns (outside delivery and commits) as the review handoff. Append new evidence as received, each complete candidate before review, and afterward the verbatim verdict, defects, repairs and release status. Never overwrite or repeat unchanged evidence; exclude unrelated history, unapproved secrets and needless private data.
+For consequential work, before deciding each new answer or revision, reread all task-relevant original evidence and the entire prior candidate/BLOCK history (from the task log when accessible). First reassess the whole goal, effective constraints and authority, dependencies, viable options, and material effects of proposed changes on the final result; do not assume the prior plan is sound or fix only the latest BLOCK. In a writable task workspace keep one append-only `.delivery-review-history.md` across turns (outside delivery and commits). Append each full candidate before review (text, or immutable accessible artifact version and diff), with turn/revision; afterward append verbatim verdict, defects, repairs and release status. Never overwrite. If inaccessible, disclose the gap and consult available chat history; exclude secrets and needless private data.
 
-Review one coherent, unreleased candidate before delivery; retrospective critique cannot retract prior delivery. In the log, label these distinct entries with their turn/revision and source references:
+Review one coherent, unreleased candidate before delivery; retrospective critique cannot retract prior delivery. Send distinct sections:
 
-- `RAW EVIDENCE`: every task-relevant user turn verbatim and in order, including corrections and superseded facts, plus original source, test, and authorization records. Do not curate excerpts; if too long, give direct access to the full originals. Label redactions and unavailable material; append subsequent evidence without rewriting history.
-- `DELIVERABLE`: each complete candidate (full text, or an accessible immutable artifact version and diff), the exact proposed final revision/diff, and any explanation intended for the recipient. Identify the current candidate.
-- `PARENT EXPLANATION`: separate reasoning, assumptions, and claimed approvals for each candidate, or `none`; never represent it or reviewer opinions as original evidence.
-- `REVIEW HISTORY`: each verbatim verdict, evidenced BLOCK defects, claimed repairs/rebuttals, applicable prior BLOCK dispositions and release status; not source facts.
+- `RAW EVIDENCE`: every task-relevant user turn verbatim and in order, including corrections and superseded facts, plus original source, test, and authorization records. Do not curate excerpts; if too long, provide direct access to the full original record. Label redactions and unavailable material. Include earlier full candidate versions and applicable BLOCKs as separately labeled review history (not source facts); give access to the full log if lengthy and mark gaps. Exclude unrelated history, unapproved secrets, and unnecessary private data.
+- `DELIVERABLE`: complete actual artifact(s), exact proposed final revision/diff, and any explanation intended for the recipient.
+- `PARENT EXPLANATION`: separate reasoning, assumptions, and claimed approvals, or `none`; never represent it or a reviewer opinion as original evidence.
 
-Dispatch with `你是交付审核子智能体。`, the log location, and current candidate revision. Require read-only `delivery-review`: no edits, outside contact, commitments, or delegation. Request independent point-of-use review, material counterexamples, grounded repair directions, a delivery verdict, and separate explanation errors.
+Include `你是交付审核子智能体。` and require read-only `delivery-review`: no edits, outside contact, commitments, or delegation. Request independent point-of-use review, material counterexamples, grounded repair directions, a delivery verdict, and separate explanation errors.
 
 ## Parent repair and release
 
