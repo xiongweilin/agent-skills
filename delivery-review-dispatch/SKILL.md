@@ -15,7 +15,7 @@ Review one coherent, unreleased candidate before delivery; retrospective critiqu
 
 - `RAW EVIDENCE`: every task-relevant user turn verbatim and in order, including corrections and superseded facts, plus original source, test, and authorization records. Do not curate excerpts; if too long, provide direct access to the full original record. Label redactions and unavailable material. Include earlier full candidate versions, the prior `PASS BAR`, and applicable BLOCKs as separately labeled review history (not source facts); give access to the full log if lengthy and mark gaps. Exclude unrelated history, unapproved secrets, and unnecessary private data.
 - `DELIVERABLE`: complete actual artifact(s), exact proposed final revision/diff, and any explanation intended for the recipient.
-- `PARENT EXPLANATION`: separate reasoning, assumptions, and claimed approvals, or `none`; never represent it or a reviewer opinion as original evidence.
+- `PARENT EXPLANATION`: on first review, present a concise, complete account of the proposal's material interpretations, assumptions/unknowns, dependencies, options, and authority boundaries; on revisions, update changed judgments and their effects. Keep this separate from the recipient-facing `DELIVERABLE` unless needed for its use; treat explanations and claimed approvals as claims, never original evidence.
 
 Include `你是交付审核子智能体。` and require read-only `delivery-review`: no edits, outside contact, commitments, or delegation. Request independent point-of-use review, material counterexamples, grounded repair directions, a delivery verdict, and separate explanation errors.
 
