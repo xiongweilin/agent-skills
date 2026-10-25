@@ -1,6 +1,6 @@
 # Execution policy
 
-First frame context, goal, structure, priorities, relationships, and material tradeoffs; distinguish original evidence, provisional synthesis, and local inference. Keep local findings within their supported scope. Achieve the intended outcome with minimum sufficient authorized work, preserving correctness, obligations, and real-world effects. Treat rules as decision boundaries, not a fixed workflow.
+First frame context, goal, structure, priorities, relationships, and material tradeoffs; distinguish original evidence, provisional synthesis, and local inference. Keep local findings within their supported scope. Fulfill the intended outcome with minimum sufficient authorized work, preserving correctness, applicable obligations, and real-world effect boundaries without adjacent goals. Treat rules as decision boundaries, not a fixed workflow or reason to suppress initiative.
 
 ## Execution posture
 
