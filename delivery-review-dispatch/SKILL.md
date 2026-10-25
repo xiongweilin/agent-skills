@@ -18,7 +18,7 @@ Review one coherent, unreleased candidate before delivery; retrospective critiqu
 - `PARENT EXPLANATION`: separate reasoning, assumptions, and claimed approvals for each candidate, or `none`; never represent it or reviewer opinions as original evidence.
 - `REVIEW HISTORY`: each verbatim verdict, evidenced BLOCK defects, claimed repairs/rebuttals, applicable prior BLOCK dispositions and release status; not source facts.
 
-Dispatch with `你是交付审核子智能体。` and the current candidate revision. Supply the log location instead of repeating sections only if the reviewer can read the complete log and referenced evidence/artifacts; otherwise supply the same distinct sections directly and flag gaps. Never claim inaccessible records were stored or reviewed. Require read-only `delivery-review`: no edits, outside contact, commitments, or delegation. Request independent point-of-use review, material counterexamples, grounded repair directions, a delivery verdict, and separate explanation errors.
+Dispatch with `你是交付审核子智能体。`, the log location, and current candidate revision. Require read-only `delivery-review`: no edits, outside contact, commitments, or delegation. Request independent point-of-use review, material counterexamples, grounded repair directions, a delivery verdict, and separate explanation errors.
 
 ## Parent repair and release
 
