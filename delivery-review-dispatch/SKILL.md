@@ -9,7 +9,7 @@ For the delivering parent only, after the global review gate is triggered. Revie
 
 ## Handoff before release
 
-For consequential work in a writable task workspace, keep one append-only `.delivery-review-history.md` across turns (outside delivery and commits). Before each new answer/revision, reread all earlier candidates and BLOCK reasons. Append each full candidate before review (text, or immutable accessible artifact version and diff), with turn/revision; afterward append verbatim verdict, defects, repairs and release status. Never overwrite. If inaccessible, disclose the gap and consult available chat history; exclude secrets and needless private data.
+For consequential work, before deciding each new answer or revision, reread all task-relevant original evidence and the entire prior candidate/BLOCK history (from the task log when accessible). First reassess the whole goal, effective constraints and authority, dependencies, viable options, and material effects of proposed changes on the final result; do not assume the prior plan is sound or fix only the latest BLOCK. In a writable task workspace keep one append-only `.delivery-review-history.md` across turns (outside delivery and commits). Append each full candidate before review (text, or immutable accessible artifact version and diff), with turn/revision; afterward append verbatim verdict, defects, repairs and release status. Never overwrite. If inaccessible, disclose the gap and consult available chat history; exclude secrets and needless private data.
 
 Review one coherent, unreleased candidate before delivery; retrospective critique cannot retract prior delivery. Send distinct sections:
 
