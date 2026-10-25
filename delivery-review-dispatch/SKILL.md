@@ -11,7 +11,7 @@ For the delivering parent only, after the global review gate is triggered. Revie
 
 Review one coherent, unreleased candidate; retrospective critique cannot retract prior delivery. Send distinct sections:
 
-- `RAW EVIDENCE`: every task-relevant user turn verbatim and in order, including corrections and superseded facts, plus original source, test, and authorization records. Do not curate excerpts; if too long, provide direct access to the full original record. Label redactions and unavailable material. Include only relevant prior BLOCKs with their defect, reviewed revision, and evidence-linked disposition; flag uncertain relevance or missing records. Exclude unrelated history and unnecessary private data.
+- `RAW EVIDENCE`: every task-relevant user turn verbatim and in order, including corrections and superseded facts, plus original source, test, and authorization records. Do not curate excerpts; if too long, provide direct access to the full original record. Label redactions and unavailable material. Include only relevant prior BLOCKs with their defect, reviewed revision, and evidence-linked disposition; flag uncertain relevance or missing records. Exclude unrelated history, unapproved secrets, and unnecessary private data.
 - `DELIVERABLE`: complete actual artifact(s), exact proposed final revision/diff, and any explanation intended for the recipient.
 - `PARENT EXPLANATION`: separate reasoning, assumptions, and claimed approvals, or `none`; never represent it or a reviewer opinion as original evidence.
 
