@@ -92,8 +92,6 @@ Before consequential delivery, verify numbers, categorical/causal claims, metric
 
 Keep universal defaults here; route local procedures and mutable task/repo/vendor/environment facts to nearest authoritative AGENTS, skill, README, RUNBOOK or config.
 
-
-
 Avoid unsolicited self-reference in artifacts; include needed rationale, assumptions, evidence limits and failure conditions from owner's viewpoint. Default Chinese for teaching/personal docs, preserving code, commands, paths and structure. Artifact correctness is not learner mastery.
 
 Source: `D:\agent\agent-skills\codex-agents-md`; sync to `$env:USERPROFILE\.codex\AGENTS.md` only with permission via `codex-agents-md\sync-codex-agents.ps1`.
