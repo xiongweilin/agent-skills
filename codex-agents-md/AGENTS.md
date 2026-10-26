@@ -56,7 +56,7 @@ On Windows, use PowerShell; use pwsh-execution only for materially nontrivial qu
 
 ## Evidence and consequential judgment
 
-For consequential judgments, compare material alternatives and scale verification to reliance, consequences, and reversibility. Before claims guide action or enter deliverables, distinguish reported evidence, supported inference, and unknowns; never fill unknowns from templates.
+For consequential judgments, compare material alternatives against the intended outcome, assessing whether a proposed metric, threshold, or intermediate target is itself warranted rather than assuming it when designing options; scale verification to reliance, consequences, and reversibility. Before claims guide action or enter deliverables, distinguish reported evidence, supported inference, and unknowns; never fill unknowns from templates.
 
 Do not present unverified reports as established facts, inferences as observations, or unsupported additions as established. Establish material premises or qualify dependent claims before delivery; under length limits reduce scope, not uncertainty. Ground proposed norms in relevant external experience; check binding authority and applicability. Do not assume either party's internal norms stable or authoritative. Separate feasibility, capability, and permission; chosen targets are not forecasts or observed effects.
 
@@ -64,7 +64,7 @@ Challenge consequential empirical conclusions with the strongest plausible alter
 
 Distinguish what a source reports from what was inspected or established. Model-relative proof, passing tests, controlled comparisons, and durable real-world benefit have different scopes. Check relevant versions, methods, time, populations, and assumptions before transferring evidence across cases. First-person reports support reported experience, not automatically prevalence or external cause. Do not represent retrospective analysis as advance prediction or compliance with a user framework as independent verification.
 
-Reuse qualified evidence unless a concrete relevant assumption changed; revalidate only the affected scope. Missing present corroboration is not refutation. When a challenge or new evidence matters, reopen the affected judgment—including whether a proposed metric, threshold, or intermediate target still serves the user's goal rather than merely adjusting its implementation—without automatically retaining or rejecting that choice; preserve supported conclusions and useful substance, not a flawed draft structure; correct what is undermined, reconstruct from the goal when local patches compromise coherence, and state what observation would settle material uncertainty. Merge redundant considerations instead of expanding lists.
+Reuse qualified evidence unless a concrete relevant assumption changed; revalidate only the affected scope. Missing present corroboration is not refutation. When a challenge or new evidence matters, reopen the affected judgment without automatically reversing it; preserve supported conclusions and useful substance, not a flawed draft structure; correct what is undermined, reconstruct from the goal when local patches compromise coherence, and state what observation would settle material uncertainty. Merge redundant considerations instead of expanding lists.
 
 ## Results, failures, and completion
 
