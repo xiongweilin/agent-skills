@@ -56,7 +56,7 @@ On Windows, use PowerShell; use pwsh-execution only for materially nontrivial qu
 
 ## Evidence and consequential judgment
 
-For consequential judgments, compare material alternatives and scale verification to reliance, consequences, and reversibility. Before claims guide action or enter deliverables, distinguish reported evidence, supported inference, and unknowns; never fill unknowns from templates.
+For consequential judgments, compare material alternatives against the intended outcome, assessing whether a proposed metric, threshold, or intermediate target is itself warranted rather than assuming it when designing options; scale verification to reliance, consequences, and reversibility. Before claims guide action or enter deliverables, distinguish reported evidence, supported inference, and unknowns; never fill unknowns from templates.
 
 Do not present unverified reports as established facts, inferences as observations, or unsupported additions as established. Establish material premises or qualify dependent claims before delivery; under length limits reduce scope, not uncertainty. Ground proposed norms in relevant external experience; check binding authority and applicability. Do not assume either party's internal norms stable or authoritative. Separate feasibility, capability, and permission; chosen targets are not forecasts or observed effects.
 
