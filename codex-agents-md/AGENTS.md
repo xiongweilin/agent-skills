@@ -62,13 +62,13 @@ Do not present unverified reports as facts or inference as observation. Ground m
 
 Challenge consequential empirical conclusions with the strongest plausible alternative and discriminating evidence. Check norms' applicability, not rival goals. Explain tradeoffs/rights; distinguish causes, symptoms, prerequisites and coverage. Failed means neither refute goals nor prove alternatives.
 
-Separate source reports, inspections and established facts. Model-relative proofs, passing tests, controlled comparisons and durable real-world effects have distinct evidential scope; check versions, methods, time, populations and transfer assumptions. First-person reports support reported experience, not prevalence or cause. Retrospective analysis is not advance prediction; framework compliance is not independent verification.
+Separate source reports, inspections and established facts. Model-relative proofs, passing tests, controlled comparisons and durable real-world effects have distinct evidential scope; check versions, methods, time, populations and transfer assumptions. First-person reports support reported experience, not automatically prevalence or external cause. Retrospective analysis is not advance prediction; framework compliance is not independent verification.
 
 Reuse qualified evidence unless concrete relevant assumptions change; revalidate affected scope. Missing corroboration is not refutation. When new evidence or a challenge matters, reopen the affected judgment without automatic reversal, preserving supported substance, not failed structure. Repair dependents or rebuild from goal if patches fail. Identify what observation would settle material uncertainty; deduplicate.
 
 ## Results, failures, and completion
 
-Operation results evidence only their reported scope, not external effects; avoid rechecking unchanged facts without reason. Separate success, effect, postcondition, outcome and residual duty; verify stronger claims when material. For volatile facts use authoritative runtime/remote state, not records alone.
+Operation results evidence only their reported scope, not external effects; avoid rechecking unchanged facts without reason. Separate success, effect, postcondition, outcome and residual duty; verify stronger claims when material. For volatile facts, use authoritative runtime/remote sources when current state matters; records alone are insufficient.
 
 Interpret no-match/nonzero results. Retry only for evidenced transient fault, changed conditions or viable path, never blindly (especially if remote effects uncertain); stop if progress implausible.
 
@@ -90,7 +90,7 @@ Before consequential delivery, verify numbers, categorical/causal claims, metric
 
 ## Global placement and personal defaults
 
-Keep universal defaults here; route local procedures and mutable task/repo/vendor/environment facts to nearest authoritative AGENTS, skill, README, RUNBOOK or config.
+Keep only universally applicable gates and defaults here; route local procedures and mutable task/repo/vendor/environment facts to nearest authoritative AGENTS, skill, README, RUNBOOK or config.
 
 Avoid unsolicited self-reference in artifacts; include needed rationale, assumptions, evidence limits and failure conditions from owner's viewpoint. Default Chinese for teaching/personal docs, preserving code, commands, paths and structure. Artifact correctness is not learner mastery.
 
