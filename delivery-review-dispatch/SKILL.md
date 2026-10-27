@@ -25,6 +25,8 @@ In a writable task workspace, keep a single append-only `.delivery-review-histor
 
 Identify all potentially applicable prior BLOCKs; consult older full versions/reviews as necessary to establish grounds and dispositions rather than restating the entire history. A brief record never lowers the evidence or checking standard.
 
+**Adversarial self-check before dispatch.** Before every review dispatch, take the strongest evidence- and logic-grounded opposing position against your own conclusions, recommendations and complete candidate. Challenge them against original `RAW EVIDENCE`, not the draft's explanations; identify contradictions, unsupported assumptions and dependent claims, then correct the actual candidate before dispatch. Do not rush to delegate errors already discoverable by the parent; self-check never replaces independent review.
+
 Review one coherent, unreleased candidate before delivery; retrospective criticism cannot retract a past publication. Use one dispatch per review attempt containing only:
 
 - `RAW EVIDENCE`: Reproduce all task-relevant user turns verbatim and chronologically, including corrections and superseded facts, plus relevant original source, tests and authorization records. Exclude parent drafts, reasoning, reviews, history and proposed verdicts. Label redactions, unavailable records and source gaps; exclude unrelated history, unapproved secrets and unnecessary private data.
