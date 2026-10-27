@@ -1,4 +1,0 @@
-interface:
-  display_name: "Delivery Review Dispatch"
-  short_description: "Prepare a bounded independent review before delivery"
-  default_prompt: "Use $delivery-review-dispatch when the global delivery-review gate is triggered; hand off the actual draft and original evidence, then enforce PASS, BLOCK, or UNRESOLVED before release."

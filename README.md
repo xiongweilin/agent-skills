@@ -13,7 +13,7 @@ knowledge_scope: skill-governance
 
 Reusable engineering procedures and decision protocols for agent work.
 
-This repository is not a collection of role prompts or persona templates. Each skill packages a bounded procedure for a recurring engineering problem: preserving authority boundaries, tracking provenance, qualifying evidence, controlling side effects, closing changes with fresh verification, reviewing consequential deliverables before release, or operating reliably in a concrete tool environment.
+This repository is not a collection of role prompts or persona templates. Each skill packages a bounded procedure for a recurring engineering problem: preserving authority boundaries, tracking provenance, qualifying evidence, controlling side effects, closing changes with fresh verification, or operating reliably in a concrete tool environment.
 
 The goal is to make repeatable engineering discipline selectively loadable without moving always-applicable safety or authorization rules out of the global runtime policy.
 
@@ -56,7 +56,6 @@ The skills are intended to reduce those failure modes through explicit procedure
 
 - **Always-applicable scope, authorization, evidence, safety gates, and completion requirements remain in the deployed global `AGENTS.md`.**
 - **Skills may implement procedures triggered by those global rules, but must not be the sole owner of an always-applicable gate.**
-- **Consequential delivery-review delegation is governed by the global `AGENTS.md`; `delivery-review-dispatch` implements its bounded handoff. Other delegation still requires explicit authority.**
 - **Volatile machine-, workspace-, service-, and environment-specific facts remain in their authoritative fact owners and are not duplicated into skills.**
 
 `codex-agents-md/AGENTS.md` is the source for the deployed global Codex guidance. Run [`codex-agents-md/sync-codex-agents.ps1`](codex-agents-md/sync-codex-agents.ps1) to synchronize the deployed copy.
@@ -71,8 +70,6 @@ The skills are intended to reduce those failure modes through explicit procedure
 | `candidate-lifecycle` | Keep candidate, official, superseded, and deprecated versions distinct |
 | `side-effect-safety` | Bound consequential state changes, replacement order, and verification around effects |
 | `change-closure` | Require fresh verification and cross-surface consistency before declaring a durable change complete |
-| `delivery-review-dispatch` | Prepare a bounded pre-delivery reviewer handoff and enforce its release outcome |
-| `delivery-review` | Independently audit consequential drafts and report PASS, BLOCK, or UNRESOLVED |
 | `system-reliability-review` | Review common-mode failure, recovery independence, lock-in, reauthorization, and maneuverability |
 | `pwsh-execution` | Execute robust PowerShell workflows while avoiding shell-specific parsing and state mistakes |
 | `chezmoi-management` | Manage files tracked by chezmoi through authoritative source files and synchronize their runtime copies |
