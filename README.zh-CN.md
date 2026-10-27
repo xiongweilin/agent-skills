@@ -13,7 +13,7 @@ knowledge_scope: skill-governance
 
 用于 Agent 工作的可复用工程程序与决策协议。
 
-本仓库不是角色提示词或人格模板集合。每个 skill 都封装一个边界明确的程序，用来处理反复出现的工程问题：保持权限边界、追踪数据来源、限定证据资格、控制副作用、通过最新验证闭合变更、在交付前独立审核重要草稿，或在具体工具环境中可靠运行。
+本仓库不是角色提示词或人格模板集合。每个 skill 都封装一个边界明确的程序，用来处理反复出现的工程问题：保持权限边界、追踪数据来源、限定证据资格、控制副作用、通过最新验证闭合变更，或在具体工具环境中可靠运行。
 
 目标是让可复用的工程纪律能够按需加载，同时不把始终适用的安全或授权规则移出全局运行时政策。
 
@@ -56,7 +56,6 @@ skill 可以实现某个门槛对应的程序，但不能成为始终适用门�
 
 - **始终适用的范围、授权、证据、安全门槛和完成要求，继续由已部署的全局 `AGENTS.md` 持有。**
 - **Skills 可以实现这些全局规则触发的程序，但不能成为始终适用门槛的唯一所有者。**
-- **重要交付的独立审核由全局 `AGENTS.md` 管理触发条件，`delivery-review-dispatch` 负责有边界的交接；其他委派仍须获得授权。**
 - **易变化的机器、工作区、服务和环境事实继续保存在其权威事实所有者中，不复制到 skills。**
 
 `codex-agents-md/AGENTS.md` 是已部署全局 Codex 指南的源文件。运行 [`codex-agents-md/sync-codex-agents.ps1`](codex-agents-md/sync-codex-agents.ps1) 可同步已部署副本。
@@ -71,8 +70,6 @@ skill 可以实现某个门槛对应的程序，但不能成为始终适用门�
 | `candidate-lifecycle` | 明确区分候选、正式、已被替代和已弃用版本 |
 | `side-effect-safety` | 约束有后果的状态变化、替换顺序和副作用验证 |
 | `change-closure` | 在宣告持久变更完成前，要求最新验证和跨表面一致性 |
-| `delivery-review-dispatch` | 准备有边界的交付前独立审核任务，并处理审核结果与发布门槛 |
-| `delivery-review` | 独立审核重要草稿，返回 PASS、BLOCK 或 UNRESOLVED |
 | `system-reliability-review` | 检查共因故障、恢复独立性、锁定、重新授权和机动能力 |
 | `pwsh-execution` | 可靠执行 PowerShell 工作流，避免 shell 特有的解析和状态错误 |
 | `chezmoi-management` | 通过权威 chezmoi 源文件管理 dotfiles，而不是编辑生成副本 |
