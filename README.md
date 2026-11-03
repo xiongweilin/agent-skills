@@ -58,7 +58,7 @@ The skills are intended to reduce those failure modes through explicit procedure
 - **Skills may implement procedures triggered by those global rules, but must not be the sole owner of an always-applicable gate.**
 - **Volatile machine-, workspace-, service-, and environment-specific facts remain in their authoritative fact owners and are not duplicated into skills.**
 
-`agents-md/AGENTS.md` is the source for the deployed global guidance. Run [`agents-md/sync-codex-agents.ps1`](agents-md/sync-codex-agents.ps1) for Codex or [`agents-md/sync-dsh-agents.ps1`](agents-md/sync-dsh-agents.ps1) for DSH to synchronize the matching runtime copy.
+`agents-md/AGENTS.md` is the source for the deployed global guidance. Run [`agents-md/sync-agents.ps1`](agents-md/sync-agents.ps1) to synchronize the Codex and DSH runtime copies.
 
 ## Current skills
 

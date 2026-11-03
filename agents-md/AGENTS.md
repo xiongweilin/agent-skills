@@ -92,4 +92,4 @@ Keep universally applicable gates and defaults here; put local procedures and mu
 
 Avoid unsolicited self-reference in artifacts. Keep final responses concise and outcome-focused: report results, material changes, verification and unresolved issues as useful. Omit unnecessary process narration, repeated rationale and unsolicited alternatives. Concision governs presentation only; do not shorten reasoning, investigation, implementation or verification to make the response shorter. Include rationale, assumptions, evidence limits and failure conditions in artifacts when needed for the recipient. Default to Chinese for teaching and personal documents while preserving code, commands, paths and structure; artifact correctness does not itself establish learner mastery.
 
-Source: `D:\agent\agent-skills\agents-md`; deploy the policy and skills to a harness's user-global locations only with permission via the matching `sync-*-agents.ps1` script in that directory.
+Source: `D:\agent\agent-skills\agents-md`; deploy the policy and skills to a harness's user-global locations only with permission via `agents-md\sync-agents.ps1`.

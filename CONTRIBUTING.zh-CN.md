@@ -30,7 +30,7 @@
 
 以本仓库作为安装源时，修改后同步到当前 agent 运行时的 skills 安装目录（例如 `~/.codex/skills/`、`~/.dsh/skills/`，以及由 `sync-opencode-agents.ps1` 同步的 OpenCode skills 目录），并检查安装副本与源文件一致（哈希比对）。
 
-全局 `AGENTS.md` 由 `agents-md/` 持有。修改后按运行时运行 `agents-md\sync-codex-agents.ps1`（Codex）和/或 `agents-md\sync-dsh-agents.ps1`（DSH），同步对应运行副本并核对哈希；运行副本不再由 chezmoi 跟踪。
+全局 `AGENTS.md` 由 `agents-md/` 持有。修改后运行 `agents-md\sync-agents.ps1`，一次同步 Codex 与 DSH 运行副本并核对哈希；运行副本不再由 chezmoi 跟踪。
 
 ## 语言规则
 

@@ -5,7 +5,7 @@ description: "Use for files actually tracked by chezmoi or to locate the source 
 
 # Chezmoi Management
 
-Chezmoi owns only files it actually tracks. Deployed global `AGENTS.md` copies are not tracked by chezmoi; their source is `agents-md/AGENTS.md`, and the matching `agents-md/sync-*-agents.ps1` script synchronizes each runtime copy. Do not treat a deployed global `AGENTS.md` as a chezmoi-managed file or run `chezmoi apply` for it.
+Chezmoi owns only files it actually tracks. Deployed global `AGENTS.md` copies are not tracked by chezmoi; their source is `agents-md/AGENTS.md`, and `agents-md/sync-agents.ps1` synchronizes the runtime copies. Do not treat a deployed global `AGENTS.md` as a chezmoi-managed file or run `chezmoi apply` for it.
 
 The synchronization and repository steps below are managed-file closure, not optional general self-review. They remain required when this skill applies, but do not justify duplicate checks of the same synchronization fact.
 

@@ -30,7 +30,7 @@ Keep `SKILL.md` short; put reusable details in `references/` rather than inflati
 
 When this repository is the installation source, synchronize changes to the current agent runtime's installed skills directory (for example `~/.codex/skills/`, `~/.dsh/skills/`, or the OpenCode skills directory synchronized by `sync-opencode-agents.ps1`), and verify that installed copies match the source files by hash.
 
-The global `AGENTS.md` is owned by `agents-md/`. After changes, run `agents-md\sync-codex-agents.ps1` for Codex and/or `agents-md\sync-dsh-agents.ps1` for DSH to synchronize each runtime copy and verify the hash; runtime copies are not tracked by chezmoi.
+The global `AGENTS.md` is owned by `agents-md/`. After changes, run `agents-md\sync-agents.ps1` to synchronize the Codex and DSH runtime copies and verify the hash; runtime copies are not tracked by chezmoi.
 
 ## Language rules
 
