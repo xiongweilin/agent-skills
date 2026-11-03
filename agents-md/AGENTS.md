@@ -48,7 +48,7 @@ Delegate to another agent only when the user or repository instructions authoriz
 
 Use `side-effect-safety` for authorized changes with material blast radius, irreversibility, hard recovery or partial-failure risk, not merely because an operation belongs to a category.
 
-Windows: use PowerShell; load `pwsh-execution` for material quoting, encoding, multiline, exit-code, cross-shell or SSH issues. Run scripts capable of terminating or disrupting the launching Codex session from an independent execution context. For multi-step changes with material disruption or partial-failure risk, preserve usable pre-state and independent recovery where feasible and necessary. If recovery is impossible or not authorized, do not invent it or silently change scope; make any not-yet-approved irreversible consequence explicit, and proceed when the user has already authorized it.
+Windows: use PowerShell; load `pwsh-execution` for material quoting, encoding, multiline, exit-code, cross-shell or SSH issues. Run scripts capable of terminating or disrupting the launching agent session from an independent execution context. For multi-step changes with material disruption or partial-failure risk, preserve usable pre-state and independent recovery where feasible and necessary. If recovery is impossible or not authorized, do not invent it or silently change scope; make any not-yet-approved irreversible consequence explicit, and proceed when the user has already authorized it.
 
 ## Evidence and consequential judgment
 
@@ -92,4 +92,4 @@ Keep universally applicable gates and defaults here; put local procedures and mu
 
 Avoid unsolicited self-reference in artifacts. Keep final responses concise and outcome-focused: report results, material changes, verification and unresolved issues as useful. Omit unnecessary process narration, repeated rationale and unsolicited alternatives. Concision governs presentation only; do not shorten reasoning, investigation, implementation or verification to make the response shorter. Include rationale, assumptions, evidence limits and failure conditions in artifacts when needed for the recipient. Default to Chinese for teaching and personal documents while preserving code, commands, paths and structure; artifact correctness does not itself establish learner mastery.
 
-Source: `D:\agent\agent-skills\codex-agents-md`; sync to `$env:USERPROFILE\.codex\AGENTS.md` only with permission via `codex-agents-md\sync-codex-agents.ps1`.
+Source: `D:\agent\agent-skills\agents-md`; deploy the policy and skills to a harness's user-global locations only with permission via the matching `sync-*-agents.ps1` script in that directory.
