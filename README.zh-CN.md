@@ -58,7 +58,7 @@ skill 可以实现某个门槛对应的程序，但不能成为始终适用门�
 - **Skills 可以实现这些全局规则触发的程序，但不能成为始终适用门槛的唯一所有者。**
 - **易变化的机器、工作区、服务和环境事实继续保存在其权威事实所有者中，不复制到 skills。**
 
-`codex-agents-md/AGENTS.md` 是已部署全局 Codex 指南的源文件。运行 [`codex-agents-md/sync-codex-agents.ps1`](codex-agents-md/sync-codex-agents.ps1) 可同步已部署副本。
+`agents-md/AGENTS.md` 是已部署全局指南的源文件。Codex 运行 [`agents-md/sync-codex-agents.ps1`](agents-md/sync-codex-agents.ps1)，DSH 运行 [`agents-md/sync-dsh-agents.ps1`](agents-md/sync-dsh-agents.ps1)，同步对应运行副本。
 
 ## 当前 skills
 

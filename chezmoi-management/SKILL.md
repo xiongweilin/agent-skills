@@ -5,13 +5,13 @@ description: "Use for files actually tracked by chezmoi or to locate the source 
 
 # Chezmoi Management
 
-Chezmoi owns only files it actually tracks. The deployed global Codex `AGENTS.md` is not tracked by chezmoi; its source is `codex-agents-md/AGENTS.md`, and `codex-agents-md/sync-codex-agents.ps1` synchronizes the runtime copy. Do not treat global `AGENTS.md` as a chezmoi-managed file or run `chezmoi apply` for it.
+Chezmoi owns only files it actually tracks. Deployed global `AGENTS.md` copies are not tracked by chezmoi; their source is `agents-md/AGENTS.md`, and the matching `agents-md/sync-*-agents.ps1` script synchronizes each runtime copy. Do not treat a deployed global `AGENTS.md` as a chezmoi-managed file or run `chezmoi apply` for it.
 
 The synchronization and repository steps below are managed-file closure, not optional general self-review. They remain required when this skill applies, but do not justify duplicate checks of the same synchronization fact.
 
 ## Use when
 
-Use when a change touches a file known to be tracked by chezmoi, or when you need to locate the source of a tracked runtime file. The deployed global Codex `AGENTS.md` is outside the scope of this skill. For read-only source-location requests, do not apply, commit, or push.
+Use when a change touches a file known to be tracked by chezmoi, or when you need to locate the source of a tracked runtime file. Deployed global `AGENTS.md` copies are outside the scope of this skill. For read-only source-location requests, do not apply, commit, or push.
 
 ## Method
 

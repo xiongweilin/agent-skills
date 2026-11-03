@@ -34,7 +34,7 @@ TOP_LEVEL_FILES = {
     ".gitignore",
     ".gitattributes",
 }
-NON_SKILL_DIRS = {"codex-agents-md"}
+NON_SKILL_DIRS = {"agents-md"}
 REQUIRED_LANGUAGE_PAIRS = (
     ("README.md", "README.zh-CN.md"),
     ("CONTRIBUTING.md", "CONTRIBUTING.zh-CN.md"),
