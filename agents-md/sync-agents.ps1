@@ -6,8 +6,8 @@
     Source: <RepoRoot>\agents-md\AGENTS.md, plus every <RepoRoot>\<name>\SKILL.md bundle.
     Destinations: each -DestinationRoots entry receives AGENTS.md and skills\<name>\...
 
-    Default destinations are the Codex and DSH user-global homes. The source is
-    copied verbatim; no harness-specific substitutions are applied. Files are
+    Default destinations are the Codex, DSH, and OpenCode user-global homes. The
+    source is copied verbatim; no harness-specific substitutions are applied. Files are
     copied only when their SHA-256 differs, and every copy is verified. Each
     destination's skills manifest tracks the managed skill set so stale files
     and stale managed skill directories can be removed.
@@ -16,7 +16,7 @@
     agent-skills repository root. Default: D:\agent\agent-skills
 
 .PARAMETER DestinationRoots
-    One or more harness home directories. Default: the Codex and DSH homes.
+    One or more harness home directories. Default: the Codex, DSH, and OpenCode homes.
 
 .EXAMPLE
     pwsh -NoProfile -File .\sync-agents.ps1
@@ -26,7 +26,8 @@ param(
     [string]$RepoRoot = 'D:\agent\agent-skills',
     [string[]]$DestinationRoots = @(
         (Join-Path $env:USERPROFILE '.codex'),
-        (Join-Path $env:USERPROFILE '.dsh')
+        (Join-Path $env:USERPROFILE '.dsh'),
+        (Join-Path $env:USERPROFILE '.config\opencode')
     )
 )
 
