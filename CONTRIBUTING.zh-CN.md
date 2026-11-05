@@ -12,7 +12,7 @@
 4. **不独占任何 always-applicable 的 gate**：授权、scope、证据、完成验证等全局门槛永远在部署的 AGENTS.md；skill 只能实现其流程。
 5. **不复制 fact owner 的环境事实**：主机、路径、代理、版本、部署位置等 volatile / machine-specific 事实在权威 fact owner，不进 skill 正文。
 6. **与已有 skill 边界清晰**：重叠时优先扩展或收窄已有 skill，不堆叠新 skill。
-7. **配套运行时 metadata**：`agents/openai.yaml` 与 `SKILL.md` 的 name/description 一致；catalog description 只识别适用场景，不教做法。
+7. **配套运行时 metadata**：`agents/openai.yaml` 具备非空的展示元数据，且默认提示词必须精确引用 skill 名称；其简述需与 `SKILL.md` 触发条件语义一致，无须逐字相同。catalog description 只识别适用场景，不教做法。
 8. **修改后一致性检查**：更新 README 的 skill 表；检查 catalog、安装副本与 identifier 一致性。
 
 ## 目录形态
@@ -28,9 +28,9 @@
 
 ## 同步安装副本
 
-以本仓库作为安装源时，修改后同步到当前 agent 运行时的 skills 安装目录（例如 `~/.codex/skills/`、`~/.dsh/skills/`、`~/.config/opencode/skills/`），并检查安装副本与源文件一致（哈希比对）。
+以本仓库作为安装源时，修改后同步到当前 agent 运行时的 skills 安装目录（例如 `~/.codex/skills/`、`~/.dsh/skills/`、`~/.config/opencode/skills/`、`~/.workbuddy/skills/`），并检查安装副本与源文件一致（哈希比对）。
 
-全局 `AGENTS.md` 由 `agents-md/` 持有。修改后运行 `agents-md\sync-agents.ps1`，一次同步 Codex、DSH 与 OpenCode 运行副本并核对哈希；运行副本不再由 chezmoi 跟踪。
+全局 `AGENTS.md` 由 `agents-md/` 持有。修改后运行 `agents-md\sync-agents.ps1`（脚本会从自身位置推导仓库根目录），一次同步 Codex、DSH、OpenCode 与 WorkBuddy 并核对哈希。WorkBuddy 将规则部署到 `rules/AGENTS.md`，其他运行时使用 `AGENTS.md`。v2 归属清单按文件记录哈希：未纳管文件和已修改的过期文件会保留；已有文件冲突时默认终止，只有显式使用 `-ForceManagedOverwrite` 才会覆盖。v1 清单迁移不会删除无法证明归属的文件。运行副本不再由 chezmoi 跟踪。
 
 ## 语言规则
 
@@ -42,4 +42,4 @@
 
 - 小步提交，提交信息说明改动内容（仓库历史为短句风格，如 `Narrow governance skill triggers`）。
 - 不提交密钥、PII 或业务敏感样本；示例一律使用占位符。
-- 合入前运行 `.github/scripts/validate_structure.py` 本地核对结构；CI 在 push 到 main 与 PR 时运行结构校验与本地链接检查。
+- 合入前运行 `.github/scripts/validate_structure.py` 本地核对结构；CI 在 push 到 main 与 PR 时运行结构校验、回归测试与本地链接检查。

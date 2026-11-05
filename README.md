@@ -58,7 +58,7 @@ The skills are intended to reduce those failure modes through explicit procedure
 - **Skills may implement procedures triggered by those global rules, but must not be the sole owner of an always-applicable gate.**
 - **Volatile machine-, workspace-, service-, and environment-specific facts remain in their authoritative fact owners and are not duplicated into skills.**
 
-`agents-md/AGENTS.md` is the source for the deployed global guidance. Run [`agents-md/sync-agents.ps1`](agents-md/sync-agents.ps1) to synchronize the Codex, DSH, and OpenCode runtime copies.
+`agents-md/AGENTS.md` is the source for the deployed global guidance. Run [`agents-md/sync-agents.ps1`](agents-md/sync-agents.ps1) to synchronize the Codex, DSH, OpenCode, and WorkBuddy runtime copies.
 
 ## Current skills
 
@@ -87,6 +87,6 @@ Each skill is a flat directory with `SKILL.md` and `agents/openai.yaml`:
 
 `SKILL.md` frontmatter `name` must match the directory. Catalog descriptions identify applicability; procedural checklists live in `SKILL.md`.
 
-Repository CI validates the skill structure and local documentation links so the catalog cannot silently drift away from its executable procedure files.
+Repository CI validates both language catalogs, skill metadata, local documentation links, and sync-script regression scenarios. The deployment script uses a versioned ownership manifest: only previously recorded, unmodified stale files are removed; unmanaged files and locally edited stale files are preserved. Existing file conflicts stop deployment unless explicit `-ForceManagedOverwrite` is supplied. Legacy v1 manifests migrate conservatively, without deleting unattributable stale files.
 
 See `CONTRIBUTING.md` for admission criteria and the install-copy synchronization procedure.
