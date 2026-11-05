@@ -78,6 +78,26 @@ function Assert-RelativePath {
     return $normalized
 }
 
+function Assert-NoReparseParents {
+    param(
+        [Parameter(Mandatory)][string]$DestinationRoot,
+        [Parameter(Mandatory)][string]$Path
+    )
+    $root = [IO.Path]::GetFullPath($DestinationRoot).TrimEnd('\', '/')
+    $parent = Split-Path -Parent ([IO.Path]::GetFullPath($Path))
+    while (-not [string]::Equals($parent, $root, [StringComparison]::OrdinalIgnoreCase)) {
+        if (-not $parent.StartsWith(($root + [IO.Path]::DirectorySeparatorChar),
+                [StringComparison]::OrdinalIgnoreCase)) {
+            throw "Managed destination escapes root: $Path"
+        }
+        $entry = Get-Item -LiteralPath $parent -Force -ErrorAction SilentlyContinue
+        if ($null -ne $entry -and ($entry.Attributes -band [IO.FileAttributes]::ReparsePoint)) {
+            throw "Managed destination has a symbolic-link or junction parent: $parent"
+        }
+        $parent = Split-Path -Parent $parent
+    }
+}
+
 function Get-ExistingFileHash {
     param([Parameter(Mandatory)][string]$Path)
     $entry = Get-Item -LiteralPath $Path -Force -ErrorAction SilentlyContinue
@@ -107,9 +127,13 @@ function Get-ManifestFiles {
     if ($null -eq $manifest.files -or $manifest.files -isnot [pscustomobject]) {
         throw "Invalid version 2 manifest: $ManifestPath"
     }
+    $policyPaths = @('AGENTS.md', 'rules/AGENTS.md')
+    if ($manifest.PSObject.Properties.Name -contains 'agents_path') {
+        $policyPaths += (Assert-RelativePath $manifest.agents_path)
+    }
     foreach ($entry in $manifest.files.PSObject.Properties) {
         $relative = Assert-RelativePath $entry.Name
-        if ($relative -notmatch '^(?:AGENTS\.md|rules/AGENTS\.md|skills/[a-z0-9-]+/.+)$') {
+        if ($relative -notmatch '^skills/[a-z0-9-]+/.+$' -and $policyPaths -notcontains $relative) {
             throw "Unexpected managed file path in manifest: $relative"
         }
         if ($entry.Value -isnot [string] -or $entry.Value -notmatch '^[a-fA-F0-9]{64}$') {
@@ -132,6 +156,7 @@ function Sync-Target {
     $agentsPath = Assert-RelativePath $AgentsRelativePath
     $destinationSkills = Join-Path $DestinationRoot 'skills'
     $manifestPath = Join-Path $destinationSkills $manifestName
+    Assert-NoReparseParents -DestinationRoot $DestinationRoot -Path $manifestPath
     $oldFiles = Get-ManifestFiles -ManifestPath $manifestPath
     $desired = @{}
     $desired[$agentsPath] = $SourceAgents
@@ -156,6 +181,7 @@ function Sync-Target {
         $sourceHash = (Get-FileHash -LiteralPath $source -Algorithm SHA256).Hash.ToLowerInvariant()
         $desiredHashes[$relative] = $sourceHash
         $destination = Join-Path $DestinationRoot ($relative.Replace('/', [IO.Path]::DirectorySeparatorChar))
+        Assert-NoReparseParents -DestinationRoot $DestinationRoot -Path $destination
         $existingHash = Get-ExistingFileHash -Path $destination
         if ($null -ne $existingHash -and $existingHash -ne $sourceHash) {
             $previousHash = if ($oldFiles.ContainsKey($relative)) { $oldFiles[$relative] } else { $null }
@@ -174,6 +200,7 @@ function Sync-Target {
     foreach ($relative in ($oldFiles.Keys | Sort-Object)) {
         if ($desired.ContainsKey($relative)) { continue }
         $destination = Join-Path $DestinationRoot ($relative.Replace('/', [IO.Path]::DirectorySeparatorChar))
+        Assert-NoReparseParents -DestinationRoot $DestinationRoot -Path $destination
         $existingHash = Get-ExistingFileHash -Path $destination
         if ($null -eq $existingHash) { continue }
         if ($existingHash -eq $oldFiles[$relative]) {
@@ -202,13 +229,19 @@ function Sync-Target {
     }
 
     # 只删除空目录，不递归删除未识别的用户内容。
-    foreach ($skillSource in $SkillSources) {
-        $skillDirectory = Join-Path $destinationSkills $skillSource.Name
+    $pruneNames = @($skillNames) + @($oldFiles.Keys |
+        Where-Object { $_ -match '^skills/[a-z0-9-]+/' } |
+        ForEach-Object { $_.Split('/')[1] })
+    foreach ($skillName in ($pruneNames | Sort-Object -Unique)) {
+        $skillDirectory = Join-Path $destinationSkills $skillName
         if (Test-Path -LiteralPath $skillDirectory -PathType Container) {
             Get-ChildItem -LiteralPath $skillDirectory -Directory -Recurse -Force |
                 Sort-Object { $_.FullName.Length } -Descending |
                 Where-Object { -not @(Get-ChildItem -LiteralPath $_.FullName -Force).Count } |
                 ForEach-Object { Remove-Item -LiteralPath $_.FullName }
+            if (-not @(Get-ChildItem -LiteralPath $skillDirectory -Force).Count) {
+                Remove-Item -LiteralPath $skillDirectory
+            }
         }
     }
 
@@ -222,6 +255,7 @@ function Sync-Target {
     $manifestContent = [ordered]@{
         source = 'xiongweilin/agent-skills'
         version = 2
+        agents_path = $agentsPath
         skills = @($skillNames | Sort-Object -Unique)
         files = $orderedFiles
     } | ConvertTo-Json -Depth 6
