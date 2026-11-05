@@ -58,7 +58,7 @@ skill 可以实现某个门槛对应的程序，但不能成为始终适用门�
 - **Skills 可以实现这些全局规则触发的程序，但不能成为始终适用门槛的唯一所有者。**
 - **易变化的机器、工作区、服务和环境事实继续保存在其权威事实所有者中，不复制到 skills。**
 
-`agents-md/AGENTS.md` 是已部署全局指南的源文件。运行 [`agents-md/sync-agents.ps1`](agents-md/sync-agents.ps1)，一次同步 Codex、DSH 与 OpenCode 运行副本。
+`agents-md/AGENTS.md` 是已部署全局指南的源文件。运行 [`agents-md/sync-agents.ps1`](agents-md/sync-agents.ps1)，一次同步 Codex、DSH、OpenCode 与 WorkBuddy 运行副本。
 
 ## 当前 skills
 
@@ -87,6 +87,6 @@ skill 可以实现某个门槛对应的程序，但不能成为始终适用门�
 
 `SKILL.md` frontmatter 中的 `name` 必须与目录名一致。目录描述负责说明适用场景；过程检查清单位于 `SKILL.md`。
 
-仓库 CI 会验证 skill 结构和本地文档链接，避免目录静默偏离实际可执行程序文件。
+仓库 CI 会核验中英文目录、skill 元数据、本地文档链接和同步脚本的回归场景。同步脚本使用版本化归属清单：仅清理此前明确登记且未被修改的过期文件；保留未纳管文件及被修改的过期文件。发生文件冲突时默认停止，只有显式提供 `-ForceManagedOverwrite` 才会覆盖冲突目标。旧版 v1 清单采取保守迁移，不删除无法证明归属的历史文件。
 
 准入标准和安装副本同步流程见 `CONTRIBUTING.zh-CN.md`。

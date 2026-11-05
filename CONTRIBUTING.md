@@ -12,7 +12,7 @@ A new skill must satisfy all conditions:
 4. **Does not own an always-applicable gate**: authorization, scope, evidence, and completion gates remain in the deployed AGENTS.md; a skill can only implement their procedure.
 5. **Does not duplicate environment facts owned by a fact owner**: hosts, paths, proxies, versions, deployment locations, and other volatile or machine-specific facts stay with their authoritative fact owner, not in the skill body.
 6. **Has a clear boundary with existing skills**: when scopes overlap, extend or narrow an existing skill instead of stacking a new one.
-7. **Ships matching runtime metadata**: `agents/openai.yaml` matches the name/description in `SKILL.md`; the catalog description only identifies applicability, not the procedure.
+7. **Ships matching runtime metadata**: `agents/openai.yaml` has nonempty display metadata and a default prompt invoking the exact skill name; its concise description must agree in meaning with the `SKILL.md` trigger, not repeat it verbatim. The catalog description only identifies applicability, not the procedure.
 8. **Is followed by a consistency check**: update the README skill table; check the catalog, installed copies, and identifiers for consistency.
 
 ## Directory shape
@@ -28,9 +28,9 @@ Keep `SKILL.md` short; put reusable details in `references/` rather than inflati
 
 ## Synchronizing installed copies
 
-When this repository is the installation source, synchronize changes to the current agent runtime's installed skills directory (for example `~/.codex/skills/`, `~/.dsh/skills/`, or `~/.config/opencode/skills/`), and verify that installed copies match the source files by hash.
+When this repository is the installation source, synchronize changes to the current agent runtime's installed skills directory (for example `~/.codex/skills/`, `~/.dsh/skills/`, `~/.config/opencode/skills/`, or `~/.workbuddy/skills/`), and verify that installed copies match the source files by hash.
 
-The global `AGENTS.md` is owned by `agents-md/`. After changes, run `agents-md\sync-agents.ps1` to synchronize the Codex, DSH, and OpenCode runtime copies and verify the hash; runtime copies are not tracked by chezmoi.
+The global `AGENTS.md` is owned by `agents-md/`. After changes, run `agents-md\sync-agents.ps1` (which discovers the repository root relative to the script) to synchronize the Codex, DSH, OpenCode, and WorkBuddy runtime copies. WorkBuddy's policy is deployed to `rules/AGENTS.md`; other policy copies use `AGENTS.md`. The version 2 ownership manifest tracks per-file hashes: unmanaged files and modified stale files are preserved, and conflicting existing files block updates unless `-ForceManagedOverwrite` is explicitly supplied. Legacy v1 manifests migrate without deleting unattributable files. Runtime copies are not tracked by chezmoi.
 
 ## Language rules
 
@@ -42,4 +42,4 @@ The global `AGENTS.md` is owned by `agents-md/`. After changes, run `agents-md\s
 
 - Make small commits; the commit message explains the change (the repository history uses short-sentence style, for example `Narrow governance skill triggers`).
 - Do not commit secrets, PII, or sensitive business samples; always use placeholders in examples.
-- Before merging, run `.github/scripts/validate_structure.py` locally; CI runs structure validation and local link checking on pushes to main and on pull requests.
+- Before merging, run `.github/scripts/validate_structure.py` locally; CI runs structure validation, regression tests, and local link checking on pushes to main and on pull requests.

@@ -1,4 +1,4 @@
 interface:
   display_name: "Side-Effect Safety"
   short_description: "Control consequential state changes"
-  default_prompt: "Use $side-effect-safety only for an authorized irreversible, destructive, externally visible, ambiguous, or materially high-blast-radius effect; do not use it for ordinary reversible local edits."
+  default_prompt: "Use $side-effect-safety only for an authorized effect with material irreversibility, external blast radius, difficult rollback, or meaningful partial-failure risk; not for ordinary reversible local edits."
