@@ -85,6 +85,33 @@ try {
     Assert-True (Test-Path -LiteralPath (Join-Path $other 'rules\AGENTS.md')) 'WorkBuddy policy destination missing'
     Assert-True (Test-Path -LiteralPath $installedAgents) 'Original policy missing'
 
+    # 自定义规则路径必须能连续同步并被写入 v2 归属清单。
+    $customRoot = Join-Path $root 'custom-policy'
+    & $scriptPath -RepoRoot $repo -DestinationRoots @($customRoot) -AgentsRelativePaths @{ $customRoot = 'config\agent\AGENTS.md' } | Out-Null
+    & $scriptPath -RepoRoot $repo -DestinationRoots @($customRoot) -AgentsRelativePaths @{ $customRoot = 'config\agent\AGENTS.md' } | Out-Null
+    $customManifest = Get-Content -LiteralPath (Join-Path $customRoot 'skills\.xiongweilin-agent-skills-sync.json') -Raw | ConvertFrom-Json
+    Assert-True ($customManifest.agents_path -eq 'config/agent/AGENTS.md') 'Custom policy ownership path not recorded'
+
+    # 删除整个 skill 后仅清理已归属的文件和空目录。
+    New-Item -ItemType Directory -Path (Join-Path $repo 'replacement-skill') -Force | Out-Null
+    Set-Content -LiteralPath (Join-Path $repo 'replacement-skill\SKILL.md') -Value 'replacement' -Encoding utf8
+    Remove-Item -LiteralPath $skill -Recurse -Force
+    & $scriptPath -RepoRoot $repo -DestinationRoots @($other) -AgentsRelativePaths @{ $other = 'rules\AGENTS.md' } | Out-Null
+    Assert-True (-not (Test-Path -LiteralPath (Join-Path $other 'skills\example-skill'))) 'Empty retired skill directory should be removed'
+
+    # 恶意清单路径不得触发越界操作。
+    $badManifest = [ordered]@{
+        source = 'xiongweilin/agent-skills'
+        version = 2
+        agents_path = 'AGENTS.md'
+        skills = @('example-skill')
+        files = [ordered]@{ 'skills/../unexpected' = ('0' * 64) }
+    } | ConvertTo-Json -Depth 6
+    Set-Content -LiteralPath $manifestPath -Value $badManifest -Encoding utf8
+    $blockedPath = $false
+    try { Sync } catch { $blockedPath = $true }
+    Assert-True $blockedPath 'Unsafe manifest path must be rejected'
+
     Write-Output 'sync-agents tests OK'
 }
 finally {
