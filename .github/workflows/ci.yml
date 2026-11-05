@@ -22,10 +22,21 @@ jobs:
           persist-credentials: false
       - name: Skill structure validation
         run: python .github/scripts/validate_structure.py
+      - name: Validator regression tests
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
       - name: Local link check (deterministic)
         uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
           args: --offline --no-progress --format detailed .
-        # 外部链接有意不在这里设门禁：它们容易变化。
-        # 确定性的本地断链会让本任务失败；外部链接漂移
-        # 单独记录在批量供应链扫描报告中。
+        # 外部链接不作为 CI 门禁，避免站点漂移影响确定性检测。
+
+  powershell-sync:
+    runs-on: windows-2025
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - name: Sync ownership and conflict regression tests
+        shell: pwsh
+        run: ./tests/test_sync_agents.ps1
