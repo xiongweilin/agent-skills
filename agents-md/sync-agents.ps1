@@ -6,17 +6,24 @@
     Source: <RepoRoot>\agents-md\AGENTS.md, plus every <RepoRoot>\<name>\SKILL.md bundle.
     Destinations: each -DestinationRoots entry receives AGENTS.md and skills\<name>\...
 
-    Default destinations are the Codex, DSH, and OpenCode user-global homes. The
-    source is copied verbatim; no harness-specific substitutions are applied. Files are
-    copied only when their SHA-256 differs, and every copy is verified. Each
-    destination's skills manifest tracks the managed skill set so stale files
-    and stale managed skill directories can be removed.
+    Default destinations are the Codex, DSH, OpenCode, and WorkBuddy user-global
+    homes. WorkBuddy reads standing rules from <root>\rules\, so its AGENTS.md is
+    placed at rules\AGENTS.md (see -AgentsRelativePaths); skills keep the usual
+    skills\<name>\ layout. The source is copied verbatim; no harness-specific
+    substitutions are applied. Files are copied only when their SHA-256 differs,
+    and every copy is verified. Each destination's skills manifest tracks the
+    managed skill set so stale files and stale managed skill directories can be
+    removed.
 
 .PARAMETER RepoRoot
     agent-skills repository root. Default: D:\agent\agent-skills
 
 .PARAMETER DestinationRoots
-    One or more harness home directories. Default: the Codex, DSH, and OpenCode homes.
+    One or more harness home directories. Default: the Codex, DSH, OpenCode, and WorkBuddy homes.
+
+.PARAMETER AgentsRelativePaths
+    Map of destination root to an AGENTS.md path relative to that root. Roots not
+    listed use 'AGENTS.md'. Default: the WorkBuddy root uses 'rules\AGENTS.md'.
 
 .EXAMPLE
     pwsh -NoProfile -File .\sync-agents.ps1
@@ -27,8 +34,12 @@ param(
     [string[]]$DestinationRoots = @(
         (Join-Path $env:USERPROFILE '.codex'),
         (Join-Path $env:USERPROFILE '.dsh'),
-        (Join-Path $env:USERPROFILE '.config\opencode')
-    )
+        (Join-Path $env:USERPROFILE '.config\opencode'),
+        (Join-Path $env:USERPROFILE '.workbuddy')
+    ),
+    [hashtable]$AgentsRelativePaths = @{
+        (Join-Path $env:USERPROFILE '.workbuddy') = 'rules\AGENTS.md'
+    }
 )
 
 Set-StrictMode -Version Latest
@@ -87,10 +98,11 @@ function Sync-Target {
     param(
         [Parameter(Mandatory)][string]$DestinationRoot,
         [Parameter(Mandatory)][string]$SourceAgents,
-        [Parameter(Mandatory)][object[]]$SkillSources
+        [Parameter(Mandatory)][object[]]$SkillSources,
+        [string]$AgentsRelativePath = 'AGENTS.md'
     )
 
-    $destinationAgents = Join-Path $DestinationRoot 'AGENTS.md'
+    $destinationAgents = Join-Path $DestinationRoot $AgentsRelativePath
     $destinationSkills = Join-Path $DestinationRoot 'skills'
     $manifestPath = Join-Path $destinationSkills '.xiongweilin-agent-skills-sync.json'
     $currentSkillNames = @($SkillSources | ForEach-Object { $_.Name } | Sort-Object -Unique)
@@ -215,7 +227,7 @@ function Sync-Target {
     Set-Content -LiteralPath $manifestPath -Value $manifestContent -Encoding UTF8
 
     $agentsState = if ($agentsCopied) { 'updated' } else { 'current' }
-    Write-Output "[$DestinationRoot] AGENTS.md $agentsState; $($SkillSources.Count) skills, $skillFilesCopied of $skillFileCount files copied, $staleSkillFilesRemoved stale files and $staleSkillsRemoved stale skills removed."
+    Write-Output "[$DestinationRoot] $AgentsRelativePath $agentsState; $($SkillSources.Count) skills, $skillFilesCopied of $skillFileCount files copied, $staleSkillFilesRemoved stale files and $staleSkillsRemoved stale skills removed."
 }
 
 $failures = @()
@@ -226,8 +238,13 @@ foreach ($destinationRoot in $DestinationRoots) {
     }
 
     $resolvedRoot = [IO.Path]::GetFullPath($destinationRoot)
+    $agentsRelativePath = 'AGENTS.md'
+    $mapKey = $resolvedRoot.TrimEnd('\')
+    if ($AgentsRelativePaths.ContainsKey($mapKey)) {
+        $agentsRelativePath = $AgentsRelativePaths[$mapKey]
+    }
     try {
-        Sync-Target -DestinationRoot $resolvedRoot -SourceAgents $sourceAgents -SkillSources $skillSources
+        Sync-Target -DestinationRoot $resolvedRoot -SourceAgents $sourceAgents -SkillSources $skillSources -AgentsRelativePath $agentsRelativePath
     }
     catch {
         $failures += "${resolvedRoot}: $($_.Exception.Message)"
