@@ -1,6 +1,6 @@
 ---
 name: change-closure
-description: Use when a requested or mandatory completion claim depends on a property not already established by the available execution evidence. Establish only the stronger postcondition, outcome, or residual-obligation evidence needed for closure. Do not trigger when the existing result already proves the intended claim, or for read-only analysis, drafts, or generic confidence checks.
+description: "Use before claiming completion for deployments, migrations, cross-file renames/removals, synced contracts/docs, or external state changes when the edit or command exit alone does not prove the live postcondition or residual obligations. Do not trigger for read-only analysis, drafts, or local edits already proven by a passing check."
 ---
 
 # Change Closure
