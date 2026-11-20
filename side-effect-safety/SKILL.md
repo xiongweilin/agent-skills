@@ -1,6 +1,6 @@
 ---
 name: side-effect-safety
-description: Use only for an authorized state change with material irreversible or externally visible blast radius, difficult rollback, or meaningful partial-failure risk. Do not trigger from an operation category or keyword alone, and do not use for ordinary reversible local edits.
+description: "Use before authorized destructive deletes/overwrites outside version control, live service/database/account mutations, resource retirement/replacement, or retrying an ambiguous/timed-out remote write. Do not trigger for ordinary reversible local version-controlled edits."
 ---
 
 # Side-Effect Safety

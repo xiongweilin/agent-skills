@@ -1,6 +1,6 @@
 ---
 name: evidence-qualification-and-revalidation
-description: Use only when deciding whether an existing evidence-backed claim, qualification, decision, assignment, or dependency is still usable after a concrete material context change may have invalidated a specific assumption. Do not trigger merely because context could have changed or fresher evidence could increase confidence.
+description: "Use when reusing a prior test result, benchmark, audit, decision, or dependency after an observed version, config, environment, scope, or policy change may invalidate its assumptions. Do not trigger when no concrete change occurred or merely to seek fresher data."
 ---
 
 # Evidence Qualification and Revalidation
