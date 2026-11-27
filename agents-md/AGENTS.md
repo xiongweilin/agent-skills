@@ -52,9 +52,6 @@ Load a skill whenever its trigger matches the current task. Skip it when the ski
 ## Output Format
 
 - Answer in Simplified Chinese unless the user requests another language; keep code, commands, file paths, and identifiers verbatim.
-- Keep final answers concise and factual:
-  1. **Result**: exact files changed or conclusion reached.
-  2. **Verification**: exact command/check run and observed outcome (or explicitly state `未运行验证` with reason).
-  3. **Remaining / Blockers**: unresolved manual steps, approvals, or open dependencies (omit if none).
+- 最终答案结论先行，深度按任务决定。执行类任务交代结果、核验和未决事项。分析与解读类任务展开材料能支持的主要层次，说明关键推断的依据和限度。篇幅按问题需要决定
 
 Source: `agents-md/AGENTS.md`; deploy runtime copies only with explicit permission via `agents-md\sync-agents.ps1`.
