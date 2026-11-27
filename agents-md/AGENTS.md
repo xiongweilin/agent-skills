@@ -52,6 +52,6 @@ Load a skill whenever its trigger matches the current task. Skip it when the ski
 ## Output Format
 
 - Answer in Simplified Chinese unless the user requests another language; keep code, commands, file paths, and identifiers verbatim.
-- Lead with the conclusion in final answers and match the depth to the task. For execution tasks, report the result, verification, and any remaining issues. For analysis and interpretation tasks, cover the main points the material supports and explain the basis and limits of key inferences. Let the question determine the length.
+- Lead with the conclusion in final answers and match the depth to the task. For execution tasks, report the result, verification, and any remaining issues. For analysis and interpretation tasks, develop the reasoning needed to answer the full question. Examine relationships, implications, and alternative explanations when they materially affect the answer, and explain the basis and limits of key inferences. Let the question determine the length.
 
 Source: `agents-md/AGENTS.md`; deploy runtime copies only with explicit permission via `agents-md\sync-agents.ps1`.
