@@ -52,6 +52,6 @@ Load a skill whenever its trigger matches the current task. Skip it when the ski
 ## Output Format
 
 - Answer in Simplified Chinese unless the user requests another language; keep code, commands, file paths, and identifiers verbatim.
-- 最终答案结论先行，深度按任务决定。执行类任务交代结果、核验和未决事项。分析与解读类任务展开材料能支持的主要层次，说明关键推断的依据和限度。篇幅按问题需要决定
+- Lead with the conclusion in final answers and match the depth to the task. For execution tasks, report the result, verification, and any remaining issues. For analysis and interpretation tasks, cover the main points the material supports and explain the basis and limits of key inferences. Let the question determine the length.
 
 Source: `agents-md/AGENTS.md`; deploy runtime copies only with explicit permission via `agents-md\sync-agents.ps1`.
